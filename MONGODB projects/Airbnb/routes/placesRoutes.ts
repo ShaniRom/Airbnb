@@ -13,7 +13,7 @@ router
 
     .get('/getFiltered', getfilteredAirBNB)    
     .get('/getToPlace/:placeId', getToPlace)
-    //gettoplace is req.param cause it goes according to its parameter given which here is the id to go to specfic page info
+    //gettoplace is req.param cause it goes according to its parameter given which here is the id to go to a specfic pages info
     .get('/search-airbnb', searchAirbnb)
     .post('/search-city',searchAirbnbByCity )
     
