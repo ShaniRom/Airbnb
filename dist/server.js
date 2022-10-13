@@ -5,9 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
-const placesModel_1 = __importDefault(require("./model/placesModel"));
 const cookieParser = require('cookie-parser');
 const userMid_1 = require("./middleware/userMid");
+const placesModel_1 = __importDefault(require("./model/placesModel"));
 require('dotenv').config();
 console.log(process.env.ENV);
 console.log(process.env.JWT_SECRET);

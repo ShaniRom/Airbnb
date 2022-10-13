@@ -1,9 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
-import Places from "./model/placesModel";
 const cookieParser = require('cookie-parser');
 
 import{getId} from './middleware/userMid'
+import Places from "./model/placesModel";
 
 require('dotenv').config()
 
