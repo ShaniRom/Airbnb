@@ -1,4 +1,5 @@
 AIRBNB-
+
 We made an app based on the already madae app AIRBNB. Which is used to to find a place to stay for how many people you want and for how many days you want, in any city.
 
 In this project we used HTML CSS Typescript Node js and MongoDB. We used these technoligies because it is what we learned at the time.This was 
@@ -19,8 +20,7 @@ a list of options for the city youve chosen.Then you press on a prefered airbnb 
 To see admin options login with username: admin, password: 000 ,"i am a"=admin.
 
 Made by
-Shani Rom ,Shay Foyer and Yael Abuhatzera 
-My github [Shani Rom](https://www.linkedin.com/in/shani-rom-0a8b3a242/).
+[Shani Rom](https://www.linkedin.com/in/shani-rom-0a8b3a242/),[Shay Foyer](https://www.linkedin.com/in/shay-foyer-aa310118a/),[Yael Abuhatzera ](https://www.linkedin.com/in/yael-abuhatzira/)
 
 Students of INT college October 2021
 https://github.com/ShaniRom/shani
