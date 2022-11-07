@@ -306,10 +306,9 @@ body {
     .popuptext {
         visibility: hidden;
         background-color: rgba(255, 255, 255, 0.862);
-        ;
         color: black;
         text-align: center;
-        border-radius: 6px;
+        border-radius: 10px;
         padding: 8px 0;
         position: fixed;
         z-index: 1;
@@ -332,14 +331,14 @@ body {
 
 
 
-
-
-
         }
 
         &--header {
 
-            text-align: left;
+           // text-align: left;
+            padding:2px;
+            border-bottom: #dddddd solid 2px;
+            width:750px;
         }
 
         &__label {
@@ -347,7 +346,9 @@ body {
 
             font-weight: bold;
             text-align: left;
+            padding:2px;
             margin-bottom: 10px;
+            border-bottom: #c7c4c4 solid 2px;
 
 
         }
@@ -356,7 +357,7 @@ body {
         form {
             display: flex;
             padding: 5px;
-            width:600px;
+            width: 600px;
             height: 50px;
             border: none;
             align-items: center;
@@ -369,12 +370,19 @@ body {
 
             input[type='submit'] {
                 background-color: rgb(103, 213, 116);
-                
+
                 width: 100px;
                 height: 40px;
                 color: white;
 
                 cursor: pointer;
+
+
+                &:hover {
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+                    background-color: rgb(157, 255, 169);
+
+                }
             }
 
             select {

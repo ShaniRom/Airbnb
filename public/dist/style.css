@@ -199,7 +199,7 @@ body {
   background-color: rgba(255, 255, 255, 0.862);
   color: black;
   text-align: center;
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 8px 0;
   position: fixed;
   z-index: 1;
@@ -221,12 +221,16 @@ body {
   height: 55%;
 }
 .popup .popuptext--header {
-  text-align: left;
+  padding: 2px;
+  border-bottom: #dddddd solid 2px;
+  width: 750px;
 }
 .popup .popuptext__label {
   font-weight: bold;
   text-align: left;
+  padding: 2px;
   margin-bottom: 10px;
+  border-bottom: #c7c4c4 solid 2px;
 }
 .popup .popuptext form {
   display: flex;
@@ -247,6 +251,10 @@ body {
   height: 40px;
   color: white;
   cursor: pointer;
+}
+.popup .popuptext form input[type=submit]:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+  background-color: #9dffa9;
 }
 .popup .popuptext form select {
   border-radius: 10px;
