@@ -19,7 +19,7 @@ app.use(cookieParser());
 //what does this do here
 app.use(userMid_1.getId);
 const uri = process.env.MONGODB_URI;
-//-----for mongo contact shay for access
+//-----for mongo contact shani for access
 mongoose_1.default
     .connect(uri)
     .then((result) => {
