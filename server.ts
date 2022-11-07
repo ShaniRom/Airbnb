@@ -16,7 +16,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
 
-
+//what does this do here
 app.use(getId);
 
 const uri=process.env.MONGODB_URI;

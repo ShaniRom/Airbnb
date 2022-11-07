@@ -16,6 +16,7 @@ const port = process.env.PORT || 3058;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 app.use(cookieParser());
+//what does this do here
 app.use(userMid_1.getId);
 const uri = process.env.MONGODB_URI;
 //-----for mongo contact shay for access
