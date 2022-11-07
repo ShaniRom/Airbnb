@@ -19,8 +19,8 @@ a list of options for the city youve chosen.Then you press on a prefered airbnb 
 To see admin options login with username: admin, password: 000 ,"i am a"=admin.
 
 Made by
-Shani Rom ,Shay Foyer and Yael Abuhatzera
-[Shani](https://github.com/ShaniRom/shani/blob/main/README.TXT)
+Shani Rom ,Shay Foyer and Yael Abuhatzera 
+[Shani Rom](https://www.linkedin.com/in/shani-rom-0a8b3a242/)
 Students of INT college October 2021
 https://github.com/ShaniRom/shani
 
