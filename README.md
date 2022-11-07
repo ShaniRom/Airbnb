@@ -1,4 +1,4 @@
-# AIRBNB-
+# Airbnb
 
 We made an app based on the already madae app AIRBNB. Which is used to to find a place to stay for how many people you want and for how many days you want, in any city.
 
