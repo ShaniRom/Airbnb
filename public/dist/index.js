@@ -229,6 +229,11 @@ function handlePopup() {
     var showPopupText = document.querySelector(".popuptext");
     showPopupText.style.visibility = "visible";
 }
+function handleClosePopup() {
+    var closePopupText = document.querySelector(".popuptext");
+    closePopupText.style.visibility = "hidden";
+    console.log("closed");
+}
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, username, password, role, data, showPopupText, userProfileButton, showUsersName;

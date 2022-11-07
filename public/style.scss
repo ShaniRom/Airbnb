@@ -302,6 +302,7 @@ body {
     display: inline-block;
     cursor: pointer;
 
+   
 
     .popuptext {
         visibility: hidden;
@@ -328,6 +329,7 @@ body {
             top: 20%;
             backdrop-filter: blur(10px);
             height: 55%;
+            
 
 
 
@@ -335,10 +337,10 @@ body {
 
         &--header {
 
-           // text-align: left;
-            padding:2px;
+            // text-align: left;
+            padding: 2px;
             border-bottom: #dddddd solid 2px;
-            width:750px;
+            width: 750px;
         }
 
         &__label {
@@ -346,7 +348,7 @@ body {
 
             font-weight: bold;
             text-align: left;
-            padding:2px;
+            padding: 2px;
             margin-bottom: 10px;
             border-bottom: #c7c4c4 solid 2px;
 

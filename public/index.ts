@@ -337,10 +337,22 @@ function renderAirbnbOptions(data: Array<any>) {
 
 function handlePopup() {
   var popup = document.getElementById("myPopup");
-  
 
   const showPopupText: any = document.querySelector(".popuptext");
   showPopupText.style.visibility = "visible";
+  
+
+
+  
+}
+function handleClosePopup(){
+  
+  const closePopupText: any = document.querySelector(".popuptext");
+  closePopupText.style.visibility = "hidden";
+  
+  console.log("closed")
+ 
+
 }
 
 async function handleLogin(ev) {
