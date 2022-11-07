@@ -20,7 +20,8 @@ To see admin options login with username: admin, password: 000 ,"i am a"=admin.
 
 Made by
 Shani Rom ,Shay Foyer and Yael Abuhatzera 
-[Shani Rom](https://www.linkedin.com/in/shani-rom-0a8b3a242/)
+My github [Shani Rom](https://www.linkedin.com/in/shani-rom-0a8b3a242/).
+
 Students of INT college October 2021
 https://github.com/ShaniRom/shani
 
