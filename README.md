@@ -11,12 +11,15 @@ We ended up making a data base on our own.
 ## How to Install and Run the Project-
 You need to write in the terminal- npm i 
 which installs everything in the express
+
 Then type  - npm i nodemon
 Which opens the connection with the localhost
 
 ## How to Use the Project-
 You search in the navigation bar for a city and for how many guests you want staying with you. Or you press on one of the city cards to go to a page with 
-a list of options for the city youve chosen.Then you press on a prefered airbnb option inorder to see more information on the prefered airbnb youve chosen.
+a list of options for the city youve chosen. 
+Then you press on a prefered airbnb option inorder to see more information on the prefered airbnb youve chosen.
+
 To see admin options login with username: admin, password: 000 ,"i am a"=admin.
 
 Made by
