@@ -5,7 +5,8 @@ body {
 }
 
 .navigation {
-  border: black solid 1px;
+  border-top: #DDDDDD solid 1px;
+  border-bottom: #DDDDDD solid 1px;
   height: 80px;
   display: flex;
   flex-direction: column;
@@ -145,8 +146,8 @@ body {
   display: block;
 }
 .navigation form .form--searchIcon {
-  background-color: #38ffe4;
-  border: 1px #38ffe4;
+  background-color: #9dffa9;
+  border: #DDDDDD solid 1px;
   border-radius: 50px;
   width: 34px;
   height: 32px;
@@ -155,7 +156,7 @@ body {
   cursor: pointer;
 }
 .navigation form .form--searchIcon:hover {
-  background-color: #056155;
+  background-color: #67d574;
 }
 .navigation form .form--searchIcon img {
   margin-right: 3px;
@@ -173,11 +174,13 @@ body {
   padding-top: 3px;
   height: auto;
   border-radius: 28px;
-  background-color: #38ffe4;
+  background-color: #9dffa9;
   transition: ease 0.5s;
+  border: #DDDDDD solid 1px;
 }
 .navigation--user:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+  background-color: #67d574;
 }
 .navigation--user img {
   margin: 5px;
@@ -193,8 +196,8 @@ body {
 }
 .popup .popuptext {
   visibility: hidden;
-  background-color: #38ffe484;
-  color: #fff;
+  background-color: rgba(255, 255, 255, 0.862);
+  color: black;
   text-align: center;
   border-radius: 6px;
   padding: 8px 0;
@@ -205,26 +208,51 @@ body {
   margin: auto;
   top: 50%;
   display: flex;
-  gap: 30px;
+  gap: 10px;
   flex-direction: column;
   align-items: center;
+  width: 50%;
+  border: #dddddd solid 2px;
 }
 .popup .popuptext#myPopup {
   position: absloute;
-  top: 0;
+  top: 20%;
   backdrop-filter: blur(10px);
-  height: 100%;
+  height: 55%;
 }
-.popup form {
+.popup .popuptext--header {
+  text-align: left;
+}
+.popup .popuptext__label {
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+.popup .popuptext form {
   display: flex;
-  width: 700px;
   padding: 5px;
+  width: 600px;
   height: 50px;
   border: none;
   align-items: center;
 }
-.popup form input {
-  border-radius: 50px;
+.popup .popuptext form input {
+  border-radius: 10px;
+  height: 30px;
+  border: #dddddd solid 2px;
+}
+.popup .popuptext form input[type=submit] {
+  background-color: #67d574;
+  width: 100px;
+  height: 40px;
+  color: white;
+  cursor: pointer;
+}
+.popup .popuptext form select {
+  border-radius: 10px;
+  height: 30px;
+  border: #dddddd solid 2px;
+  cursor: pointer;
 }
 
 @-webkit-keyframes fadeIn {
