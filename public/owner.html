@@ -73,16 +73,22 @@
     
                 </form>
             </li>
-            <li class="navigation--greeting">Welcome!<span id="theUsersName"></span></li>
+            <li class="navigation--greeting">Welcome! <span id="theUsersName"></span></li>
     
             <li class="navigation--user popup" onclick="handlePopup()"><img src="../images/visitorProfile.png">
-    
+              
                 <div class="popuptext" id="myPopup">
+                
+                  <h1 class="popuptext--header">Welcome to Airbnb</h1>
+                  <div class="popuptext__login">
+                  <h2 class="popuptext__label">Login</h2>
                     <form  onsubmit="handleLogin(event)" id="login" >
-                        <h2>Login</h2>
+                        
+                        
+                        
                         <input type="text" name="username" placeholder="username" required>
                         <input type="password" name="password" placeholder="password" autocomplete="current-password" required>
-    
+                      
                         <select name="role" id="role" required>
                             <option selected disabled hidden>"I am a"</option>
                             <option value="admin">Admin</option>
@@ -90,11 +96,15 @@
                             <option value="guest">Guest</option>
                         </select>
     
-                        <input type="submit" value="login">
+                        <input type="submit" value="Login">
                     </form>
-    
-                    <form onsubmit="handleRegister(event)" id="register">
-                        <h2>Register</h2>
+                  </div>
+                  <div class="popuptext__register">
+                    
+                    <h2 class="popuptext__label">Register</h2>
+                    <form onsubmit="handleRegister(event)" id="register" >
+                        
+                        
                         <input type="text" name="username" placeholder="username" required>
                         <input type="password" name="password" placeholder="password"
                             autocomplete="current-password" required>
@@ -105,8 +115,9 @@
                             <option value="guest">Guest</option>
                         </select>
     
-                        <input type="submit" value="register">
+                        <input type="submit" value="Register">
                     </form>
+                  </div>
     
                 </div>
     
@@ -114,9 +125,9 @@
         </ul>
     </nav>
 
- <h1>Owner Page</h1>
- <button onclick="handleGetUsers()">Get users</button>
- <div id="user"></div>
+ <h1 class="owner__header">Owner Page</h1>
+ <button class="owner__getUsersBtn"onclick="handleGetUsers()">Get users</button>
+ <div id="user" class="owner__usersList"></div>
 
     <script src="dist/index.js"></script>
 </body>

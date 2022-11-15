@@ -759,3 +759,22 @@ body {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+.owner__header {
+  text-align: center;
+}
+.owner__getUsersBtn {
+  background-color: #67d574;
+  border: #DDDDDD solid 1px;
+  position: fixed;
+  left: 46%;
+  width: 100px;
+  height: 40px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.owner__getUsersBtn:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+  background-color: #9dffa9;
+}

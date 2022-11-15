@@ -1120,3 +1120,39 @@ body {
 
     }
 }
+
+///-----------------owner.html
+.owner{
+
+   
+    &__header{
+        text-align:center;
+    }
+   
+    &__getUsersBtn {
+        
+        background-color: rgb(103, 213, 116);
+        border: #DDDDDD solid 1px;
+        position: fixed;
+        left: 46%;
+        width: 100px;
+        height: 40px;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        
+    
+    
+        &:hover {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+            background-color: rgb(157, 255, 169);
+    
+        }
+    }
+
+    &__usersList{
+        
+    }
+}
+
+
