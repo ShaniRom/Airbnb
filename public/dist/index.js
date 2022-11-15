@@ -225,7 +225,7 @@ function renderAirbnbOptions(data) {
     }
 }
 function handlePopup() {
-    var popup = document.getElementById("myPopup");
+    // var popup = document.getElementById("myPopup");
     var showPopupText = document.querySelector(".popuptext");
     showPopupText.style.visibility = "visible";
 }
