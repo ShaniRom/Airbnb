@@ -80,9 +80,9 @@
         <li class="navigation--greeting">Welcome! <span id="theUsersName"></span></li>
 
         <li class="navigation--user popup" onclick="handlePopup()"><img src="../images/visitorProfile.png">
-         
+          
             <div class="popuptext" id="myPopup">
-              <span onclick="handleClosePopup()">X</span>
+            
               <h1 class="popuptext--header">Welcome to Airbnb</h1>
               <div class="popuptext__login">
               <h2 class="popuptext__label">Login</h2>
@@ -106,7 +106,7 @@
               <div class="popuptext__register">
                 
                 <h2 class="popuptext__label">Register</h2>
-                <form onsubmit="handleRegister(event)" id="register">
+                <form onsubmit="handleRegister(event)" id="register" >
                     
                     
                     <input type="text" name="username" placeholder="username" required>

@@ -226,13 +226,13 @@ function renderAirbnbOptions(data) {
 }
 function handlePopup() {
     // var popup = document.getElementById("myPopup");
+    //const showPopupText: any = document.querySelector(".popuptext");
+    //showPopupText.style.visibility = "visible";
+    //   const open:any=document.querySelector(".popuptext");
+    // open.classList.add("openPopup")
+    console.log("open");
     var showPopupText = document.querySelector(".popuptext");
-    showPopupText.style.visibility = "visible";
-}
-function handleClosePopup() {
-    var closePopupText = document.querySelector(".popuptext");
-    closePopupText.style.visibility = "hidden";
-    console.log("closed");
+    showPopupText.style.visibility = ((showPopupText.style.visibility != 'hidden') ? 'hidden' : 'visible');
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {

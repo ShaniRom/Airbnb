@@ -10,7 +10,7 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     name: String,
     checkIn: String,
     checkOut: String,
-    amenities: String,
+    amenities: [String],
     bedrooms: String,
     beds: String,
     number_of_reviews: String,
@@ -25,8 +25,7 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     description: String,
     bed_type: String,
     reviews: String,
-    reviews_rating: String,
-    daysAvailable: String
+    reviews_rating: String
 });
 //airbnbOptions
 var Places = mongoose_1["default"].model("airbnboptions", PlacesSchema);

@@ -10,7 +10,7 @@ const PlacesSchema = new mongoose.Schema(
     name:String,
     checkIn:String,
     checkOut:String,
-    amenities: String,
+    amenities: [String],
     bedrooms: String,
     beds: String,   
     number_of_reviews:String,
@@ -26,7 +26,7 @@ const PlacesSchema = new mongoose.Schema(
     bed_type: String,   
     reviews:String,
     reviews_rating:String,
-    daysAvailable:String
+    // daysAvailable:String
   },
  
 );

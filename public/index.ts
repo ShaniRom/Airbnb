@@ -338,23 +338,19 @@ function renderAirbnbOptions(data: Array<any>) {
 function handlePopup() {
   // var popup = document.getElementById("myPopup");
  
-  const showPopupText: any = document.querySelector(".popuptext");
-  showPopupText.style.visibility = "visible";
+  //const showPopupText: any = document.querySelector(".popuptext");
+  //showPopupText.style.visibility = "visible";
+//   const open:any=document.querySelector(".popuptext");
+// open.classList.add("openPopup")
+console.log("open")
+
+const showPopupText: any = document.querySelector(".popuptext");
+showPopupText.style.visibility = ((showPopupText.style.visibility!='hidden') ? 'hidden' : 'visible');
   
 
-
-  
-}
-function handleClosePopup(){
-  
-  const closePopupText: any = document.querySelector(".popuptext");
-   closePopupText.style.visibility = "hidden";
-  
-  
-  console.log("closed")
- 
 
 }
+
 
 async function handleLogin(ev) {
   ev.preventDefault();
@@ -362,7 +358,8 @@ async function handleLogin(ev) {
   username = username.value;
   password = password.value;
   role = role.value;
-
+  // const closePopupText: any = document.querySelector(".popuptext");
+  // closePopupText.style.visibility = "hidden";
  
 
   const { data } = await axios.post("/users/login", {
