@@ -335,16 +335,9 @@ function renderAirbnbOptions(data: Array<any>) {
   }
 }
 
-function handlePopup() {
-  // var popup = document.getElementById("myPopup");
- 
-  //const showPopupText: any = document.querySelector(".popuptext");
-  //showPopupText.style.visibility = "visible";
-//   const open:any=document.querySelector(".popuptext");
-// open.classList.add("openPopup")
-console.log("open")
+function handlePopupLogin() {
 
-const showPopupText: any = document.querySelector(".popuptext");
+const showPopupText: any = document.querySelector(".popupForm");
 showPopupText.style.visibility = ((showPopupText.style.visibility!='hidden') ? 'hidden' : 'visible');
   
 

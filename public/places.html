@@ -74,13 +74,13 @@
             </li>
             <li class="navigation--greeting">Welcome! <span id="theUsersName"></span></li>
     
-            <li class="navigation--user popup" onclick="handlePopup()"><img src="../images/visitorProfile.png">
+            <li class="navigation--user popup" onclick="handlePopupLogin()"><img src="../images/visitorProfile.png">
               
-                <div class="popuptext" id="myPopup">
+                <div class="popupForm" id="popupLogin">
                 
-                  <h1 class="popuptext--header">Welcome to Airbnb</h1>
-                  <div class="popuptext__login">
-                  <h2 class="popuptext__label">Login</h2>
+                  <h1 class="popupForm--header">Welcome to Airbnb</h1>
+                  <div class="popupForm__login">
+                  <h2 class="popupForm__label">Login</h2>
                     <form  onsubmit="handleLogin(event)" id="login" >
                         
                         
@@ -98,9 +98,9 @@
                         <input type="submit" value="Login">
                     </form>
                   </div>
-                  <div class="popuptext__register">
+                  <div class="popupForm__register">
                     
-                    <h2 class="popuptext__label">Register</h2>
+                    <h2 class="popupForm__label">Register</h2>
                     <form onsubmit="handleRegister(event)" id="register" >
                         
                         

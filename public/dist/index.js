@@ -224,14 +224,8 @@ function renderAirbnbOptions(data) {
         console.error(error.message);
     }
 }
-function handlePopup() {
-    // var popup = document.getElementById("myPopup");
-    //const showPopupText: any = document.querySelector(".popuptext");
-    //showPopupText.style.visibility = "visible";
-    //   const open:any=document.querySelector(".popuptext");
-    // open.classList.add("openPopup")
-    console.log("open");
-    var showPopupText = document.querySelector(".popuptext");
+function handlePopupLogin() {
+    var showPopupText = document.querySelector(".popupForm");
     showPopupText.style.visibility = ((showPopupText.style.visibility != 'hidden') ? 'hidden' : 'visible');
 }
 function handleLogin(ev) {

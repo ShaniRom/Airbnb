@@ -219,6 +219,7 @@ body {
                         margin-bottom: 5px;
                         margin-left: 50%;
                         border: none;
+                        
 
                     }
                 }
@@ -304,7 +305,7 @@ body {
     
    
 
-    .popuptext {
+    .popupForm {
         visibility: hidden;
         background-color: rgba(255, 255, 255, 0.862);
         color: black;
@@ -324,7 +325,7 @@ body {
         width: 50%;
         border: #dddddd solid 2px;
 
-        &#myPopup {
+        &#popupLogin {
             position: absloute;
             top: 20%;
             backdrop-filter: blur(10px);

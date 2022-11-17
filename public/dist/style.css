@@ -194,7 +194,7 @@ body {
   display: inline-block;
   cursor: pointer;
 }
-.popup .popuptext {
+.popup .popupForm {
   visibility: hidden;
   background-color: rgba(255, 255, 255, 0.862);
   color: black;
@@ -214,25 +214,25 @@ body {
   width: 50%;
   border: #dddddd solid 2px;
 }
-.popup .popuptext#myPopup {
+.popup .popupForm#popupLogin {
   position: absloute;
   top: 20%;
   backdrop-filter: blur(10px);
   height: 55%;
 }
-.popup .popuptext--header {
+.popup .popupForm--header {
   padding: 2px;
   border-bottom: #dddddd solid 2px;
   width: 750px;
 }
-.popup .popuptext__label {
+.popup .popupForm__label {
   font-weight: bold;
   text-align: left;
   padding: 2px;
   margin-bottom: 10px;
   border-bottom: #c7c4c4 solid 2px;
 }
-.popup .popuptext form {
+.popup .popupForm form {
   display: flex;
   padding: 5px;
   width: 600px;
@@ -240,23 +240,23 @@ body {
   border: none;
   align-items: center;
 }
-.popup .popuptext form input {
+.popup .popupForm form input {
   border-radius: 10px;
   height: 30px;
   border: #dddddd solid 2px;
 }
-.popup .popuptext form input[type=submit] {
+.popup .popupForm form input[type=submit] {
   background-color: #67d574;
   width: 100px;
   height: 40px;
   color: white;
   cursor: pointer;
 }
-.popup .popuptext form input[type=submit]:hover {
+.popup .popupForm form input[type=submit]:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
   background-color: #9dffa9;
 }
-.popup .popuptext form select {
+.popup .popupForm form select {
   border-radius: 10px;
   height: 30px;
   border: #dddddd solid 2px;
