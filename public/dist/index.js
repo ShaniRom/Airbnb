@@ -197,12 +197,12 @@ function renderAirbnbOptions(data) {
     try {
         if (!Array.isArray(data))
             throw new Error("data is not an array");
-        var root_1 = document.querySelector("#rootPlaces");
+        var rootAirbnbOptions_1 = document.querySelector("#rootAirbnbOptions");
         var html_1 = "";
         data.forEach(function (place) {
-            html_1 += " <div class=\"airbnbOptions__container\" onclick=\"handleGoToPlace('" + place._id + "')\">\n                      <div class=\"airbnbOptions__container__img\">\n                          <img src=\"" + place.images + "\">\n                      </div>\n                      <div class=\"airbnbOptions__container__content\">\n                          <div class=\"airbnbOptions__container__content__namePlace\">                                \n                              \n                                  <p>" + place.name + "</p>\n                          </div>\n                          <div class=\"airbnbOptions__container__content__description\">\n                              <p>" + place.bathrooms + "bath\u00B7\n" + place.bedrooms + "bedroom\u00B7" + place.beds + "beds\u00B7" + place.accommodates + "guests</p>\n                          \n                              <p>" + ((place.amenities.search("wifi") !== -1) ? 'wifi\u00B7' : '') + ((place.amenities.search("kitchen") !== -1) ? 'kitchen*' : '') + "\n                              " + ((place.amenities.search("air-conditioning") !== -1) ? 'air-conditioning\u00B7' : '') + ((place.amenities.search("washer") !== -1) ? 'washer*' : '') + "\n                              " + ((place.amenities.search("parking") !== -1) ? 'parking' : '') + "\n                              \n                              </p>\n                                                        \n                          </div>\n                        \n                          <div class=\"airbnbOptions__container__content__priceRating\">\n                              <button class=\"btn btn-outline\">\n                              \u20AA" + place.price + " night\n                              </button>\n                              <button class=\"btn btn-outline\">\n                                 \n                              \u2B50" + place.reviews_rating + "(" + place.number_of_reviews + " reviews)\n                                  \n\n                              </button>\n                          </div>\n\n                      </div>\n                  </div>";
+            html_1 += " <div class=\"airbnbOptions__container\" onclick=\"handleGoToPlace('" + place._id + "')\">\n                      <div class=\"airbnbOptions__container__img\">\n                          <img src=\"" + place.images + "\">\n                      </div>\n                      <div class=\"airbnbOptions__container__content\">\n                          <div class=\"airbnbOptions__container__content__namePlace\">                                \n                              \n                                  <p>" + place.name + "</p>\n                          </div>\n                          <div class=\"airbnbOptions__container__content__description\">\n                              <p>" + place.bathrooms + "bathrooms\u00B7\n" + place.bedrooms + "bedrooms\u00B7" + place.beds + "beds\u00B7" + place.accommodates + "guests</p>\n                          \n                              <p>" + ((place.amenities.search("wifi") !== -1) ? 'wifi\u00B7' : '') + ((place.amenities.search("kitchen") !== -1) ? 'kitchen*' : '') + "\n                              " + ((place.amenities.search("air-conditioning") !== -1) ? 'air-conditioning\u00B7' : '') + ((place.amenities.search("washer") !== -1) ? 'washer*' : '') + "\n                              " + ((place.amenities.search("parking") !== -1) ? 'parking' : '') + "\n                              \n                              </p>\n                                                        \n                          </div>\n                        \n                          <div class=\"airbnbOptions__container__content__priceRating\">\n                              <button class=\"btn btn-outline\">\n                              \u20AA" + place.price + " night\n                              </button>\n                              <button class=\"btn btn-outline\">\n                                 \n                              \u2B50" + place.reviews_rating + "(" + place.number_of_reviews + " reviews)\n                                  \n\n                              </button>\n                          </div>\n\n                      </div>\n                  </div>";
             html_1 += "<br/>";
-            root_1.innerHTML = html_1;
+            rootAirbnbOptions_1.innerHTML = html_1;
         });
     }
     catch (error) {
@@ -327,11 +327,11 @@ function renderUsersToOwnerPage(users) {
     try {
         if (!Array.isArray(users))
             throw new Error("data is not an array");
-        var root_2 = document.querySelector("#user");
+        var root_1 = document.querySelector("#user");
         var html_2 = "";
         users.forEach(function (user) {
             html_2 += "<div class=\"airbnbUser\" >\n                       <h3>" + user.username + "</h3>\n                       <p>" + user._id + "</p>\n                       <input type=\"text\" value=" + user.username + " name=\"username\" onblur=\"handleUpdateUsers(event,'" + user._id + "')\" >                       \n                       <p>" + user.role + "</p> \n                       <button onclick='handleDeleteUsers(\"" + user._id + "\")'>Delete User</button>                  \n                       \n                       \n\n                    </div>";
-            root_2.innerHTML = html_2;
+            root_1.innerHTML = html_2;
         });
     }
     catch (error) {
