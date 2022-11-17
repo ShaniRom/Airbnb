@@ -21,7 +21,7 @@ a list of options for the city youve chosen.
 
 Then you press on a prefered airbnb option inorder to see more information on the prefered airbnb youve chosen.
 
-To see admin options login with username: admin, password: 000 ,"i am a"=admin.
+To see admin options login with username: admin, password: 0000 ,"i am a"=admin.
 
 Made by
 [Shani Rom](https://www.linkedin.com/in/shani-rom-0a8b3a242/),[Shay Foyer](https://www.linkedin.com/in/shay-foyer-aa310118a/),[Yael Abuhatzera ](https://www.linkedin.com/in/yael-abuhatzira/)

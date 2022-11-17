@@ -334,7 +334,8 @@ function renderAirbnbOptions(data: Array<any>) {
 function handlePopupLogin() {
 
 const showPopupText: any = document.querySelector(".popupForm");
-showPopupText.style.visibility = ((showPopupText.style.visibility!='hidden') ? 'hidden' : 'visible');
+showPopupText.style.visibility='visible'
+//showPopupText.style.visibility = ((showPopupText.style.visibility!='hidden') ? 'hidden' : 'visible');
   
 
 
@@ -357,7 +358,7 @@ async function handleLogin(ev) {
   });
 
   if (data.login) {
-    const showPopupText: any = document.querySelector(".popuptext");
+    const showPopupText: any = document.querySelector(".popupForm");
     const userProfileButton: any = document.querySelector(".navigation--user");
     showPopupText.style.visibility = "hidden";
     const showUsersName: any = document.querySelector("#theUsersName");

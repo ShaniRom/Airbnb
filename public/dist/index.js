@@ -211,7 +211,8 @@ function renderAirbnbOptions(data) {
 }
 function handlePopupLogin() {
     var showPopupText = document.querySelector(".popupForm");
-    showPopupText.style.visibility = ((showPopupText.style.visibility != 'hidden') ? 'hidden' : 'visible');
+    showPopupText.style.visibility = 'visible';
+    //showPopupText.style.visibility = ((showPopupText.style.visibility!='hidden') ? 'hidden' : 'visible');
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
@@ -232,7 +233,7 @@ function handleLogin(ev) {
                 case 1:
                     data = (_b.sent()).data;
                     if (data.login) {
-                        showPopupText = document.querySelector(".popuptext");
+                        showPopupText = document.querySelector(".popupForm");
                         userProfileButton = document.querySelector(".navigation--user");
                         showPopupText.style.visibility = "hidden";
                         showUsersName = document.querySelector("#theUsersName");
