@@ -59,7 +59,7 @@ function renderPlace(data) {
     const data = getData();
     
     let html=""
-    const rootPlace=document.querySelector("#rootPlace")
+    const rootChosenAirbnb=document.querySelector("#rootChosenAirbnb")
      
       html = ` <div class="mainUpper">
         <div class="maiUpper__title">
@@ -88,10 +88,10 @@ function renderPlace(data) {
             <h5>${data.description}</h5>
         </div>
         <div class="mainMiddle__left--bed">
-            <h2>where you'll sleep:${data.bed_type}</h2>
+            <h2>Beds Available:${data.bed_type}</h2>
         </div>
         <div class="mainMiddle__left--list">
-            <h2>what this data offers</h2>
+            <h2>This Airbnb offers:</h2>
             <p>
                 ${data.amenities}
             </p>
@@ -102,7 +102,7 @@ function renderPlace(data) {
 
     
     <div class="reviews">
-        <h3>review</h3>
+        <h3>Latest Review</h3>
         <div class="reviews__review">
             <p>${data.reviews}</p>
         </div>
@@ -128,7 +128,7 @@ function renderPlace(data) {
         </div>
         <div class="aboutHost--right">
             <h5>
-                languages: english, francais, hebrew
+                Languages the host speaks: english, french, hebrew
             </h5>
             <h5>
                 response rate: ${data.reviews_rating}
@@ -140,10 +140,10 @@ function renderPlace(data) {
             </p>
         </div>
     </div>
-    <div class="toKnow">
-        <h2>things to know</h2>
+    <div class="houseInfo">
+        <h2>Airbnb host rules:</h2>
         <ul>
-            <p>house rule</p>
+            
             <li>
                 Check-in: 4:00 PM - 10:00 PM
             </li>
@@ -161,8 +161,9 @@ function renderPlace(data) {
             </li>
 
         </ul>
+        <h2> Health & Safety</h2>
         <ul>
-            <p>health &safety</p>
+            
             <li>
                 Airbnb's social-distancing and other COVID-19-related guidelines apply
             </li>
@@ -178,7 +179,7 @@ function renderPlace(data) {
             </li>
 
         </ul>
-        <div class="toKnow__cancle">
+        <div class="houseInfo__cancel">
             <h5>cancellation policy: ${data.cancle}</h5>
           
 
@@ -189,7 +190,7 @@ function renderPlace(data) {
       
     
 
-    rootPlace.innerHTML = html;
+    rootChosenAirbnb.innerHTML = html;
   } catch (error) {
     console.error(error.message);
   }
@@ -273,11 +274,6 @@ async function handleCities(ev) {
 }
 
 
-async function handleFilter(ev) {
-  const price = ev.target.elements.price.valueAsNumber;
-  
-  const { data } = await axios.get("/places/getFiltered", { data: { price } });
-}
 
 function renderAirbnbOptions(data: Array<any>) {
   try 
@@ -351,8 +347,7 @@ async function handleLogin(ev) {
   username = username.value;
   password = password.value;
   role = role.value;
-  // const closePopupText: any = document.querySelector(".popuptext");
-  // closePopupText.style.visibility = "hidden";
+
  
 
   const { data } = await axios.post("/users/login", {

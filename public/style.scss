@@ -695,36 +695,11 @@ body {
 
 
 // place.html shows the chosen airbnb
-#rootPlace {
+#rootChosenAirbnb {
     width: 50%;
     margin: auto;
 
-    .mainUppear {
-
-        display: flex;
-        gap: 5px;
-        flex-direction: row;
-
-        &__title {
-            display: flex;
-            gap: 5px;
-            flex-direction: row;
-        }
-
-        &__photoGrid {
-
-
-            .img {
-                border-radius: 20%;
-
-                height: 100%;
-            }
-
-
-
-
-        }
-    }
+    
 
     .mainMiddle {
         display: flex;
@@ -863,7 +838,7 @@ body {
         }
     }
 
-    .toKnow {
+    .houseInfo {
         display: flex;
         gap: 5px;
         flex-direction: column;
@@ -882,7 +857,7 @@ body {
             }
         }
 
-        &__cancle {
+        &__cancel {
 
             font-size: 16px;
 
@@ -892,124 +867,6 @@ body {
 }
 
 //places.html shows the airbnb options after filter in index
-.header-filter {
-    position: relative;
-    display: flex;
-    justify-content: space-evenly;
-
-    margin-bottom: 50px;
-
-
-
-
-
-
-    .btn_filter {
-        background-color: white;
-        align-items: center;
-        appearance: none;
-        background-size: calc(100% + 20px) calc(100% + 20px);
-        border-radius: 100px;
-        border-width: 0.5rem;
-        border: 2px solid lightgrey;
-        box-shadow: none;
-        box-sizing: border-box;
-        cursor: pointer;
-        display: inline-flex;
-        font-family: CircularStd, sans-serif;
-        font-size: 1rem;
-        height: auto;
-        justify-content: center;
-        line-height: 1.5;
-        padding: 6px 20px;
-        position: relative;
-        text-align: center;
-        text-decoration: none;
-        transition: background-color .2s, background-position .2s;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        vertical-align: top;
-        white-space: nowrap;
-
-    }
-
-
-
-    .btn_filter:hover {
-        background: #F6F9FE;
-        color: #174ea6;
-    }
-
-    .btn_filter:active {
-        box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
-        outline: none;
-    }
-
-    .btn_filter:focus {
-        outline: none;
-        border: 2px solid #4285f4;
-    }
-
-    .btn_filter:not(:disabled) {
-        box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-    }
-
-    .btn_filter:not(:disabled):hover {
-        box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
-    }
-
-    .btn_filter:not(:disabled):focus {
-        box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-    }
-
-    .btn_filter:not(:disabled):active {
-        box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
-    }
-
-    .btn_filter:disabled {
-        box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
-    }
-}
-
-
-
-.filter {
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    top: 40px;
-
-}
-
-
-.page-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    column-gap: 20px;
-
-}
-
-.card-map {
-
-    width: 50%;
-    height: 120%;
-
-
-    iframe {
-        width: 200%;
-        height: 85%;
-        border: 0;
-        position: relative;
-        left: 15px;
-        object-fit: cover;
-
-
-
-    }
-}
-
 
 .airbnbOptions {
     font-weight: normal;
@@ -1017,7 +874,31 @@ body {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        column-gap: 20px;
+        &--map {
 
+            width: 50%;
+            height: 120%;
+        
+        
+            iframe {
+                width: 200%;
+                height: 85%;
+                border: 0;
+                position: relative;
+                left: 15px;
+                object-fit: cover;
+        
+        
+        
+            }
+        }
+    
+    }
 
 
     button {

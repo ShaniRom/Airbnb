@@ -30,6 +30,6 @@ const PlacesSchema = new mongoose.Schema(
   },
  
 );
-//airbnbOptions
+
 const Places = mongoose.model("airbnboptions", PlacesSchema);
 export default Places;
