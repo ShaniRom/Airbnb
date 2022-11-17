@@ -298,10 +298,10 @@ function renderAirbnbOptions(data: Array<any>) {
                                   <p>${place.name}</p>
                           </div>
                           <div class="airbnbOptions__container__content__description">
-                              <p>${place.bathrooms}bathrooms\u00B7\n${place.bedrooms}bedrooms\u00B7${place.beds}beds\u00B7${place.accommodates}guests</p>
+                              <p>${place.bathrooms} bathrooms\u00B7\n${place.bedrooms} bedrooms\u00B7${place.beds} beds\u00B7${place.accommodates} guests</p>
                           
-                              <p>${(place.amenities.search("wifi")!==-1)?'wifi\u00B7':''}${(place.amenities.search("kitchen")!==-1)?'kitchen*':''}
-                              ${(place.amenities.search("air-conditioning")!==-1)?'air-conditioning\u00B7':''}${(place.amenities.search("washer")!==-1)?'washer*':''}
+                              <p>${(place.amenities.search("wifi")!==-1)?'wifi\u00B7':''}${(place.amenities.search("kitchen")!==-1)?'kitchen\u00B7':''}
+                              ${(place.amenities.search("air-conditioning")!==-1)?'air-conditioning\u00B7':''}${(place.amenities.search("washer")!==-1)?'washer\u00B7':''}
                               ${(place.amenities.search("parking")!==-1)?'parking':''}
                               
                               </p>
