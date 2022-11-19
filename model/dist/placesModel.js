@@ -8,8 +8,6 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     address_country: String,
     address_country_code: String,
     name: String,
-    checkIn: String,
-    checkOut: String,
     amenities: String,
     bedrooms: String,
     beds: String,
@@ -24,7 +22,6 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     host_picture_url: String,
     description: String,
     bed_type: String,
-    reviews: String,
     reviews_rating: String,
     daysAvailable: String
 });

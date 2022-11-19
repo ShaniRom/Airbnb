@@ -8,8 +8,6 @@ const PlacesSchema = new mongoose.Schema(
     address_country: String,
     address_country_code: String,
     name:String,
-    checkIn:String,
-    checkOut:String,
     amenities: String,
     bedrooms: String,
     beds: String,   
@@ -24,7 +22,6 @@ const PlacesSchema = new mongoose.Schema(
     host_picture_url: String, 
     description: String,    
     bed_type: String,   
-    reviews:String,
     reviews_rating:String,
     daysAvailable:String
   },
