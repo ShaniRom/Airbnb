@@ -77,7 +77,7 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 3, , 4]);
+                _b.trys.push([0, 4, , 5]);
                 console.log("user with id " + req.id + " added a user");
                 _a = req.body, username = _a.username, password = _a.password, role = _a.role;
                 if (!(typeof username === "string" && typeof password === "string" && typeof role === "string")) return [3 /*break*/, 2];
@@ -86,14 +86,15 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
             case 1:
                 result = _b.sent();
                 res.send({ ok: true, register: true });
-                _b.label = 2;
-            case 2: return [3 /*break*/, 4];
-            case 3:
+                return [3 /*break*/, 3];
+            case 2: throw new Error("username or password or role is missing");
+            case 3: return [3 /*break*/, 5];
+            case 4:
                 error_2 = _b.sent();
                 console.error(error_2.message);
                 res.send({ error: error_2.message });
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };

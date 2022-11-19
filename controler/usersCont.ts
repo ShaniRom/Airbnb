@@ -51,6 +51,8 @@ export  const registerUser= async (req,res)=>{
             const newUser=new Users({username,password,role});
             const result=await newUser.save()
             res.send({ok:true,register:true})
+        }else{
+            throw new Error("username or password or role is missing")
         }
        
        

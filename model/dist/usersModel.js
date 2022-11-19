@@ -2,7 +2,7 @@
 exports.__esModule = true;
 var mongoose_1 = require("mongoose");
 var userSchema = new mongoose_1["default"].Schema({
-    username: String,
+    username: { type: String, unique: true },
     password: String,
     role: String
 });

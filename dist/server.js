@@ -12,7 +12,7 @@ require('dotenv').config();
 console.log(process.env.ENV);
 console.log(process.env.JWT_SECRET);
 const app = express_1.default();
-const port = process.env.PORT || 3058;
+const port = process.env.PORT || 3050;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 app.use(cookieParser());

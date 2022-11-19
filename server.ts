@@ -11,7 +11,7 @@ console.log(process.env.ENV)
 console.log(process.env.JWT_SECRET)
 
 const app = express();
-const port = process.env.PORT || 3058;
+const port = process.env.PORT || 3050;
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
