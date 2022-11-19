@@ -696,14 +696,18 @@ body {
   }
 }
 
+.owner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 .owner__header {
   text-align: center;
 }
 .owner__getUsersBtn {
   background-color: #67d574;
   border: #DDDDDD solid 1px;
-  position: fixed;
-  left: 46%;
   width: 100px;
   height: 40px;
   color: white;
@@ -713,4 +717,37 @@ body {
 .owner__getUsersBtn:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
   background-color: #9dffa9;
+}
+.owner__usersList {
+  display: flex;
+  flex-direction: row;
+}
+.owner .airbnbUser {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: #DDDDDD solid 1px;
+}
+.owner .airbnbUser input {
+  border-radius: 12px;
+  border: #DDDDDD solid 1px;
+  width: 100%;
+}
+.owner .airbnbUser__username {
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-color: #9dffa9;
+}
+.owner .airbnbUser__role {
+  font-weight: bolder;
+}
+.owner .airbnbUser__deleteUser {
+  background-color: #67d574;
+  border: #DDDDDD solid 1px;
+  width: 70px;
+  height: 40px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
 }

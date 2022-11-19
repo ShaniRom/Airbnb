@@ -335,11 +335,11 @@ function renderUsersToOwnerPage(users) {
     try {
         if (!Array.isArray(users))
             throw new Error("data is not an array");
-        var root_1 = document.querySelector("#user");
+        var airbnbUsers_1 = document.querySelector("#airbnbUsers");
         var html_2 = "";
         users.forEach(function (user) {
-            html_2 += "<div class=\"airbnbUser\" >\n                       <h3>" + user.username + "</h3>\n                       <p>" + user._id + "</p>\n                       <input type=\"text\" value=" + user.username + " name=\"username\" onblur=\"handleUpdateUsers(event,'" + user._id + "')\" >                       \n                       <p>" + user.role + "</p> \n                       <button onclick='handleDeleteUsers(\"" + user._id + "\")'>Delete User</button>                  \n                       \n                       \n\n                    </div>";
-            root_1.innerHTML = html_2;
+            html_2 += "<div class=\"airbnbUser\" >\n                       <h3 class=\"airbnbUser__username\"> Username: " + user.username + "</h3>\n                       <p>id: " + user._id + "</p>\n                       <input type=\"text\" value=" + user.username + " name=\"username\" onblur=\"handleUpdateUsers(event,'" + user._id + "')\" >                       \n                       <p class=\"airbnbUser__role\"> User Role: " + user.role + "</p> \n                       <button class=\"airbnbUser__deleteUser\" onclick='handleDeleteUsers(\"" + user._id + "\")'>Delete User</button>                  \n                       \n                       \n\n                    </div>";
+            airbnbUsers_1.innerHTML = html_2;
         });
     }
     catch (error) {

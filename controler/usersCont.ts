@@ -16,7 +16,7 @@ export  const login= async (req,res)=>{
                     const token=jwt.encode(payload,secret);
     
     
-                    res.cookie('userInfo',token,{maxAge:120000,httpOnly:true});
+                    res.cookie('userInfo',token,{maxAge:200000,httpOnly:true});
                    res.send({ok:true,login:true})
                    
                     return

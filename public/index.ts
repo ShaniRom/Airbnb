@@ -455,21 +455,21 @@ function renderUsersToOwnerPage(users: Array<any>) {
 
     if (!Array.isArray(users)) throw new Error("data is not an array");
 
-    const root: HTMLElement = document.querySelector("#user");
+    const airbnbUsers: HTMLElement = document.querySelector("#airbnbUsers");
     let html = "";
 
     users.forEach((user) => {
       html += `<div class="airbnbUser" >
-                       <h3>${user.username}</h3>
-                       <p>${user._id}</p>
+                       <h3 class="airbnbUser__username"> Username: ${user.username}</h3>
+                       <p>id: ${user._id}</p>
                        <input type="text" value=${user.username} name="username" onblur="handleUpdateUsers(event,'${user._id}')" >                       
-                       <p>${user.role}</p> 
-                       <button onclick='handleDeleteUsers("${user._id}")'>Delete User</button>                  
+                       <p class="airbnbUser__role"> User Role: ${user.role}</p> 
+                       <button class="airbnbUser__deleteUser" onclick='handleDeleteUsers("${user._id}")'>Delete User</button>                  
                        
                        
 
                     </div>`;
-      root.innerHTML = html;
+                    airbnbUsers.innerHTML = html;
     });
   } catch (error) {
     console.error(error.message);
