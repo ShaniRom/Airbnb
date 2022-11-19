@@ -142,7 +142,7 @@ function getData() {
 }
 function handleFindAirbnb(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var searchLocation, checkIn, checkOut, adults, children, infants, pets, data, ok;
+        var searchLocation, checkIn, checkOut, adults, children, infants, pets, sum, dateOfCheckIn, dateOfCheckOut, differenceInTime, differenceInDays, data, ok;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -154,6 +154,13 @@ function handleFindAirbnb(ev) {
                     children = ev.target.elements.children.value;
                     infants = ev.target.elements.infants.value;
                     pets = ev.target.elements.pets.value;
+                    sum = Number(adults) + Number(children) + Number(infants) + Number(pets);
+                    console.log("the number of guests:" + sum);
+                    dateOfCheckIn = new Date("" + checkIn);
+                    dateOfCheckOut = new Date("" + checkOut);
+                    differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();
+                    differenceInDays = differenceInTime / (1000 * 3600 * 24);
+                    console.log("the days between checkIn checkOut is:" + differenceInDays);
                     return [4 /*yield*/, axios.get("/places/search-airbnb?searchLocation=" + searchLocation + "&checkIn=" + checkIn + "&checkOut=" + checkOut + "&adults=" + adults + "&children=" + children + "&infants=" + infants + "&pets=" + pets + " ")];
                 case 1:
                     data = (_a.sent()).data;
@@ -165,7 +172,7 @@ function handleFindAirbnb(ev) {
                         handleLoadPlaces();
                     }
                     else {
-                        window.alert("no airbnbs found in this location");
+                        window.alert("No airbnbs found for " + " Destination: " + ("" + searchLocation) + " for " + ("" + differenceInDays) + " days " + ("" + sum) + " guests ");
                     }
                     return [2 /*return*/];
             }

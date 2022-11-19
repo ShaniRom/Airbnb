@@ -242,6 +242,16 @@ async function handleFindAirbnb(ev) {
   const infants = ev.target.elements.infants.value;
   const pets = ev.target.elements.pets.value;
 
+  ///// calculating the num between checkin and out and number of guests(also in places cont searchairbnb)
+  let sum: any = Number(adults) + Number(children) + Number(infants) + Number(pets);
+  console.log("the number of guests:" + sum);
+  
+  let dateOfCheckIn = new Date(`${checkIn}`);
+  let dateOfCheckOut = new Date(`${checkOut}`);
+  let differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();
+  let differenceInDays = differenceInTime / (1000 * 3600 * 24);
+  console.log("the days between checkIn checkOut is:" + differenceInDays)
+
 
   const { data } = await axios.get(
     `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
@@ -258,8 +268,9 @@ async function handleFindAirbnb(ev) {
     
     handleLoadPlaces();
   }else{
+
     
-    window.alert("no airbnbs found in this location")
+    window.alert("No airbnbs found for " + " Destination: " + `${searchLocation}` + " for " +`${differenceInDays}` + " days " + `${sum}` + " guests ")
     
   }
 }
