@@ -15,7 +15,7 @@ const PlacesSchema = new mongoose.Schema(
     beds: String,   
     number_of_reviews:String,
     price: String,
-    cancle: String,
+    cancel: String,
     bathrooms: String,
     images: String,
     host: String,   

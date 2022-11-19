@@ -64,7 +64,7 @@ function renderPlace(data) {
       html = ` <div class="mainUpper">
         <div class="maiUpper__title">
             <h1>${data.name}</h1>
-            <h3>${data.price}$</h3>
+            <h2>${data.price}$</h2>
         </div>
         <div class="mainUpper__photoGrid">
             <img class="img" src="${data.images}" alt="" style="width:100%;">
@@ -133,12 +133,12 @@ function renderPlace(data) {
 
         </div>
         <div class="aboutHost--right">
-            <h5>
+            <h4>
                 Languages the host speaks: english, french, hebrew
-            </h5>
-            <h5>
-                response rate: ${data.reviews_rating}
-            </h5>
+            </h4>
+            <h4>
+               Airbnb Rating: ${data.reviews_rating}
+            </h4>
 
 
             <p class="payment">
