@@ -186,7 +186,7 @@ function renderPlace(data) {
 
         </ul>
         <div class="houseInfo__cancel">
-            <h5>cancellation policy: ${data.cancle}</h5>
+            <h5>cancellation policy: ${data.cancel}</h5>
           
 
         </div>
@@ -406,7 +406,7 @@ async function handleRegister(ev) {
   });
   
   if (data.register) {
-    const showPopupText: any = document.querySelector(".popuptext");
+    const showPopupText: any = document.querySelector(".popupForm");
     showPopupText.style.visibility = "hidden";
     
     if (role === "admin") {

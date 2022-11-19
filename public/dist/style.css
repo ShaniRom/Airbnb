@@ -508,12 +508,10 @@ body {
   flex-direction: column;
   gap: 5px;
 }
-#rootChosenAirbnb .reviews__review {
-  gap: 3px;
-}
 #rootChosenAirbnb .reviews__review__user {
   display: flex;
   flex-direction: row;
+  gap: 5px;
 }
 #rootChosenAirbnb .reviews__review__user--profilePic {
   width: 56px;

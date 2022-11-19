@@ -781,11 +781,12 @@ body {
 
         &__review {
 
-            gap: 3px;
+           
 
             &__user {
                 display: flex;
                 flex-direction: row;
+                gap:5px;
 
                 &--profilePic {
                     width: 56px;

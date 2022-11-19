@@ -1,4 +1,5 @@
 import jwt from "jwt-simple";
+
 const secret=process.env.JWT_SECRET
 
 export const isAdmin=async (req,res,next)=>{
@@ -27,7 +28,7 @@ export const isAdmin=async (req,res,next)=>{
 
    }
 }
-
+//get id of person who last changed the things?
 export const getId=async (req,res,next)=>{
     try{
         const {userInfo}=req.cookies;

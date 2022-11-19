@@ -68,6 +68,7 @@ exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, v
         return [2 /*return*/];
     });
 }); };
+//get id of person who last changed the things?
 exports.getId = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var userInfo, secret_2, decoded, id;
     return __generator(this, function (_a) {
