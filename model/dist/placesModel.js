@@ -25,7 +25,8 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     description: String,
     bed_type: String,
     reviews: String,
-    reviews_rating: String
+    reviews_rating: String,
+    daysAvailable: String
 });
 var Places = mongoose_1["default"].model("airbnboptions", PlacesSchema);
 exports["default"] = Places;

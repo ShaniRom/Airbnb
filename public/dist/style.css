@@ -495,21 +495,30 @@ body {
   flex-direction: column;
 }
 #rootChosenAirbnb .reviews {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 #rootChosenAirbnb .reviews__review {
+  gap: 3px;
+}
+#rootChosenAirbnb .reviews__review__user {
   display: flex;
   flex-direction: row;
-  gap: 3px;
+}
+#rootChosenAirbnb .reviews__review__user--profilePic {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
 }
 #rootChosenAirbnb .reviews__review p {
   font-size: 16px;
+  font-weight: bolder;
+  text-decoration: underline;
 }
 #rootChosenAirbnb #map {
   height: 100%;
+  margin: 20px;
   /* Display the control once it is inside the map. */
 }
 #rootChosenAirbnb #map .map-control {

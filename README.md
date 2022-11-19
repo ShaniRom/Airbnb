@@ -10,7 +10,7 @@ We ended up making a data base on our own.
 
 ## How to Install and Run the Project-
 You need to write in the terminal- **npm i** 
-which installs everything in the express
+Which installs everything in the express
 
 Then type  - **npm i nodemon**
 Which opens the connection with the localhost

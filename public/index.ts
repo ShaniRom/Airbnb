@@ -76,7 +76,7 @@ function renderPlace(data) {
         <div class="mainMiddle__left">
             <div class="mainMiddle__left--up">
                 <div class="mainMiddle__left--up--title">
-                    <h2>entire rental unit hosted by ${data.host_name}</h2>
+                    <h2>Entire rental unit hosted by ${data.host_name}</h2>
                 </div>
                 <h4>accommadates: ${data.accommodates} <span>&#8226;</span> bedroom: ${data.bedrooms} <span>&#8226;</span> beds: ${data.beds} <span>&#8226;</span> bathroom: ${data.bathrooms}</h4>
             </div>
@@ -102,9 +102,15 @@ function renderPlace(data) {
 
     
     <div class="reviews">
-        <h3>Latest Review</h3>
+        <h2>Latest Review:</h2>
         <div class="reviews__review">
-            <p>${data.reviews}</p>
+               <div class="reviews__review__user" >
+                <img src="images/guestDefaultImage.webp" class="reviews__review__user--profilePic" alt="guest profile image">
+                <h4>Alex97</h4>
+               </div>
+            <p>
+            Very tidy and lovely AirBnb apartment equipped with everything you need. A good bed and nice bathroom. ${data.host_name} is a great host , Very nice and had excellent restaurant recommendations and was of great help. We had a great stay.
+            </p>
         </div>
 
     </div>
@@ -117,11 +123,11 @@ function renderPlace(data) {
     <div class="aboutHost">
         <div class="aboutHost--left">
             <div class="aboutHost--left--profileHost">
-                <img src="${data.host_picture_url}" alt="" style="width:50px; height:50px; border-radius:100%;">
+                <img src="${data.host_picture_url}" alt="host image">
             </div>
             <div class="aboutHost--left--title">
                 <h2>
-                    hosted by ${data.host_name}
+                    Hosted by ${data.host_name}
                 </h2>
             </div>
 

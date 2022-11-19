@@ -760,19 +760,33 @@ body {
     }
 
     .reviews {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 10px;
+        display: flex;
+            flex-direction: column;
+       // display: grid;
+        // grid-template-columns: repeat(2, 1fr);
+        // grid-template-rows: repeat(1, 1fr);
+        gap: 5px;
 
         &__review {
-            display: flex;
-            flex-direction: row;
+           // grid-template-columns: repeat(2, 1fr);
+            // display: flex;
+            // flex-direction: row;
             gap: 3px;
+            &__user{
+                display:flex;
+                flex-direction:row;
+            &--profilePic{
+                width: 56px;
+                height: 56px;
+                border-radius: 100%;
+
+            }}
 
 
             p {
                 font-size: 16px;
+                font-weight: bolder;
+                text-decoration: underline;
             }
 
         }
@@ -780,6 +794,7 @@ body {
 
     #map {
         height: 100%;
+        margin:20px;
 
         .map-control {
             background-color: #fff;
