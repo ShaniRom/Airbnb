@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteUser = exports.updateUser = exports.getUsers = exports.registerUser = exports.login = void 0;
+exports.deleteUser = exports.updateUser = exports.getUsers = exports.signOutUser = exports.registerUser = exports.login = void 0;
 var usersModel_1 = require("../model/usersModel");
 var jwt_simple_1 = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
@@ -73,7 +73,7 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
     });
 }); };
 exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, role, newUser, result, error_2;
+    var _a, username, password, role, newUser, result, payload, token, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -85,6 +85,9 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
                 return [4 /*yield*/, newUser.save()];
             case 1:
                 result = _b.sent();
+                payload = { username: username, id: newUser._id, role: role };
+                token = jwt_simple_1["default"].encode(payload, secret);
+                res.cookie('userInfo', token, { httpOnly: true });
                 res.send({ ok: true, register: true });
                 return [3 /*break*/, 3];
             case 2: throw new Error("username or password or role is missing");
@@ -96,6 +99,25 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
         }
+    });
+}); };
+exports.signOutUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userInfo;
+    return __generator(this, function (_a) {
+        try {
+            userInfo = req.cookies.userInfo;
+            if (userInfo) {
+                res.clearCookie('userInfo');
+                res.send({ signedOut: true });
+                return [2 /*return*/];
+            }
+            throw new Error(" no user to sign out from ");
+        }
+        catch (error) {
+            console.error(error.message);
+            res.send({ error: error.message });
+        }
+        return [2 /*return*/];
     });
 }); };
 exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -110,7 +132,7 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
                 decoded = jwt_simple_1["default"].decode(userInfo, secret);
                 console.log(decoded);
                 if (!(decoded && decoded.role === "admin")) return [3 /*break*/, 2];
-                return [4 /*yield*/, usersModel_1["default"].find({})];
+                return [4 /*yield*/, usersModel_1["default"].find({ "role": { $ne: "admin" } })];
             case 1:
                 users = _a.sent();
                 res.send({ ok: true, users: users });

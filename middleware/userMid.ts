@@ -28,7 +28,7 @@ export const isAdmin=async (req,res,next)=>{
 
    }
 }
-//get id of person who last changed the things?
+//get id of person who last changed something like which wdmin erased a user or updated
 export const getId=async (req,res,next)=>{
     try{
         const {userInfo}=req.cookies;

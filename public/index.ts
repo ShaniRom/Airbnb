@@ -380,6 +380,9 @@ async function handleLogin(ev) {
     showPopupText.style.visibility = "hidden";
     const showUsersName: any = document.querySelector("#theUsersName");
 
+    const showSignOutOption: any = document.querySelector("#signOut");
+ 
+    
    
 
     if (role === "admin") {
@@ -389,12 +392,15 @@ async function handleLogin(ev) {
     } else if (role === "host") {
       showPopupText.style.visibility = "hidden";
       showUsersName.innerHTML = `${username}`;
+      showSignOutOption.innerHTML="SignOut"
+
       userProfileButton.style.backgroundColor = "blue";
 
     
     } else {
       showPopupText.style.visibility = "hidden";
       showUsersName.innerHTML = `${username}`;
+      showSignOutOption.innerHTML="SignOut"
       userProfileButton.style.backgroundColor = "green";
     }
   } else {
@@ -432,6 +438,24 @@ async function handleRegister(ev) {
     }
   }
 }
+
+async function handleSignOut() {
+try {
+  const result = await axios.get("/users/signOut-user");
+  const {data}= result
+  const {signedOut}=data
+  console.log(data)
+  window.location.reload();
+ 
+    console.log(signedOut)
+  
+ 
+} catch (err) {
+  console.error(err.message);
+  
+}
+}
+
 
 async function handleGetUsers() {
   try {

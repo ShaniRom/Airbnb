@@ -50,11 +50,36 @@ export  const registerUser= async (req,res)=>{
         if(typeof username==="string" && typeof password==="string" && typeof role==="string"){
             const newUser=new Users({username,password,role});
             const result=await newUser.save()
+            const payload={username,id:newUser._id,role};
+                    const token=jwt.encode(payload,secret);
+            res.cookie('userInfo',token,{httpOnly:true});
             res.send({ok:true,register:true})
         }else{
             throw new Error("username or password or role is missing")
         }
        
+       
+       
+        
+    }catch(error){
+        console.error(error.message)
+        res.send({error:error.message})
+    }
+    
+}
+export  const signOutUser= async (req,res)=>{
+    try{
+        const {userInfo}=req.cookies;
+
+        if (userInfo){
+            res.clearCookie('userInfo');
+            res.send({signedOut:true})
+
+            return   
+        }
+            throw new Error(" no user to sign out from ")
+        
+        
        
        
         
@@ -75,7 +100,8 @@ export  const getUsers= async (req,res)=>{
        const decoded=jwt.decode(userInfo,secret);
        console.log(decoded);
        if(decoded&&decoded.role==="admin"){
-           const users=await Users.find({});
+           const users=await Users.find({"role":{$ne: "admin" }});
+          
            res.send({ok:true, users})
        
            

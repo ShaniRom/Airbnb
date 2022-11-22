@@ -223,7 +223,7 @@ function handlePopupLogin() {
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, role, data, showPopupText, userProfileButton, showUsersName;
+        var _a, username, password, role, data, showPopupText, userProfileButton, showUsersName, showSignOutOption;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -244,6 +244,7 @@ function handleLogin(ev) {
                         userProfileButton = document.querySelector(".navigation--user");
                         showPopupText.style.visibility = "hidden";
                         showUsersName = document.querySelector("#theUsersName");
+                        showSignOutOption = document.querySelector("#signOut");
                         if (role === "admin") {
                             window.location.href = "owner.html";
                             userProfileButton.style.backgroundColor = "red";
@@ -251,11 +252,13 @@ function handleLogin(ev) {
                         else if (role === "host") {
                             showPopupText.style.visibility = "hidden";
                             showUsersName.innerHTML = "" + username;
+                            showSignOutOption.innerHTML = "SignOut";
                             userProfileButton.style.backgroundColor = "blue";
                         }
                         else {
                             showPopupText.style.visibility = "hidden";
                             showUsersName.innerHTML = "" + username;
+                            showSignOutOption.innerHTML = "SignOut";
                             userProfileButton.style.backgroundColor = "green";
                         }
                     }
@@ -306,9 +309,34 @@ function handleRegister(ev) {
         });
     });
 }
+function handleSignOut() {
+    return __awaiter(this, void 0, void 0, function () {
+        var result, data, signedOut, err_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, axios.get("/users/signOut-user")];
+                case 1:
+                    result = _a.sent();
+                    data = result.data;
+                    signedOut = data.signedOut;
+                    console.log(data);
+                    window.location.reload();
+                    console.log(signedOut);
+                    return [3 /*break*/, 3];
+                case 2:
+                    err_1 = _a.sent();
+                    console.error(err_1.message);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleGetUsers() {
     return __awaiter(this, void 0, void 0, function () {
-        var result, data, users, err_1;
+        var result, data, users, err_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -323,8 +351,8 @@ function handleGetUsers() {
                     }
                     return [3 /*break*/, 3];
                 case 2:
-                    err_1 = _a.sent();
-                    console.error(err_1.message);
+                    err_2 = _a.sent();
+                    console.error(err_2.message);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }

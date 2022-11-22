@@ -8,6 +8,7 @@ import { registerUser} from '../controler/usersCont'
 import { login} from '../controler/usersCont'
 import { updateUser} from '../controler/usersCont'
 import { deleteUser} from '../controler/usersCont'
+import { signOutUser} from '../controler/usersCont'
 
 router
 .get('/get-Users',isAdmin,getUsers)
@@ -15,5 +16,6 @@ router
 .post('/login',login)
 .patch('/update-user',isAdmin,updateUser)
 .delete('/delete-user',isAdmin,deleteUser)
+.get('/signOut-user',signOutUser)
 
 export default router;
