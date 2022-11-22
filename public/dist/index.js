@@ -247,19 +247,18 @@ function handleLogin(ev) {
                         showSignOutOption = document.querySelector("#signOut");
                         if (role === "admin") {
                             window.location.href = "owner.html";
-                            userProfileButton.style.backgroundColor = "red";
+                            userProfileButton.style.backgroundColor = "#228B22";
+                            showSignOutOption.innerHTML = "SignOut";
                         }
                         else if (role === "host") {
-                            showPopupText.style.visibility = "hidden";
                             showUsersName.innerHTML = "" + username;
                             showSignOutOption.innerHTML = "SignOut";
-                            userProfileButton.style.backgroundColor = "blue";
+                            userProfileButton.style.backgroundColor = "#66CDAA";
                         }
                         else {
-                            showPopupText.style.visibility = "hidden";
                             showUsersName.innerHTML = "" + username;
                             showSignOutOption.innerHTML = "SignOut";
-                            userProfileButton.style.backgroundColor = "green";
+                            userProfileButton.style.backgroundColor = "#3CB371";
                         }
                     }
                     else {
@@ -272,12 +271,11 @@ function handleLogin(ev) {
 }
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var showUsersName, _a, username, password, role, data, showPopupText;
+        var _a, username, password, role, data, showPopupText, userProfileButton, showUsersName, showSignOutOption;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
-                    showUsersName = document.querySelector("#theUsersName");
                     _a = ev.target.elements, username = _a.username, password = _a.password, role = _a.role;
                     username = username.value;
                     password = password.value;
@@ -291,18 +289,26 @@ function handleRegister(ev) {
                     data = (_b.sent()).data;
                     if (data.register) {
                         showPopupText = document.querySelector(".popupForm");
+                        userProfileButton = document.querySelector(".navigation--user");
                         showPopupText.style.visibility = "hidden";
-                        if (role === "admin") {
-                            document.body.style.backgroundColor = "red";
-                        }
-                        else if (role === "host") {
-                            document.body.style.backgroundColor = "blue";
+                        showUsersName = document.querySelector("#theUsersName");
+                        showSignOutOption = document.querySelector("#signOut");
+                        if (role === "host") {
                             showUsersName.innerHTML = "" + username;
+                            showSignOutOption.innerHTML = "SignOut";
+                            userProfileButton.style.backgroundColor = "#66CDAA";
+                        }
+                        else if (role === "guest") {
+                            showUsersName.innerHTML = "" + username;
+                            showSignOutOption.innerHTML = "SignOut";
+                            userProfileButton.style.backgroundColor = "#3CB371";
                         }
                         else {
-                            document.body.style.backgroundColor = "green";
-                            showUsersName.innerHTML = "" + username;
+                            console.log("can not register as admin ");
                         }
+                    }
+                    else {
+                        console.log("Username or Password or Role is incorrect");
                     }
                     return [2 /*return*/];
             }
@@ -311,7 +317,7 @@ function handleRegister(ev) {
 }
 function handleSignOut() {
     return __awaiter(this, void 0, void 0, function () {
-        var result, data, signedOut, err_1;
+        var result, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -319,11 +325,7 @@ function handleSignOut() {
                     return [4 /*yield*/, axios.get("/users/signOut-user")];
                 case 1:
                     result = _a.sent();
-                    data = result.data;
-                    signedOut = data.signedOut;
-                    console.log(data);
                     window.location.reload();
-                    console.log(signedOut);
                     return [3 /*break*/, 3];
                 case 2:
                     err_1 = _a.sent();

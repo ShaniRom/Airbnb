@@ -189,6 +189,13 @@ body {
   transition: ease 1s;
 }
 
+#signOut {
+  text-decoration: underline;
+}
+#signOut:hover {
+  color: #67d574;
+}
+
 .popup {
   position: relative;
   display: inline-block;

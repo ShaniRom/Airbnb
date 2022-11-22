@@ -379,29 +379,25 @@ async function handleLogin(ev) {
     const userProfileButton: any = document.querySelector(".navigation--user");
     showPopupText.style.visibility = "hidden";
     const showUsersName: any = document.querySelector("#theUsersName");
-
-    const showSignOutOption: any = document.querySelector("#signOut");
- 
-    
-   
+    const showSignOutOption: any = document.querySelector("#signOut");   
 
     if (role === "admin") {
       window.location.href = "owner.html";
-
-      userProfileButton.style.backgroundColor = "red";
+      userProfileButton.style.backgroundColor = "#228B22";
+      showSignOutOption.innerHTML="SignOut"
     } else if (role === "host") {
-      showPopupText.style.visibility = "hidden";
+      
       showUsersName.innerHTML = `${username}`;
       showSignOutOption.innerHTML="SignOut"
 
-      userProfileButton.style.backgroundColor = "blue";
+      userProfileButton.style.backgroundColor = "#66CDAA";
 
     
     } else {
-      showPopupText.style.visibility = "hidden";
+      
       showUsersName.innerHTML = `${username}`;
       showSignOutOption.innerHTML="SignOut"
-      userProfileButton.style.backgroundColor = "green";
+      userProfileButton.style.backgroundColor = "#3CB371";
     }
   } else {
     console.log("Username or Password or Role is incorrect");
@@ -410,7 +406,7 @@ async function handleLogin(ev) {
 
 async function handleRegister(ev) {
   ev.preventDefault();
-  const showUsersName: any = document.querySelector("#theUsersName");
+
   let { username, password, role } = ev.target.elements;
   username = username.value;
   password = password.value;
@@ -424,30 +420,40 @@ async function handleRegister(ev) {
   
   if (data.register) {
     const showPopupText: any = document.querySelector(".popupForm");
+    const userProfileButton: any = document.querySelector(".navigation--user");
     showPopupText.style.visibility = "hidden";
+    const showUsersName: any = document.querySelector("#theUsersName");
+    const showSignOutOption: any = document.querySelector("#signOut");   
     
-    if (role === "admin") {
-      document.body.style.backgroundColor = "red";
 
-    } else if (role === "host") {
-      document.body.style.backgroundColor = "blue";
+    if (role === "host") {
+      
       showUsersName.innerHTML = `${username}`;
-    } else {
-      document.body.style.backgroundColor = "green";
+      showSignOutOption.innerHTML="SignOut"
+
+      userProfileButton.style.backgroundColor = "#66CDAA";
+
+    
+    } else if(role==="guest") {
+      
       showUsersName.innerHTML = `${username}`;
+      showSignOutOption.innerHTML="SignOut"
+      userProfileButton.style.backgroundColor = "#3CB371";
+    }else{
+       console.log("can not register as admin ")
     }
+  }else {
+    console.log("Username or Password or Role is incorrect");
   }
 }
 
 async function handleSignOut() {
 try {
   const result = await axios.get("/users/signOut-user");
-  const {data}= result
-  const {signedOut}=data
-  console.log(data)
+
   window.location.reload();
  
-    console.log(signedOut)
+  
   
  
 } catch (err) {

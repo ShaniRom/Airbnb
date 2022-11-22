@@ -268,6 +268,7 @@ body {
     &--greeting {
         font-weight: bold;
         letter-spacing: 0.5px;
+       
     }
 
     &--user {
@@ -296,6 +297,16 @@ body {
 
 
 
+}
+
+#signOut{
+    
+    text-decoration: underline;
+    
+    &:hover{
+        color:rgb(103, 213, 116);
+
+    }
 }
 
 .popup {
