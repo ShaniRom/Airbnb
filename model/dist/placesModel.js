@@ -8,7 +8,7 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     address_country: String,
     address_country_code: String,
     name: String,
-    amenities: String,
+    amenities: [String],
     bedrooms: String,
     beds: String,
     number_of_reviews: String,
@@ -25,5 +25,6 @@ var PlacesSchema = new mongoose_1["default"].Schema({
     reviews_rating: String,
     daysAvailable: String
 });
-var Places = mongoose_1["default"].model("airbnboptions", PlacesSchema);
+// const Places = mongoose.model("airbnboptions", PlacesSchema);
+var Places = mongoose_1["default"].model("practices", PlacesSchema);
 exports["default"] = Places;

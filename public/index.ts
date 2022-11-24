@@ -92,9 +92,9 @@ function renderPlace(data) {
         </div>
         <div class="mainMiddle__left--list">
             <h2>This Airbnb offers:</h2>
-            <p>
-                ${data.amenities}
-            </p>
+
+           ${data.amenities.map(amentiy=>{return  ` ${amentiy} ` })}
+           
 
         </div>
 
@@ -134,7 +134,7 @@ function renderPlace(data) {
         </div>
         <div class="aboutHost--right">
             <h4>
-                Languages the host speaks: english, french, hebrew
+                Languages the host speaks: english, french, hebrew 
             </h4>
             <h4>
                Airbnb Rating: ${data.reviews_rating}
@@ -316,12 +316,11 @@ function renderAirbnbOptions(data: Array<any>) {
                           </div>
                           <div class="airbnbOptions__container__content__description">
                               <p>${place.bathrooms} bathrooms\u00B7\n${place.bedrooms} bedrooms\u00B7${place.beds} beds\u00B7${place.accommodates} guests</p>
-                          
-                              <p>${(place.amenities.search("wifi")!==-1)?'wifi\u00B7':''}${(place.amenities.search("kitchen")!==-1)?'kitchen\u00B7':''}
-                              ${(place.amenities.search("air-conditioning")!==-1)?'air-conditioning\u00B7':''}${(place.amenities.search("washer")!==-1)?'washer\u00B7':''}
-                              ${(place.amenities.search("parking")!==-1)?'parking':''}
-                              
-                              </p>
+                             
+                         
+                              ${place.amenities.map(amenity=>{return `${(amenity.search(amenity)!==-1)?`${amenity}\u00B7 `:''}` }).join(' ')}
+   
+                            
                                                         
                           </div>
                         
