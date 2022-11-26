@@ -62,12 +62,13 @@ function renderPlace(data) {
     const rootChosenAirbnb=document.querySelector("#rootChosenAirbnb")
      
       html = ` <div class="mainUpper">
-        <div class="maiUpper__title">
-            <h1>${data.name}</h1>
+        <div class="mainUpper__title">
+            <h1>${data.name} </h1>
+            <h3>${data.address_country}, ${data.address_country_code}</h3>
             <h2>${data.price}$</h2>
         </div>
         <div class="mainUpper__photoGrid">
-            <img class="img" src="${data.images}" alt="" style="width:100%;">
+            <img class="img" src="${data.images}" alt="" ">
 
         </div>
 
@@ -86,6 +87,7 @@ function renderPlace(data) {
         </div>
         <div class="mainMiddle__left--great">
             <h5>${data.description}</h5>
+            
         </div>
         <div class="mainMiddle__left--bed">
             <h2>Beds Available:${data.bed_type}</h2>
@@ -242,15 +244,6 @@ async function handleFindAirbnb(ev) {
   const infants = ev.target.elements.infants.value;
   const pets = ev.target.elements.pets.value;
 
-  ///// calculating the num between checkin and out and number of guests(also in places cont searchairbnb)
-  let sum: any = Number(adults) + Number(children) + Number(infants) + Number(pets);
-  console.log("the number of guests:" + sum);
-  
-  let dateOfCheckIn = new Date(`${checkIn}`);
-  let dateOfCheckOut = new Date(`${checkOut}`);
-  let differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();
-  let differenceInDays = differenceInTime / (1000 * 3600 * 24);
-  console.log("the days between checkIn checkOut is:" + differenceInDays)
 
 
   const { data } = await axios.get(
@@ -269,8 +262,8 @@ async function handleFindAirbnb(ev) {
     handleLoadPlaces();
   }else{
 
-    
-    window.alert("No airbnbs found for " + " Destination: " + `${searchLocation}` + " for " +`${differenceInDays}` + " days " + `${sum}` + " guests ")
+    window.alert("No airbnbs found for " + " Destination:" + `${searchLocation}` )
+
     
   }
 }

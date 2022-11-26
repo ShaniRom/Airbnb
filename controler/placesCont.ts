@@ -1,23 +1,6 @@
 import Places from "../model/placesModel";
 
 
-export const getfilteredAirBNB = async (req, res) => {
-  try {
-    let price1 = req.body;
-    if (price1) {
-      const result = await Places.find({ price: price1 });
-      res.send({ ok: true, result })
-      console.log(result);
-    }
-    
-  } catch (error) {
-    console.error(error);
-    res.send({ error: "error in app.get/getPlaces" });
-  }
-};
-
-
-
 export const getToPlace = async (req, res) => {
  
   try {
@@ -52,13 +35,13 @@ export const searchAirbnb = async (req, res) => {
     let dateOfCheckOut = new Date(`${checkOut}`);
     let differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();
     let differenceInDays = differenceInTime / (1000 * 3600 * 24);
-    console.log("the days between checkIn checkOut is:" + differenceInDays)
+    console.log("the days between checkIn checkOut is:" + differenceInDays)                
 
     
-    const getplaces = await Places.find({ address_country: `${searchLocation}`, accommodates: sum }).limit(3);
+    const getplaces = await Places.find({ address_country: `${searchLocation}`, accommodates: {$lte:sum},  daysAvailable:{$lte:differenceInDays} }).limit(5);
     
     if(getplaces.length>0){
-      console.log(getplaces)
+     
       res.send({ ok: true, getplaces });
      
     }else{
@@ -76,7 +59,7 @@ export const searchAirbnbByCity = async (req, res) => {
   
   let { city } = req.body;
 
-  const getplaces = await Places.find({ address_country: city }).limit(3);
+  const getplaces = await Places.find({ address_country: city }).limit(5);
   
   res.send({ ok: true,getplaces });
 };
