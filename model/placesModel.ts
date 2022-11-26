@@ -25,7 +25,7 @@ const PlacesSchema = new mongoose.Schema({
   daysAvailable: String,
 });
 
-// const Places = mongoose.model("airbnboptions", PlacesSchema);
+ const Places = mongoose.model("airbnboptions", PlacesSchema);
 
-const Places = mongoose.model("practices", PlacesSchema);
+
 export default Places;
