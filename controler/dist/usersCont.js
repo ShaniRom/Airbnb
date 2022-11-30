@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteUser = exports.updateUser = exports.getUsers = exports.signOutUser = exports.registerUser = exports.login = void 0;
+exports.deleteUser = exports.updateUser = exports.getUsers = exports.signOutUser = exports.loggedInUser = exports.registerUser = exports.login = void 0;
 var usersModel_1 = require("../model/usersModel");
 var jwt_simple_1 = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
@@ -47,7 +47,9 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
             case 0:
                 _b.trys.push([0, 4, , 5]);
                 _a = req.body, username = _a.username, password = _a.password, role = _a.role;
-                if (!(typeof username === "string" && typeof password === "string" && typeof role === "string")) return [3 /*break*/, 2];
+                if (!(typeof username === "string" &&
+                    typeof password === "string" &&
+                    typeof role === "string")) return [3 /*break*/, 2];
                 return [4 /*yield*/, usersModel_1["default"].findOne({ username: username, password: password, role: role })];
             case 1:
                 user = _b.sent();
@@ -55,12 +57,12 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                     if (user.password === password) {
                         payload = { username: username, id: user._id, role: role };
                         token = jwt_simple_1["default"].encode(payload, secret);
-                        res.cookie('userInfo', token, { maxAge: 200000, httpOnly: true });
+                        res.cookie("userInfo", token, { maxAge: 200000, httpOnly: true });
                         res.send({ ok: true, login: true });
                         return [2 /*return*/];
                     }
                 }
-                throw new Error('username or password or role are incorrect');
+                throw new Error("username or password or role are incorrect");
             case 2: throw new Error("username or password or role is missing");
             case 3: return [3 /*break*/, 5];
             case 4:
@@ -80,14 +82,16 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
                 _b.trys.push([0, 4, , 5]);
                 console.log("user with id " + req.id + " added a user");
                 _a = req.body, username = _a.username, password = _a.password, role = _a.role;
-                if (!(typeof username === "string" && typeof password === "string" && typeof role === "string")) return [3 /*break*/, 2];
+                if (!(typeof username === "string" &&
+                    typeof password === "string" &&
+                    typeof role === "string")) return [3 /*break*/, 2];
                 newUser = new usersModel_1["default"]({ username: username, password: password, role: role });
                 return [4 /*yield*/, newUser.save()];
             case 1:
                 result = _b.sent();
                 payload = { username: username, id: newUser._id, role: role };
                 token = jwt_simple_1["default"].encode(payload, secret);
-                res.cookie('userInfo', token, { httpOnly: true });
+                res.cookie("userInfo", token, { httpOnly: true });
                 res.send({ ok: true, register: true });
                 return [3 /*break*/, 3];
             case 2: throw new Error("username or password or role is missing");
@@ -101,13 +105,38 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
         }
     });
 }); };
+/////// for nav to check if logged in
+exports.loggedInUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userInfo, payload, id, user, username, error_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                userInfo = req.cookies.userInfo;
+                payload = jwt_simple_1["default"].decode(userInfo, secret);
+                id = payload.id;
+                return [4 /*yield*/, usersModel_1["default"].findOne({ _id: id })];
+            case 1:
+                user = _a.sent();
+                username = user.username;
+                res.send({ username: username });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _a.sent();
+                console.error(error_3.message);
+                res.send({ error: error_3.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
 exports.signOutUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var userInfo;
     return __generator(this, function (_a) {
         try {
             userInfo = req.cookies.userInfo;
             if (userInfo) {
-                res.clearCookie('userInfo');
+                res.clearCookie("userInfo");
                 res.send({ signedOut: true });
                 return [2 /*return*/];
             }
@@ -121,7 +150,7 @@ exports.signOutUser = function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); };
 exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, decoded, users, error_3;
+    var userInfo, decoded, users, error_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -132,23 +161,23 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
                 decoded = jwt_simple_1["default"].decode(userInfo, secret);
                 console.log(decoded);
                 if (!(decoded && decoded.role === "admin")) return [3 /*break*/, 2];
-                return [4 /*yield*/, usersModel_1["default"].find({ "role": { $ne: "admin" } })];
+                return [4 /*yield*/, usersModel_1["default"].find({ role: { $ne: "admin" } })];
             case 1:
                 users = _a.sent();
                 res.send({ ok: true, users: users });
                 return [2 /*return*/];
             case 2: throw new Error("user is not allowed ");
             case 3:
-                error_3 = _a.sent();
-                console.log("error on getUsers", error_3.message);
-                res.send({ error: error_3.message });
+                error_4 = _a.sent();
+                console.log("error on getUsers", error_4.message);
+                res.send({ error: error_4.message });
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
     });
 }); };
 exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userId, username, users, error_4;
+    var _a, userId, username, users, error_5;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -163,16 +192,16 @@ exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void
             case 2: throw new Error("username or userId  is missing");
             case 3: return [3 /*break*/, 5];
             case 4:
-                error_4 = _b.sent();
-                console.error(error_4.message);
-                res.send({ error: error_4.message });
+                error_5 = _b.sent();
+                console.error(error_5.message);
+                res.send({ error: error_5.message });
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
         }
     });
 }); };
 exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userId, users, error_5;
+    var userId, users, error_6;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -187,9 +216,9 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
             case 2: throw new Error(" userId  is missing");
             case 3: return [3 /*break*/, 5];
             case 4:
-                error_5 = _a.sent();
-                console.error(error_5.message);
-                res.send({ error: error_5.message });
+                error_6 = _a.sent();
+                console.error(error_6.message);
+                res.send({ error: error_6.message });
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
         }

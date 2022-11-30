@@ -25,7 +25,7 @@ function handleLoadPlaces() {
 
 async function handleLoadPlace() {
   try {
-
+       
     const data = await getData();
    
     renderPlace(data);

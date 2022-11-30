@@ -1,9 +1,11 @@
 import Places from "../model/placesModel";
+// import Users from "../model/usersModel";
+// import jwt from "jwt-simple";
 
+const secret=process.env.JWT_SECRET
 
 export const getToPlace = async (req, res) => {
  
-  
  
  
   try {
