@@ -38,8 +38,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.searchAirbnbByCity = exports.searchAirbnb = exports.getToPlace = void 0;
 var placesModel_1 = require("../model/placesModel");
-// import Users from "../model/usersModel";
-// import jwt from "jwt-simple";
 var secret = process.env.JWT_SECRET;
 exports.getToPlace = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var placeId, getplaces, error_1;

@@ -49,3 +49,23 @@ export const getId=async (req,res,next)=>{
  
     }
  }
+
+
+
+ /////// for navbar to check if logged in
+
+import Users from "../model/usersModel";
+
+export const loggedInUser = async (req, res) => {
+    try {
+      const { userInfo } = req.cookies;
+      const payload = jwt.decode(userInfo, secret);
+      const { id } = payload;
+      const user = await Users.findOne({ _id: id });
+      const {username} = user
+      res.send({ username });
+    } catch (error) {
+      console.error(error.message);
+      res.send({ error: error.message });
+    }
+  };

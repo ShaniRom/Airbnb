@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteUser = exports.updateUser = exports.getUsers = exports.signOutUser = exports.loggedInUser = exports.registerUser = exports.login = void 0;
+exports.deleteUser = exports.updateUser = exports.getUsers = exports.signOutUser = exports.registerUser = exports.login = void 0;
 var usersModel_1 = require("../model/usersModel");
 var jwt_simple_1 = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
@@ -105,31 +105,6 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
         }
     });
 }); };
-/////// for nav to check if logged in
-exports.loggedInUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, payload, id, user, username, error_3;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                userInfo = req.cookies.userInfo;
-                payload = jwt_simple_1["default"].decode(userInfo, secret);
-                id = payload.id;
-                return [4 /*yield*/, usersModel_1["default"].findOne({ _id: id })];
-            case 1:
-                user = _a.sent();
-                username = user.username;
-                res.send({ username: username });
-                return [3 /*break*/, 3];
-            case 2:
-                error_3 = _a.sent();
-                console.error(error_3.message);
-                res.send({ error: error_3.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
-    });
-}); };
 exports.signOutUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var userInfo;
     return __generator(this, function (_a) {
@@ -150,7 +125,7 @@ exports.signOutUser = function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); };
 exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, decoded, users, error_4;
+    var userInfo, decoded, users, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -168,16 +143,16 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
                 return [2 /*return*/];
             case 2: throw new Error("user is not allowed ");
             case 3:
-                error_4 = _a.sent();
-                console.log("error on getUsers", error_4.message);
-                res.send({ error: error_4.message });
+                error_3 = _a.sent();
+                console.log("error on getUsers", error_3.message);
+                res.send({ error: error_3.message });
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
     });
 }); };
 exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userId, username, users, error_5;
+    var _a, userId, username, users, error_4;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -192,16 +167,16 @@ exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void
             case 2: throw new Error("username or userId  is missing");
             case 3: return [3 /*break*/, 5];
             case 4:
-                error_5 = _b.sent();
-                console.error(error_5.message);
-                res.send({ error: error_5.message });
+                error_4 = _b.sent();
+                console.error(error_4.message);
+                res.send({ error: error_4.message });
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
         }
     });
 }); };
 exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userId, users, error_6;
+    var userId, users, error_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -216,9 +191,9 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
             case 2: throw new Error(" userId  is missing");
             case 3: return [3 /*break*/, 5];
             case 4:
-                error_6 = _a.sent();
-                console.error(error_6.message);
-                res.send({ error: error_6.message });
+                error_5 = _a.sent();
+                console.error(error_5.message);
+                res.send({ error: error_5.message });
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
         }

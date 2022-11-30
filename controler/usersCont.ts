@@ -58,20 +58,7 @@ export const registerUser = async (req, res) => {
   }
 };
 
-/////// for nav to check if logged in
-export const loggedInUser = async (req, res) => {
-  try {
-    const { userInfo } = req.cookies;
-    const payload = jwt.decode(userInfo, secret);
-    const { id } = payload;
-    const user = await Users.findOne({ _id: id });
-    const {username} = user
-    res.send({ username });
-  } catch (error) {
-    console.error(error.message);
-    res.send({ error: error.message });
-  }
-};
+
 
 export const signOutUser = async (req, res) => {
   try {

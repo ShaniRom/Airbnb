@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getId = exports.isAdmin = void 0;
+exports.loggedInUser = exports.getId = exports.isAdmin = void 0;
 var jwt_simple_1 = require("jwt-simple");
 var secret = process.env.JWT_SECRET;
 exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
@@ -89,5 +89,31 @@ exports.getId = function (req, res, next) { return __awaiter(void 0, void 0, voi
             next();
         }
         return [2 /*return*/];
+    });
+}); };
+/////// for navbar to check if logged in
+var usersModel_1 = require("../model/usersModel");
+exports.loggedInUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userInfo, payload, id, user, username, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                userInfo = req.cookies.userInfo;
+                payload = jwt_simple_1["default"].decode(userInfo, secret);
+                id = payload.id;
+                return [4 /*yield*/, usersModel_1["default"].findOne({ _id: id })];
+            case 1:
+                user = _a.sent();
+                username = user.username;
+                res.send({ username: username });
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _a.sent();
+                console.error(error_1.message);
+                res.send({ error: error_1.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
     });
 }); };
