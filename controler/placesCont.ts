@@ -3,6 +3,9 @@ import Places from "../model/placesModel";
 
 export const getToPlace = async (req, res) => {
  
+  
+ 
+ 
   try {
     const { placeId } = req.params;
     console.log(placeId)

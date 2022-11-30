@@ -343,11 +343,16 @@ function renderAirbnbOptions(data: Array<any>) {
 function handlePopupLogin() {
 
 const showPopupText: any = document.querySelector(".popupForm");
-//showPopupText.style.visibility='visible'
-showPopupText.style.visibility = ((showPopupText.style.visibility!='hidden') ? 'hidden' : 'visible');
+showPopupText.style.visibility='visible'
+//showPopupText.style.visibility = ((showPopupText.style.visibility!='hidden') ? 'hidden' : 'visible');
   
 
 
+}
+
+function handleClosePopop(){
+  const closePopupText: any = document.querySelector(".popupForm");
+  closePopupText.style.visibility='hidden'
 }
 
 
