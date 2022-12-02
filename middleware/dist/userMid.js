@@ -102,7 +102,7 @@ exports.loggedInUser = function (req, res) { return __awaiter(void 0, void 0, vo
                 userInfo = req.cookies.userInfo;
                 payload = jwt_simple_1["default"].decode(userInfo, secret);
                 id = payload.id;
-                return [4 /*yield*/, usersModel_1["default"].findOne({ _id: id })];
+                return [4 /*yield*/, usersModel_1["default"].findById({ _id: id })];
             case 1:
                 user = _a.sent();
                 username = user.username;

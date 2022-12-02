@@ -61,7 +61,7 @@ export const loggedInUser = async (req, res) => {
       const { userInfo } = req.cookies;
       const payload = jwt.decode(userInfo, secret);
       const { id } = payload;
-      const user = await Users.findOne({ _id: id });
+      const user = await Users.findById({ _id: id });
       const {username} = user
       res.send({ username });
     } catch (error) {
