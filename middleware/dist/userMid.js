@@ -105,6 +105,7 @@ exports.loggedInUser = function (req, res, next) { return __awaiter(void 0, void
                 decoded = jwt_simple_1["default"].decode(userInfo, secret_3);
                 console.log(decoded.username);
                 res.send({ username: decoded.username });
+                next();
             }
             //res.send({ username });
         }

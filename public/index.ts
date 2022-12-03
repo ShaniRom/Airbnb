@@ -17,7 +17,7 @@ dateArray.forEach(date  => {
 
 function handleLoadPlaces() {
   const data = getData();
- 
+  handleCheckForUser()
   
   renderAirbnbOptions(data);
  
@@ -283,8 +283,8 @@ async function handleCities(ev) {
   }
 }
 async function handleCheckForUser() {
- 
 
+  
   const { data } = await axios.get("/places/checkForUser");
   const {username}=data
   console.log(username)

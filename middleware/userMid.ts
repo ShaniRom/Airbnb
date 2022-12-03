@@ -77,9 +77,11 @@ export const loggedInUser = async(req,res,next)=> {
        const decoded=jwt.decode(userInfo,secret);
        console.log(decoded.username);
       res.send({username:decoded.username})
+
+      next()
       }
    
-      
+    
      
       //res.send({ username });
     } catch (error) {

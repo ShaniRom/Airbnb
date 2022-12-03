@@ -53,6 +53,7 @@ dateArray.forEach(function (date) {
 });
 function handleLoadPlaces() {
     var data = getData();
+    handleCheckForUser();
     renderAirbnbOptions(data);
 }
 function handleLoadPlace() {
