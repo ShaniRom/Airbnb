@@ -91,29 +91,27 @@ exports.getId = function (req, res, next) { return __awaiter(void 0, void 0, voi
         return [2 /*return*/];
     });
 }); };
-/////// for navbar to check if logged in
-var usersModel_1 = require("../model/usersModel");
-exports.loggedInUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, payload, id, user, username, error_1;
+exports.loggedInUser = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var userInfo, secret_3, decoded;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                userInfo = req.cookies.userInfo;
-                payload = jwt_simple_1["default"].decode(userInfo, secret);
-                id = payload.id;
-                return [4 /*yield*/, usersModel_1["default"].findById({ _id: id })];
-            case 1:
-                user = _a.sent();
-                username = user.username;
-                res.send({ username: username });
-                return [3 /*break*/, 3];
-            case 2:
-                error_1 = _a.sent();
-                console.error(error_1.message);
-                res.send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+        try {
+            userInfo = req.cookies.userInfo;
+            if (!userInfo)
+                throw new Error('"userInfo" not found ');
+            if (userInfo) {
+                secret_3 = process.env.JWT_secret;
+                if (!secret_3)
+                    throw new Error("no secret found in the server");
+                decoded = jwt_simple_1["default"].decode(userInfo, secret_3);
+                console.log(decoded.username);
+                res.send({ username: decoded.username });
+            }
+            //res.send({ username });
         }
+        catch (error) {
+            console.error(error.message);
+            //res.send({ error: error.message });
+        }
+        return [2 /*return*/];
     });
 }); };

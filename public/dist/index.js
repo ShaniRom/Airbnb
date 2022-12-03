@@ -193,6 +193,21 @@ function handleCities(ev) {
         });
     });
 }
+function handleCheckForUser() {
+    return __awaiter(this, void 0, void 0, function () {
+        var data, username;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, axios.get("/places/checkForUser")];
+                case 1:
+                    data = (_a.sent()).data;
+                    username = data.username;
+                    console.log(username);
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
 function renderAirbnbOptions(data) {
     try {
         if (!Array.isArray(data))

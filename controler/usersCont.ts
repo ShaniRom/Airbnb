@@ -1,7 +1,7 @@
 import Users from "../model/usersModel";
 import jwt from "jwt-simple";
 
-const secret = process.env.JWT_SECRET;
+
 
 export const login = async (req, res) => {
   try {
@@ -14,10 +14,12 @@ export const login = async (req, res) => {
       const user = await Users.findOne({ username, password, role });
       if (user) {
         if (user.password === password) {
+          const secret = process.env.JWT_SECRET;
           const payload = { username, id: user._id, role };
           const token = jwt.encode(payload, secret);
-
+          
           res.cookie("userInfo", token, { maxAge: 200000, httpOnly: true });
+          console.log(token)
           res.send({ ok: true, login: true });
 
           return;
@@ -46,6 +48,7 @@ export const registerUser = async (req, res) => {
       const newUser = new Users({ username, password, role });
       const result = await newUser.save();
       const payload = { username, id: newUser._id, role };
+      const secret = process.env.JWT_SECRET;
       const token = jwt.encode(payload, secret);
       res.cookie("userInfo", token, { httpOnly: true });
       res.send({ ok: true, register: true });
@@ -82,6 +85,7 @@ export const getUsers = async (req, res) => {
     console.log(req.cookies);
     console.log(`user id is ${req.id} and the role is ${req.role}`);
     const { userInfo } = req.cookies;
+    const secret = process.env.JWT_SECRET;
     const decoded = jwt.decode(userInfo, secret);
     console.log(decoded);
     if (decoded && decoded.role === "admin") {

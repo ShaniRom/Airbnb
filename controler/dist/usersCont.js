@@ -39,9 +39,8 @@ exports.__esModule = true;
 exports.deleteUser = exports.updateUser = exports.getUsers = exports.signOutUser = exports.registerUser = exports.login = void 0;
 var usersModel_1 = require("../model/usersModel");
 var jwt_simple_1 = require("jwt-simple");
-var secret = process.env.JWT_SECRET;
 exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, role, user, payload, token, error_1;
+    var _a, username, password, role, user, secret, payload, token, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -55,9 +54,11 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 user = _b.sent();
                 if (user) {
                     if (user.password === password) {
+                        secret = process.env.JWT_SECRET;
                         payload = { username: username, id: user._id, role: role };
                         token = jwt_simple_1["default"].encode(payload, secret);
                         res.cookie("userInfo", token, { maxAge: 200000, httpOnly: true });
+                        console.log(token);
                         res.send({ ok: true, login: true });
                         return [2 /*return*/];
                     }
@@ -75,7 +76,7 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
     });
 }); };
 exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, password, role, newUser, result, payload, token, error_2;
+    var _a, username, password, role, newUser, result, payload, secret, token, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -90,6 +91,7 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
             case 1:
                 result = _b.sent();
                 payload = { username: username, id: newUser._id, role: role };
+                secret = process.env.JWT_SECRET;
                 token = jwt_simple_1["default"].encode(payload, secret);
                 res.cookie("userInfo", token, { httpOnly: true });
                 res.send({ ok: true, register: true });
@@ -125,7 +127,7 @@ exports.signOutUser = function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); };
 exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, decoded, users, error_3;
+    var userInfo, secret, decoded, users, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -133,6 +135,7 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
                 console.log(req.cookies);
                 console.log("user id is " + req.id + " and the role is " + req.role);
                 userInfo = req.cookies.userInfo;
+                secret = process.env.JWT_SECRET;
                 decoded = jwt_simple_1["default"].decode(userInfo, secret);
                 console.log(decoded);
                 if (!(decoded && decoded.role === "admin")) return [3 /*break*/, 2];

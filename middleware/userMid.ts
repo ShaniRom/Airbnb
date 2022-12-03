@@ -56,16 +56,34 @@ export const getId=async (req,res,next)=>{
 
 import Users from "../model/usersModel";
 
-export const loggedInUser = async (req, res) => {
+export const loggedInUser = async(req,res,next)=> {
     try {
       const { userInfo } = req.cookies;
-      const payload = jwt.decode(userInfo, secret);
-      const { id } = payload;
-      const user = await Users.findById({ _id: id });
-      const {username} = user
-      res.send({ username });
+      if(!userInfo) throw new Error('"userInfo" not found ')
+      
+      if (userInfo){
+      //   const payload = jwt.decode(userInfo, secret);
+// console.log('loggedInUser')
+      //   const token = jwt.encode(payload, secret)
+      // const { id } = payload;
+      //const user = await Users.findById({ _id: id });
+      //const {username} = user
+      //console.log(username)
+    
+      //  console.log(userInfo)
+       
+       const secret=process.env.JWT_secret
+       if(!secret) throw new Error ("no secret found in the server")
+       const decoded=jwt.decode(userInfo,secret);
+       console.log(decoded.username);
+      res.send({username:decoded.username})
+      }
+   
+      
+     
+      //res.send({ username });
     } catch (error) {
       console.error(error.message);
-      res.send({ error: error.message });
+      //res.send({ error: error.message });
     }
   };

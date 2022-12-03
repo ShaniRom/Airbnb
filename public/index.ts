@@ -282,6 +282,17 @@ async function handleCities(ev) {
     handleLoadPlaces();
   }
 }
+async function handleCheckForUser() {
+ 
+
+  const { data } = await axios.get("/places/checkForUser");
+  const {username}=data
+  console.log(username)
+  
+  
+  
+  
+}
 
 
 
