@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="dist/style.css">
 </head>
 
-<body>
+<body onload="handleCheckForUser()">
 
   <nav class="navigation">
     <ul>
@@ -77,7 +77,7 @@
 
             </form>
         </li>
-        <li class="navigation--greeting">Welcome! <span id="theUsersName"> </span> <br> <span id="signOut" onclick="handleSignOut()" ></span></li>
+        <li class="navigation--greeting">Welcome! <span id="theUsersName"> </span>  <span id="toOwnerPage"></span><br> <span id="signOut" onclick="handleSignOut()" ></span></li>
 
         <li class="navigation--user popup" onclick="handlePopupLogin()" ><img src="../images/visitorProfile.png">
           
@@ -226,7 +226,7 @@
 
   </div>
 
-  <p class="airbnbRights" onclick="handleCheckForUser()">© 2022 Airbnb, Inc.Privacy·Terms·Sitemap</p>
+  <p class="airbnbRights" >© 2022 Airbnb, Inc.Privacy·Terms·Sitemap</p>
 
   <script src="dist/index.js"></script>
 </body>

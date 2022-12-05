@@ -80,6 +80,28 @@ export const signOutUser = async (req, res) => {
   }
 };
 
+/////// for navbar to check if there is a user logged in
+
+export const loggedInUser = async (req, res, next) => {
+  try {
+    const { userInfo } = req.cookies;
+    if (!userInfo) throw new Error('"userInfo" not found ');
+
+    if (userInfo) {
+      const secret = process.env.JWT_secret;
+      if (!secret) throw new Error("no secret found in the server");
+      const decoded = jwt.decode(userInfo, secret);
+      console.log(decoded.username);
+      res.send({ username: decoded.username , role:decoded.role});
+
+     
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.send({ error: error.message });
+  }
+};
+
 export const getUsers = async (req, res) => {
   try {
     console.log(req.cookies);

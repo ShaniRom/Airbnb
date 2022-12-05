@@ -28,7 +28,7 @@
     
     
                     </div>
-    
+                    
                     <div class="form--checkIn">
                       <label for="checkIn">Check in <br>
                           <input type="date" value="2022-02-05" name="checkIn" id="date" >
@@ -74,11 +74,11 @@
     
                 </form>
             </li>
-            <li class="navigation--greeting">Welcome! <span id="theUsersName"></span></li>
+            <li class="navigation--greeting">Welcome! <span id="theUsersName"> </span>  <span id="toOwnerPage"></span><br> <span id="signOut" onclick="handleSignOut()" ></span></li>
     
-            <li class="navigation--user popup" onclick="handlePopupLogin()"><img src="../images/visitorProfile.png">
+            <li class="navigation--user popup" onclick="handlePopupLogin()" ><img src="../images/visitorProfile.png">
               
-                <div class="popupForm" id="popupLogin">
+                <div class="popupForm" id="popupLogin" onmouseleave="handleClosePopop()">
                 
                   <h1 class="popupForm--header">Welcome to Airbnb</h1>
                   <div class="popupForm__login">
@@ -125,7 +125,7 @@
             </li>
         </ul>
     </nav>
-
+    
   
 <div class="airbnbOptions__grid">
     <div class="airbnbOptions__grid--map">

@@ -36,21 +36,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.loggedInUser = exports.getId = exports.isAdmin = void 0;
+exports.getId = exports.isAdmin = void 0;
 var jwt_simple_1 = require("jwt-simple");
-var secret = process.env.JWT_SECRET;
 exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, secret_1, decoded;
+    var userInfo, secret, decoded;
     return __generator(this, function (_a) {
         try {
             userInfo = req.cookies.userInfo;
             console.log(userInfo);
             if (!userInfo)
                 throw new Error('"userInfo" not found ');
-            secret_1 = process.env.JWT_secret;
-            if (!secret_1)
+            secret = process.env.JWT_secret;
+            if (!secret)
                 throw new Error("no secret found in the server");
-            decoded = jwt_simple_1["default"].decode(userInfo, secret_1);
+            decoded = jwt_simple_1["default"].decode(userInfo, secret);
             console.log(decoded);
             if (decoded.role === "admin") {
                 req.role = "admin";
@@ -70,14 +69,14 @@ exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, v
 }); };
 //get id of person who last changed something like which wdmin erased a user or updated
 exports.getId = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, secret_2, decoded, id;
+    var userInfo, secret, decoded, id;
     return __generator(this, function (_a) {
         try {
             userInfo = req.cookies.userInfo;
-            secret_2 = process.env.JWT_secret;
-            if (!secret_2)
+            secret = process.env.JWT_secret;
+            if (!secret)
                 throw new Error("no secret found in the server");
-            decoded = jwt_simple_1["default"].decode(userInfo, secret_2);
+            decoded = jwt_simple_1["default"].decode(userInfo, secret);
             id = decoded.id;
             if (id) {
                 req.id = id;
@@ -87,31 +86,6 @@ exports.getId = function (req, res, next) { return __awaiter(void 0, void 0, voi
         catch (error) {
             console.log(error.message);
             next();
-        }
-        return [2 /*return*/];
-    });
-}); };
-exports.loggedInUser = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var userInfo, secret_3, decoded;
-    return __generator(this, function (_a) {
-        try {
-            userInfo = req.cookies.userInfo;
-            if (!userInfo)
-                throw new Error('"userInfo" not found ');
-            if (userInfo) {
-                secret_3 = process.env.JWT_secret;
-                if (!secret_3)
-                    throw new Error("no secret found in the server");
-                decoded = jwt_simple_1["default"].decode(userInfo, secret_3);
-                console.log(decoded.username);
-                res.send({ username: decoded.username });
-                next();
-            }
-            //res.send({ username });
-        }
-        catch (error) {
-            console.error(error.message);
-            //res.send({ error: error.message });
         }
         return [2 /*return*/];
     });

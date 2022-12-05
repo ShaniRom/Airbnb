@@ -2,12 +2,12 @@
 exports.__esModule = true;
 var express_1 = require("express");
 var router = express_1["default"].Router();
-var userMid_1 = require("../middleware/userMid");
+var usersCont_1 = require("../controler/usersCont");
 var placesCont_1 = require("../controler/placesCont");
 var placesCont_2 = require("../controler/placesCont");
 var placesCont_3 = require("../controler/placesCont");
 router
-    .get('/checkForUser', userMid_1.loggedInUser)
+    .get('/checkForUser', usersCont_1.loggedInUser)
     .get('/getToPlace/:placeId', placesCont_1.getToPlace)
     //gettoplace is req.param cause it goes according to its parameter given which here is the id to go to a specfic pages info
     .get('/search-airbnb', placesCont_2.searchAirbnb)

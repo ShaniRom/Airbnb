@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteUser = exports.updateUser = exports.getUsers = exports.signOutUser = exports.registerUser = exports.login = void 0;
+exports.deleteUser = exports.updateUser = exports.getUsers = exports.loggedInUser = exports.signOutUser = exports.registerUser = exports.login = void 0;
 var usersModel_1 = require("../model/usersModel");
 var jwt_simple_1 = require("jwt-simple");
 exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -118,6 +118,30 @@ exports.signOutUser = function (req, res) { return __awaiter(void 0, void 0, voi
                 return [2 /*return*/];
             }
             throw new Error(" no user to sign out from ");
+        }
+        catch (error) {
+            console.error(error.message);
+            res.send({ error: error.message });
+        }
+        return [2 /*return*/];
+    });
+}); };
+/////// for navbar to check if there is a user logged in
+exports.loggedInUser = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var userInfo, secret, decoded;
+    return __generator(this, function (_a) {
+        try {
+            userInfo = req.cookies.userInfo;
+            if (!userInfo)
+                throw new Error('"userInfo" not found ');
+            if (userInfo) {
+                secret = process.env.JWT_secret;
+                if (!secret)
+                    throw new Error("no secret found in the server");
+                decoded = jwt_simple_1["default"].decode(userInfo, secret);
+                console.log(decoded.username);
+                res.send({ username: decoded.username, role: decoded.role });
+            }
         }
         catch (error) {
             console.error(error.message);

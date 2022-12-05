@@ -2,7 +2,8 @@ import express from 'express';
 const router = express.Router();
 
 
-import {loggedInUser} from'../middleware/userMid'
+import {loggedInUser} from '../controler/usersCont'
+
 import { getToPlace } from '../controler/placesCont'
 import { searchAirbnb } from '../controler/placesCont'
 import {searchAirbnbByCity } from '../controler/placesCont'

@@ -41,7 +41,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
             r[k] = a[j];
     return r;
 };
-var dateValue = document.querySelectorAll('#date');
+var dateValue = document.querySelectorAll("#date");
 console.log(dateValue);
 var date = new Date();
 var todayDate = date.toISOString().slice(0, 10);
@@ -49,7 +49,7 @@ console.log(todayDate);
 var dateArray = __spreadArrays(dateValue);
 dateArray.forEach(function (date) {
     date.defaultValue = todayDate;
-    console.log(date.defaultValue = todayDate);
+    console.log((date.defaultValue = todayDate));
 });
 function handleLoadPlaces() {
     var data = getData();
@@ -67,6 +67,7 @@ function handleLoadPlace() {
                 case 1:
                     data = _a.sent();
                     renderPlace(data);
+                    handleCheckForUser();
                     return [3 /*break*/, 3];
                 case 2:
                     error_1 = _a.sent();
@@ -107,7 +108,9 @@ function renderPlace(data) {
         var data_1 = getData();
         var html = "";
         var rootChosenAirbnb = document.querySelector("#rootChosenAirbnb");
-        html = " <div class=\"mainUpper\">\n        <div class=\"mainUpper__title\">\n            <h1>" + data_1.name + " </h1>\n            <h3>" + data_1.address_country + ", " + data_1.address_country_code + "</h3>\n            <h2>" + data_1.price + "$</h2>\n        </div>\n        <div class=\"mainUpper__photoGrid\">\n            <img class=\"img\" src=\"" + data_1.images + "\" alt=\"\" \">\n\n        </div>\n\n    </div>\n    <div class=\"mainMiddle\">\n        <div class=\"mainMiddle__left\">\n            <div class=\"mainMiddle__left--up\">\n                <div class=\"mainMiddle__left--up--title\">\n                    <h2>Entire rental unit hosted by " + data_1.host_name + "</h2>\n                </div>\n                <h4>accommadates: " + data_1.accommodates + " <span>&#8226;</span> bedroom: " + data_1.bedrooms + " <span>&#8226;</span> beds: " + data_1.beds + " <span>&#8226;</span> bathroom: " + data_1.bathrooms + "</h4>\n            </div>\n            <div class=\"mainMiddle__left--up--profile\">\n                <img src=\"" + data_1.host_picture_url + "\">\n            </div>\n        </div>\n        <div class=\"mainMiddle__left--great\">\n            <h5>" + data_1.description + "</h5>\n            \n        </div>\n        <div class=\"mainMiddle__left--bed\">\n            <h2>Beds Available:" + data_1.bed_type + "</h2>\n        </div>\n        <div class=\"mainMiddle__left--list\">\n            <h2>This Airbnb offers:</h2>\n\n           " + data_1.amenities.map(function (amentiy) { return " " + amentiy + " "; }) + "\n           \n\n        </div>\n\n    </div>\n\n    \n    <div class=\"reviews\">\n        <h2>Latest Review:</h2>\n        <div class=\"reviews__review\">\n               <div class=\"reviews__review__user\" >\n                <img src=\"images/guestDefaultImage.webp\" class=\"reviews__review__user--profilePic\" alt=\"guest profile image\">\n                <h4>Alex97</h4>\n               </div>\n            <p>\n            Very tidy and lovely AirBnb apartment equipped with everything you need. A good bed and nice bathroom. " + data_1.host_name + " is a great host , Very nice and had excellent restaurant recommendations and was of great help. We had a great stay.\n            </p>\n        </div>\n\n    </div>\n    <div id=\"map\">\n        <iframe\n            src=\"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2s!4v1648657793371!5m2!1siw!2s\"\n            width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"\n            referrerpolicy=\"no-referrer-when-downgrade\"></iframe>\n    </div>\n    <div class=\"aboutHost\">\n        <div class=\"aboutHost--left\">\n            <div class=\"aboutHost--left--profileHost\">\n                <img src=\"" + data_1.host_picture_url + "\" alt=\"host image\">\n            </div>\n            <div class=\"aboutHost--left--title\">\n                <h2>\n                    Hosted by " + data_1.host_name + "\n                </h2>\n            </div>\n\n        </div>\n        <div class=\"aboutHost--right\">\n            <h4>\n                Languages the host speaks: english, french, hebrew \n            </h4>\n            <h4>\n               Airbnb Rating: " + data_1.reviews_rating + "\n            </h4>\n\n\n            <p class=\"payment\">\n                To protect your payment, never transfer money or communicate outside of the Airbnb website or app.\n            </p>\n        </div>\n    </div>\n    <div class=\"houseInfo\">\n        <h2>Airbnb host rules:</h2>\n        <ul>\n            \n            <li>\n                Check-in: 4:00 PM - 10:00 PM\n            </li>\n            <li>\n                Checkout: 11:00 AM\n            </li>\n            <li>\n                No smoking\n            </li>\n            <li>\n                No pets\n            </li>\n            <li>\n                No parties or events\n            </li>\n\n        </ul>\n        <h2> Health & Safety</h2>\n        <ul>\n            \n            <li>\n                Airbnb's social-distancing and other COVID-19-related guidelines apply\n            </li>\n            <li>\n\n                Carbon monoxide alarm not reported Show more\n            </li>\n            <li>\n                Smoke alarm not reported Show more\n            </li>\n            <li>\n                Security Deposit - if you damage the home, you may be charged up to \u20AA2500\n            </li>\n\n        </ul>\n        <div class=\"houseInfo__cancel\">\n            <h5>cancellation policy: " + data_1.cancel + "</h5>\n          \n\n        </div>\n\n    </div>";
+        html = " <div class=\"mainUpper\">\n        <div class=\"mainUpper__title\">\n            <h1>" + data_1.name + " </h1>\n            <h3>" + data_1.address_country + ", " + data_1.address_country_code + "</h3>\n            <h2>" + data_1.price + "$</h2>\n        </div>\n        <div class=\"mainUpper__photoGrid\">\n            <img class=\"img\" src=\"" + data_1.images + "\" alt=\"\" \">\n\n        </div>\n\n    </div>\n    <div class=\"mainMiddle\">\n        <div class=\"mainMiddle__left\">\n            <div class=\"mainMiddle__left--up\">\n                <div class=\"mainMiddle__left--up--title\">\n                    <h2>Entire rental unit hosted by " + data_1.host_name + "</h2>\n                </div>\n                <h4>accommadates: " + data_1.accommodates + " <span>&#8226;</span> bedroom: " + data_1.bedrooms + " <span>&#8226;</span> beds: " + data_1.beds + " <span>&#8226;</span> bathroom: " + data_1.bathrooms + "</h4>\n            </div>\n            <div class=\"mainMiddle__left--up--profile\">\n                <img src=\"" + data_1.host_picture_url + "\">\n            </div>\n        </div>\n        <div class=\"mainMiddle__left--great\">\n            <h5>" + data_1.description + "</h5>\n            \n        </div>\n        <div class=\"mainMiddle__left--bed\">\n            <h2>Beds Available:" + data_1.bed_type + "</h2>\n        </div>\n        <div class=\"mainMiddle__left--list\">\n            <h2>This Airbnb offers:</h2>\n\n           " + data_1.amenities.map(function (amentiy) {
+            return " " + amentiy + " ";
+        }) + "\n           \n\n        </div>\n\n    </div>\n\n    \n    <div class=\"reviews\">\n        <h2>Latest Review:</h2>\n        <div class=\"reviews__review\">\n               <div class=\"reviews__review__user\" >\n                <img src=\"images/guestDefaultImage.webp\" class=\"reviews__review__user--profilePic\" alt=\"guest profile image\">\n                <h4>Alex97</h4>\n               </div>\n            <p>\n            Very tidy and lovely AirBnb apartment equipped with everything you need. A good bed and nice bathroom. " + data_1.host_name + " is a great host , Very nice and had excellent restaurant recommendations and was of great help. We had a great stay.\n            </p>\n        </div>\n\n    </div>\n    <div id=\"map\">\n        <iframe\n            src=\"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2s!4v1648657793371!5m2!1siw!2s\"\n            width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"\n            referrerpolicy=\"no-referrer-when-downgrade\"></iframe>\n    </div>\n    <div class=\"aboutHost\">\n        <div class=\"aboutHost--left\">\n            <div class=\"aboutHost--left--profileHost\">\n                <img src=\"" + data_1.host_picture_url + "\" alt=\"host image\">\n            </div>\n            <div class=\"aboutHost--left--title\">\n                <h2>\n                    Hosted by " + data_1.host_name + "\n                </h2>\n            </div>\n\n        </div>\n        <div class=\"aboutHost--right\">\n            <h4>\n                Languages the host speaks: english, french, hebrew \n            </h4>\n            <h4>\n               Airbnb Rating: " + data_1.reviews_rating + "\n            </h4>\n\n\n            <p class=\"payment\">\n                To protect your payment, never transfer money or communicate outside of the Airbnb website or app.\n            </p>\n        </div>\n    </div>\n    <div class=\"houseInfo\">\n        <h2>Airbnb host rules:</h2>\n        <ul>\n            \n            <li>\n                Check-in: 4:00 PM - 10:00 PM\n            </li>\n            <li>\n                Checkout: 11:00 AM\n            </li>\n            <li>\n                No smoking\n            </li>\n            <li>\n                No pets\n            </li>\n            <li>\n                No parties or events\n            </li>\n\n        </ul>\n        <h2> Health & Safety</h2>\n        <ul>\n            \n            <li>\n                Airbnb's social-distancing and other COVID-19-related guidelines apply\n            </li>\n            <li>\n\n                Carbon monoxide alarm not reported Show more\n            </li>\n            <li>\n                Smoke alarm not reported Show more\n            </li>\n            <li>\n                Security Deposit - if you damage the home, you may be charged up to \u20AA2500\n            </li>\n\n        </ul>\n        <div class=\"houseInfo__cancel\">\n            <h5>cancellation policy: " + data_1.cancel + "</h5>\n          \n\n        </div>\n\n    </div>";
         rootChosenAirbnb.innerHTML = html;
     }
     catch (error) {
@@ -196,14 +199,39 @@ function handleCities(ev) {
 }
 function handleCheckForUser() {
     return __awaiter(this, void 0, void 0, function () {
-        var data, username;
+        var data, username, role, userProfileButton, showUsersName, showSignOutOption, ownerPageOption, ownerPage;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, axios.get("/places/checkForUser")];
                 case 1:
                     data = (_a.sent()).data;
-                    username = data.username;
-                    console.log(username);
+                    username = data.username, role = data.role;
+                    console.log(username, role);
+                    if (username) {
+                        userProfileButton = document.querySelector(".navigation--user");
+                        showUsersName = document.querySelector("#theUsersName");
+                        showSignOutOption = document.querySelector("#signOut");
+                        ownerPageOption = document.querySelector("#toOwnerPage");
+                        if (role === "admin") {
+                            ownerPage = "owner.html";
+                            ownerPageOption.innerHTML = '<a href="' + ownerPage + '">Owner Page</a>';
+                            userProfileButton.style.backgroundColor = "#228B22";
+                            showSignOutOption.innerHTML = "SignOut";
+                        }
+                        else if (role === "host") {
+                            showUsersName.innerHTML = "" + username;
+                            showSignOutOption.innerHTML = "SignOut";
+                            userProfileButton.style.backgroundColor = "#66CDAA";
+                        }
+                        else {
+                            showUsersName.innerHTML = "" + username;
+                            showSignOutOption.innerHTML = "SignOut";
+                            userProfileButton.style.backgroundColor = "#3CB371";
+                        }
+                    }
+                    else {
+                        console.log("Username or Password or Role is incorrect");
+                    }
                     return [2 /*return*/];
             }
         });
@@ -216,7 +244,13 @@ function renderAirbnbOptions(data) {
         var rootAirbnbOptions_1 = document.querySelector("#rootAirbnbOptions");
         var html_1 = "";
         data.forEach(function (place) {
-            html_1 += " <div class=\"airbnbOptions__container\" onclick=\"handleGoToPlace('" + place._id + "')\">\n                      <div class=\"airbnbOptions__container__img\">\n                          <img src=\"" + place.images + "\">\n                      </div>\n                      <div class=\"airbnbOptions__container__content\">\n                          <div class=\"airbnbOptions__container__content__namePlace\">                                \n                              \n                                  <p>" + place.name + "</p>\n                          </div>\n                          <div class=\"airbnbOptions__container__content__description\">\n                              <p>" + place.bathrooms + " bathrooms\u00B7\n" + place.bedrooms + " bedrooms\u00B7" + place.beds + " beds\u00B7" + place.accommodates + " guests</p>\n                             \n                         \n                              " + place.amenities.map(function (amenity) { return "" + ((amenity.search(amenity) !== -1) ? amenity + "\u00B7 " : ''); }).join(' ') + "\n   \n                            \n                                                        \n                          </div>\n                        \n                          <div class=\"airbnbOptions__container__content__priceRating\">\n                              <button class=\"btn btn-outline\">\n                              \u20AA" + place.price + " night\n                              </button>\n                              <button class=\"btn btn-outline\">\n                                 \n                              \u2B50" + place.reviews_rating + "(" + place.number_of_reviews + " reviews)\n                                  \n\n                              </button>\n                          </div>\n\n                      </div>\n                  </div>";
+            html_1 += " <div class=\"airbnbOptions__container\" onclick=\"handleGoToPlace('" + place._id + "')\">\n                      <div class=\"airbnbOptions__container__img\">\n                          <img src=\"" + place.images + "\">\n                      </div>\n                      <div class=\"airbnbOptions__container__content\">\n                          <div class=\"airbnbOptions__container__content__namePlace\">                                \n                              \n                                  <p>" + place.name + "</p>\n                          </div>\n                          <div class=\"airbnbOptions__container__content__description\">\n                              <p>" + place.bathrooms + " bathrooms\u00B7\n" + place.bedrooms + " bedrooms\u00B7" + place.beds + " beds\u00B7" + place.accommodates + " guests</p>\n                             \n                         \n                              " + place.amenities
+                .map(function (amenity) {
+                return "" + (amenity.search(amenity) !== -1
+                    ? amenity + "\u00B7 "
+                    : "");
+            })
+                .join(" ") + "\n   \n                            \n                                                        \n                          </div>\n                        \n                          <div class=\"airbnbOptions__container__content__priceRating\">\n                              <button class=\"btn btn-outline\">\n                              \u20AA" + place.price + " night\n                              </button>\n                              <button class=\"btn btn-outline\">\n                                 \n                              \u2B50" + place.reviews_rating + "(" + place.number_of_reviews + " reviews)\n                                  \n\n                              </button>\n                          </div>\n\n                      </div>\n                  </div>";
             html_1 += "<br/>";
             rootAirbnbOptions_1.innerHTML = html_1;
         });
@@ -227,16 +261,16 @@ function renderAirbnbOptions(data) {
 }
 function handlePopupLogin() {
     var showPopupText = document.querySelector(".popupForm");
-    showPopupText.style.visibility = 'visible';
+    showPopupText.style.visibility = "visible";
     //showPopupText.style.visibility = ((showPopupText.style.visibility!='hidden') ? 'hidden' : 'visible');
 }
 function handleClosePopop() {
     var closePopupText = document.querySelector(".popupForm");
-    closePopupText.style.visibility = 'hidden';
+    closePopupText.style.visibility = "hidden";
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, role, data, showPopupText, userProfileButton, showUsersName, showSignOutOption;
+        var _a, username, password, role, data, showPopupText;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -254,25 +288,8 @@ function handleLogin(ev) {
                     data = (_b.sent()).data;
                     if (data.login) {
                         showPopupText = document.querySelector(".popupForm");
-                        userProfileButton = document.querySelector(".navigation--user");
                         showPopupText.style.visibility = "hidden";
-                        showUsersName = document.querySelector("#theUsersName");
-                        showSignOutOption = document.querySelector("#signOut");
-                        if (role === "admin") {
-                            window.location.href = "owner.html";
-                            userProfileButton.style.backgroundColor = "#228B22";
-                            showSignOutOption.innerHTML = "SignOut";
-                        }
-                        else if (role === "host") {
-                            showUsersName.innerHTML = "" + username;
-                            showSignOutOption.innerHTML = "SignOut";
-                            userProfileButton.style.backgroundColor = "#66CDAA";
-                        }
-                        else {
-                            showUsersName.innerHTML = "" + username;
-                            showSignOutOption.innerHTML = "SignOut";
-                            userProfileButton.style.backgroundColor = "#3CB371";
-                        }
+                        handleCheckForUser();
                     }
                     else {
                         console.log("Username or Password or Role is incorrect");
@@ -306,15 +323,8 @@ function handleRegister(ev) {
                         showPopupText.style.visibility = "hidden";
                         showUsersName = document.querySelector("#theUsersName");
                         showSignOutOption = document.querySelector("#signOut");
-                        if (role === "host") {
-                            showUsersName.innerHTML = "" + username;
-                            showSignOutOption.innerHTML = "SignOut";
-                            userProfileButton.style.backgroundColor = "#66CDAA";
-                        }
-                        else if (role === "guest") {
-                            showUsersName.innerHTML = "" + username;
-                            showSignOutOption.innerHTML = "SignOut";
-                            userProfileButton.style.backgroundColor = "#3CB371";
+                        if (role === "host" || role === "guest") {
+                            handleCheckForUser();
                         }
                         else {
                             console.log("can not register as admin ");
@@ -363,6 +373,7 @@ function handleGetUsers() {
                     users = data.users;
                     if (users) {
                         renderUsersToOwnerPage(users);
+                        handleCheckForUser();
                     }
                     return [3 /*break*/, 3];
                 case 2:

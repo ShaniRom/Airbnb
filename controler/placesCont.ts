@@ -1,7 +1,7 @@
 import Places from "../model/placesModel";
 
 
-const secret=process.env.JWT_SECRET
+
 
 export const getToPlace = async (req, res) => {
  
