@@ -285,20 +285,9 @@ body {
   cursor: pointer;
 }
 
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: green;
   }
 }
 .bottomBar {
