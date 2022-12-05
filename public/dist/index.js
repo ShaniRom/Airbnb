@@ -268,6 +268,10 @@ function handleClosePopop() {
     var closePopupText = document.querySelector(".popupForm");
     closePopupText.style.visibility = "hidden";
 }
+function handleKeepPopop() {
+    var showPopupText = document.querySelector(".popupForm");
+    showPopupText.style.visibility = "visible";
+}
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, username, password, role, data, showPopupText, error_3;

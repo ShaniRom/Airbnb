@@ -77,7 +77,7 @@
     
             <li class="navigation--user popup" onclick="handlePopupLogin()" ><img src="../images/visitorProfile.png">
               
-                <div class="popupForm" id="popupLogin" onmouseleave="handleClosePopop()">
+                <div class="popupForm" id="popupLogin" onmouseout="handleClosePopop()" onmouseover="handleKeepPopop()">
                 
                   <h1 class="popupForm--header">Welcome to Airbnb</h1>
                   <div class="popupForm__login">
@@ -124,6 +124,7 @@
             </li>
         </ul>
     </nav>
+    
     
 
 <div id="rootChosenAirbnb"> </div>

@@ -377,8 +377,17 @@ function handlePopupLogin() {
 }
 
 function handleClosePopop() {
-  const closePopupText: any = document.querySelector(".popupForm");
-  closePopupText.style.visibility = "hidden";
+  
+    const closePopupText: any = document.querySelector(".popupForm");
+    closePopupText.style.visibility = "hidden";
+  
+  
+}
+
+function handleKeepPopop() {
+  const showPopupText: any = document.querySelector(".popupForm");
+  showPopupText.style.visibility = "visible";
+  
 }
 
 async function handleLogin(ev) {
