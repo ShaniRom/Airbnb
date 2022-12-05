@@ -57,8 +57,7 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                         secret = process.env.JWT_SECRET;
                         payload = { username: username, id: user._id, role: role };
                         token = jwt_simple_1["default"].encode(payload, secret);
-                        res.cookie("userInfo", token, { maxAge: 200000, httpOnly: true });
-                        console.log(token);
+                        res.cookie("userInfo", token, { maxAge: 900000, httpOnly: true });
                         res.send({ ok: true, login: true });
                         return [2 /*return*/];
                     }
@@ -139,7 +138,6 @@ exports.loggedInUser = function (req, res, next) { return __awaiter(void 0, void
                 if (!secret)
                     throw new Error("no secret found in the server");
                 decoded = jwt_simple_1["default"].decode(userInfo, secret);
-                console.log(decoded.username);
                 res.send({ username: decoded.username, role: decoded.role });
             }
         }
@@ -156,12 +154,10 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
-                console.log(req.cookies);
                 console.log("user id is " + req.id + " and the role is " + req.role);
                 userInfo = req.cookies.userInfo;
                 secret = process.env.JWT_SECRET;
                 decoded = jwt_simple_1["default"].decode(userInfo, secret);
-                console.log(decoded);
                 if (!(decoded && decoded.role === "admin")) return [3 /*break*/, 2];
                 return [4 /*yield*/, usersModel_1["default"].find({ role: { $ne: "admin" } })];
             case 1:

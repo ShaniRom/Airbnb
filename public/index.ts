@@ -1,14 +1,14 @@
 const dateValue: any = document.querySelectorAll("#date");
-console.log(dateValue);
+
 
 const date = new Date();
 const todayDate = date.toISOString().slice(0, 10);
-console.log(todayDate);
+
 let dateArray = [...dateValue];
 
 dateArray.forEach((date) => {
   date.defaultValue = todayDate;
-  console.log((date.defaultValue = todayDate));
+  
 });
 
 function handleLoadPlaces() {
@@ -222,8 +222,8 @@ function getData() {
     } else {
       return [];
     }
-  } catch (err) {
-    console.log(err.message);
+  } catch (error) {
+    console.error(error.message);
   }
 }
 
@@ -259,7 +259,8 @@ async function handleFindAirbnb(ev) {
 
 async function handleCities(ev) {
   const city = ev.target.dataset.card;
-  console.log(city);
+
+  
 
   const { data } = await axios.post("/places/search-city", { city });
 
@@ -274,7 +275,8 @@ async function handleCities(ev) {
 async function handleCheckForUser() {
   const { data } = await axios.get("/places/checkForUser");
   const { username, role } = data;
-  console.log(username, role);
+
+  try{
   if (username) {
     const userProfileButton: any = document.querySelector(".navigation--user");
     const showUsersName: any = document.querySelector("#theUsersName");
@@ -284,7 +286,7 @@ async function handleCheckForUser() {
      
       
       const ownerPage = "owner.html";
-      ownerPageOption.innerHTML =  '<a href="' + ownerPage + '">Owner Page</a>';
+      ownerPageOption.innerHTML =  '<a href="' + ownerPage + '" class="ownerPageLink">Owner Page</a>';
       userProfileButton.style.backgroundColor = "#228B22";
       showSignOutOption.innerHTML = "SignOut";
     } else if (role === "host") {
@@ -298,7 +300,9 @@ async function handleCheckForUser() {
       userProfileButton.style.backgroundColor = "#3CB371";
     }
   } else {
-    console.log("Username or Password or Role is incorrect");
+    console.log("Username or Password or Role is incorrect");}
+  } catch (err) {
+    console.error(err.message);
   }
 }
 
@@ -379,6 +383,7 @@ function handleClosePopop() {
 
 async function handleLogin(ev) {
   ev.preventDefault();
+  try{
   let { username, password, role } = ev.target.elements;
   username = username.value;
   password = password.value;
@@ -396,8 +401,9 @@ async function handleLogin(ev) {
     showPopupText.style.visibility = "hidden";
 
     handleCheckForUser();
-  } else {
-    console.log("Username or Password or Role is incorrect");
+  } } catch (error) {
+    console.error(error.message);
+   
   }
 }
 
@@ -408,7 +414,7 @@ async function handleRegister(ev) {
   username = username.value;
   password = password.value;
   role = role.value;
-
+ try{
   const { data } = await axios.post("/users/add-User", {
     username,
     password,
@@ -417,10 +423,9 @@ async function handleRegister(ev) {
 
   if (data.register) {
     const showPopupText: any = document.querySelector(".popupForm");
-    const userProfileButton: any = document.querySelector(".navigation--user");
+
     showPopupText.style.visibility = "hidden";
-    const showUsersName: any = document.querySelector("#theUsersName");
-    const showSignOutOption: any = document.querySelector("#signOut");
+ 
 
     if (role === "host" || role === "guest" ) {
   
@@ -429,8 +434,8 @@ async function handleRegister(ev) {
     } else {
       console.log("can not register as admin ");
     }
-  } else {
-    console.log("Username or Password or Role is incorrect");
+  } } catch (err) {
+    console.error(err.message);
   }
 }
 
@@ -450,9 +455,10 @@ async function handleGetUsers() {
 
     const { data } = result;
     const { users } = data;
+    handleCheckForUser()
     if (users) {
       renderUsersToOwnerPage(users);
-      handleCheckForUser()
+      
     }
   } catch (err) {
     console.error(err.message);

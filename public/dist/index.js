@@ -42,14 +42,11 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 var dateValue = document.querySelectorAll("#date");
-console.log(dateValue);
 var date = new Date();
 var todayDate = date.toISOString().slice(0, 10);
-console.log(todayDate);
 var dateArray = __spreadArrays(dateValue);
 dateArray.forEach(function (date) {
     date.defaultValue = todayDate;
-    console.log((date.defaultValue = todayDate));
 });
 function handleLoadPlaces() {
     var data = getData();
@@ -140,8 +137,8 @@ function getData() {
             return [];
         }
     }
-    catch (err) {
-        console.log(err.message);
+    catch (error) {
+        console.error(error.message);
     }
 }
 function handleFindAirbnb(ev) {
@@ -183,7 +180,6 @@ function handleCities(ev) {
             switch (_a.label) {
                 case 0:
                     city = ev.target.dataset.card;
-                    console.log(city);
                     return [4 /*yield*/, axios.post("/places/search-city", { city: city })];
                 case 1:
                     data = (_a.sent()).data;
@@ -206,31 +202,35 @@ function handleCheckForUser() {
                 case 1:
                     data = (_a.sent()).data;
                     username = data.username, role = data.role;
-                    console.log(username, role);
-                    if (username) {
-                        userProfileButton = document.querySelector(".navigation--user");
-                        showUsersName = document.querySelector("#theUsersName");
-                        showSignOutOption = document.querySelector("#signOut");
-                        ownerPageOption = document.querySelector("#toOwnerPage");
-                        if (role === "admin") {
-                            ownerPage = "owner.html";
-                            ownerPageOption.innerHTML = '<a href="' + ownerPage + '">Owner Page</a>';
-                            userProfileButton.style.backgroundColor = "#228B22";
-                            showSignOutOption.innerHTML = "SignOut";
-                        }
-                        else if (role === "host") {
-                            showUsersName.innerHTML = "" + username;
-                            showSignOutOption.innerHTML = "SignOut";
-                            userProfileButton.style.backgroundColor = "#66CDAA";
+                    try {
+                        if (username) {
+                            userProfileButton = document.querySelector(".navigation--user");
+                            showUsersName = document.querySelector("#theUsersName");
+                            showSignOutOption = document.querySelector("#signOut");
+                            ownerPageOption = document.querySelector("#toOwnerPage");
+                            if (role === "admin") {
+                                ownerPage = "owner.html";
+                                ownerPageOption.innerHTML = '<a href="' + ownerPage + '" class="ownerPageLink">Owner Page</a>';
+                                userProfileButton.style.backgroundColor = "#228B22";
+                                showSignOutOption.innerHTML = "SignOut";
+                            }
+                            else if (role === "host") {
+                                showUsersName.innerHTML = "" + username;
+                                showSignOutOption.innerHTML = "SignOut";
+                                userProfileButton.style.backgroundColor = "#66CDAA";
+                            }
+                            else {
+                                showUsersName.innerHTML = "" + username;
+                                showSignOutOption.innerHTML = "SignOut";
+                                userProfileButton.style.backgroundColor = "#3CB371";
+                            }
                         }
                         else {
-                            showUsersName.innerHTML = "" + username;
-                            showSignOutOption.innerHTML = "SignOut";
-                            userProfileButton.style.backgroundColor = "#3CB371";
+                            console.log("Username or Password or Role is incorrect");
                         }
                     }
-                    else {
-                        console.log("Username or Password or Role is incorrect");
+                    catch (err) {
+                        console.error(err.message);
                     }
                     return [2 /*return*/];
             }
@@ -270,11 +270,14 @@ function handleClosePopop() {
 }
 function handleLogin(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, role, data, showPopupText;
+        var _a, username, password, role, data, showPopupText, error_3;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     ev.preventDefault();
+                    _b.label = 1;
+                case 1:
+                    _b.trys.push([1, 3, , 4]);
                     _a = ev.target.elements, username = _a.username, password = _a.password, role = _a.role;
                     username = username.value;
                     password = password.value;
@@ -284,24 +287,26 @@ function handleLogin(ev) {
                             password: password,
                             role: role
                         })];
-                case 1:
+                case 2:
                     data = (_b.sent()).data;
                     if (data.login) {
                         showPopupText = document.querySelector(".popupForm");
                         showPopupText.style.visibility = "hidden";
                         handleCheckForUser();
                     }
-                    else {
-                        console.log("Username or Password or Role is incorrect");
-                    }
-                    return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_3 = _b.sent();
+                    console.error(error_3.message);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });
 }
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, role, data, showPopupText, userProfileButton, showUsersName, showSignOutOption;
+        var _a, username, password, role, data, showPopupText, err_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -310,19 +315,19 @@ function handleRegister(ev) {
                     username = username.value;
                     password = password.value;
                     role = role.value;
+                    _b.label = 1;
+                case 1:
+                    _b.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, axios.post("/users/add-User", {
                             username: username,
                             password: password,
                             role: role
                         })];
-                case 1:
+                case 2:
                     data = (_b.sent()).data;
                     if (data.register) {
                         showPopupText = document.querySelector(".popupForm");
-                        userProfileButton = document.querySelector(".navigation--user");
                         showPopupText.style.visibility = "hidden";
-                        showUsersName = document.querySelector("#theUsersName");
-                        showSignOutOption = document.querySelector("#signOut");
                         if (role === "host" || role === "guest") {
                             handleCheckForUser();
                         }
@@ -330,17 +335,19 @@ function handleRegister(ev) {
                             console.log("can not register as admin ");
                         }
                     }
-                    else {
-                        console.log("Username or Password or Role is incorrect");
-                    }
-                    return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 3:
+                    err_1 = _b.sent();
+                    console.error(err_1.message);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });
 }
 function handleSignOut() {
     return __awaiter(this, void 0, void 0, function () {
-        var result, err_1;
+        var result, err_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -351,8 +358,8 @@ function handleSignOut() {
                     window.location.reload();
                     return [3 /*break*/, 3];
                 case 2:
-                    err_1 = _a.sent();
-                    console.error(err_1.message);
+                    err_2 = _a.sent();
+                    console.error(err_2.message);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
@@ -361,7 +368,7 @@ function handleSignOut() {
 }
 function handleGetUsers() {
     return __awaiter(this, void 0, void 0, function () {
-        var result, data, users, err_2;
+        var result, data, users, err_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -371,14 +378,14 @@ function handleGetUsers() {
                     result = _a.sent();
                     data = result.data;
                     users = data.users;
+                    handleCheckForUser();
                     if (users) {
                         renderUsersToOwnerPage(users);
-                        handleCheckForUser();
                     }
                     return [3 /*break*/, 3];
                 case 2:
-                    err_2 = _a.sent();
-                    console.error(err_2.message);
+                    err_3 = _a.sent();
+                    console.error(err_3.message);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }

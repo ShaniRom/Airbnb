@@ -43,14 +43,12 @@ exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, v
     return __generator(this, function (_a) {
         try {
             userInfo = req.cookies.userInfo;
-            console.log(userInfo);
             if (!userInfo)
                 throw new Error('"userInfo" not found ');
             secret = process.env.JWT_secret;
             if (!secret)
                 throw new Error("no secret found in the server");
             decoded = jwt_simple_1["default"].decode(userInfo, secret);
-            console.log(decoded);
             if (decoded.role === "admin") {
                 req.role = "admin";
                 //req.id=decoded.id
@@ -58,10 +56,11 @@ exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, v
             }
             else {
                 res.status(403).send({ error: "user is not authorized to see users" });
+                console.log("user is not authorized to see users");
             }
         }
         catch (error) {
-            console.log("error is in isAdmin", error.message);
+            console.error("error is in isAdmin", error.message);
             res.send({ error: error.message });
         }
         return [2 /*return*/];
@@ -84,7 +83,7 @@ exports.getId = function (req, res, next) { return __awaiter(void 0, void 0, voi
             next();
         }
         catch (error) {
-            console.log(error.message);
+            console.error(error.message);
             next();
         }
         return [2 /*return*/];

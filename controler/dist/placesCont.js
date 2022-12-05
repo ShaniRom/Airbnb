@@ -45,20 +45,18 @@ exports.getToPlace = function (req, res) { return __awaiter(void 0, void 0, void
             case 0:
                 _a.trys.push([0, 4, , 5]);
                 placeId = req.params.placeId;
-                console.log(placeId);
                 if (!placeId) return [3 /*break*/, 2];
                 return [4 /*yield*/, placesModel_1["default"].findOne({ _id: placeId })];
             case 1:
                 getplaces = _a.sent();
-                console.log(getplaces);
                 res.send(getplaces);
                 return [3 /*break*/, 3];
             case 2: throw new Error("placeId is not the same as the __id");
             case 3: return [3 /*break*/, 5];
             case 4:
                 error_1 = _a.sent();
-                console.log(error_1.error);
-                res.send({ error: error_1.massage });
+                console.error(error_1.message);
+                res.send({ error: error_1.message });
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
         }
@@ -71,9 +69,7 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.query, searchLocation = _a.searchLocation, checkIn = _a.checkIn, checkOut = _a.checkOut, adults = _a.adults, children = _a.children, infants = _a.infants, pets = _a.pets;
-                console.log(searchLocation, checkIn, checkOut, adults, children, infants, pets);
                 sum = Number(adults) + Number(children) + Number(infants) + Number(pets);
-                console.log("the number of guests:" + sum);
                 dateOfCheckIn = new Date("" + checkIn);
                 dateOfCheckOut = new Date("" + checkOut);
                 differenceInTime = dateOfCheckOut.getTime() - dateOfCheckIn.getTime();
@@ -91,7 +87,7 @@ exports.searchAirbnb = function (req, res) { return __awaiter(void 0, void 0, vo
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _b.sent();
-                console.log(error_2.error);
+                console.error(error_2.message);
                 res.send({ error: error_2.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];

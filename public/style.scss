@@ -297,8 +297,6 @@ body {
 
 
 
-}
-
 #signOut{
     
     text-decoration: underline;
@@ -308,6 +306,30 @@ body {
 
     }
 }
+ a{
+        text-decoration: none;
+        color:#3CB371;
+          
+          /* visited link */
+          &:visited {
+            color:  #3CB371;
+          }
+          
+          /* mouse over link */
+          &:hover {
+            color:"#3CB371";
+           
+          }
+          
+          /* selected link */
+          &:active {
+            color:rgb(168, 246, 176);
+          }
+        
+    }
+}
+    
+    
 
 .popup {
     position: relative;
@@ -1094,8 +1116,12 @@ body {
     }
 
     &__usersList {
-        display: flex;
-        flex-direction: row;
+        // display: flex;
+        // flex-direction: row;
+        display:grid;
+        // grid-template-columns:repeat (3,1fr) ;
+        // grid-template-rows: auto;
+        grid-template-columns: auto auto auto;
 
 
     }
@@ -1105,6 +1131,11 @@ body {
         padding: 10px;
         border-radius: 10px;
         border: #DDDDDD solid 1px;
+        &:hover {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+          
+
+        }
 
         input {
             border-radius: 12px;
@@ -1133,6 +1164,11 @@ body {
             color: white;
             border-radius: 10px;
             cursor: pointer;
+            &:hover {
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
+                background-color: rgb(157, 255, 169);
+    
+            }
     
         }
     }
