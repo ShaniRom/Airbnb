@@ -7,12 +7,13 @@ body {
 
 
 }
-@include tablet{
- 
-    .navigation:hover  #searchForm {
+
+@include tablet {
+
+    .navigation:hover #searchForm {
         visibility: visible;
-       
-      }
+
+    }
 }
 
 
@@ -24,7 +25,7 @@ body {
     flex-direction: column;
     padding: 8px;
     margin-bottom: 15px;
- 
+
 
 
 
@@ -45,21 +46,23 @@ body {
             bottom: -10px;
             width: 130px;
             height: 40px;
-         
-    
+
+
         }
 
 
 
-       
+
 
 
     }
-    @include tablet{
-        #searchForm{
+
+    @include tablet {
+        #searchForm {
             visibility: hidden;
         }
     }
+
     form {
         padding: 2px;
         border: grey 0.5px solid;
@@ -76,18 +79,32 @@ body {
         @include tablet {
             transition: ease 2s;
             width: 620px;
-            height:160px;
+            height: 160px;
             position: absolute;
-            z-index: 1;          
+            z-index: 1;
             display: inline-grid;
             grid-template-columns: repeat(3, 170px);
-            justify-content: space-between;           
-            gap:5px;
-            top:80px;
-            left:50px;
+            justify-content: space-between;
+            gap: 5px;
+            top: 80px;
+            left: 50px;
             background-color: #DDDDDD;
-           
-            
+
+
+
+        }
+
+        @include mobile {
+
+
+            width: 500px;
+            grid-template-columns: repeat(3, 150px);
+            gap: 1px;
+            top: 85px;
+            left: 45px;
+
+
+
 
         }
 
@@ -104,28 +121,43 @@ body {
 
 
         }
-       
-    
+
+
 
         .form {
-           
-          
+
+
 
             &--searchLocation {
                 padding-left: 20px;
                 height: 48px;
                 border-radius: 28px;
                 width: 160px;
+
                 //border: solid 1px white;
                 @include tablet {
-                    padding-left:10px;
-                    margin-left:18px;
+                    padding-left: 10px;
+                    margin-left: 18px;
                     width: 100%;
                     height: 40px;
                     font-size: larger;
-                     
-         
-                 }
+
+
+                }
+
+                @include mobile {
+
+
+                    padding-left: 8px;
+                    margin-left: 12px;
+                    width: 80%;
+
+
+
+
+
+
+                }
 
 
                 &:hover {
@@ -150,11 +182,19 @@ body {
                     }
 
                     @include tablet {
-                       
-                        width:80%;
-                        
-                         
-             
+
+                        width: 80%;
+
+
+
+                    }
+
+                    @include mobile {
+
+                        width: 80%;
+
+
+
                     }
 
 
@@ -169,17 +209,32 @@ body {
                 width: 150px;
                 padding-left: 20px;
                 border-radius: 28px;
-                 @include tablet {
-                  
-                    padding-left:5px;
-                    margin-left:18px;
+
+                @include tablet {
+
+                    padding-left: 5px;
+                    margin-left: 18px;
                     width: 100%;
                     height: 40px;
                     font-size: larger;
-               
-                     
-         
-                 }
+
+
+
+                }
+
+                @include mobile {
+
+
+                    padding-left: 0px;
+                    margin-left: 0px;
+                    width: 70%;
+
+
+
+
+
+
+                }
 
                 &:hover {
 
@@ -209,17 +264,32 @@ body {
                 width: 150px;
                 padding-left: 20px;
                 border-radius: 28px;
+
                 @include tablet {
-                  
-                    padding-left:5px;
-                   
-                    width:150px;
+
+                    padding-left: 5px;
+
+                    width: 150px;
                     height: 40px;
                     font-size: larger;
-               
-                     
-         
-                 }
+
+
+
+                }
+
+                @include mobile {
+
+
+                    padding-left: 0px;
+                    margin-left: 0px;
+                    width: 70%;
+
+
+
+
+
+
+                }
 
 
                 &:hover {
@@ -250,16 +320,23 @@ body {
                 width: 100px;
                 padding-left: 20px;
                 border-radius: 28px;
-               
+
                 @include tablet {
-                    
-                    margin-left:18px;
+
+                    margin-left: 18px;
                     width: 100%;
                     font-size: larger;
-               
-                     
-         
-                 }
+
+
+
+                }
+
+                @include mobile {
+
+                    margin-left: 18px;
+                    width: 70%;
+
+                }
 
                 span {
                     font-weight: lighter;
@@ -269,10 +346,10 @@ body {
 
 
                 &:hover {
-                    
+
                     border: solid 1px rgb(226, 226, 226);
                     background-color: rgb(226, 226, 226);
-                 
+
 
                 }
 
@@ -290,6 +367,14 @@ body {
                     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
                     z-index: 1;
                     padding: 15px;
+
+                    @include mobile {
+                        top: 2px;
+                        display: grid;
+                        grid-template-columns: repeat(2, 60px);
+                        grid-template-rows: repeat(4, 60px);
+
+                    }
 
                     label {
 
@@ -328,13 +413,21 @@ body {
                 text-align: center;
                 transition: ease 2s;
                 cursor: pointer;
+
                 @include tablet {
-                    
+
                     width: 50%;
                     height: 32px;
-                 
-         
-                 }
+
+
+                }
+
+                @include mobile {
+
+
+                    width: 70%;
+
+                }
 
                 &:hover {
                     background-color: rgb(103, 213, 116);
@@ -389,7 +482,7 @@ body {
         }
     }
 
-  
+
 
     #signOut {
 
@@ -405,18 +498,18 @@ body {
         text-decoration: none;
         color: #3CB371;
 
-        /* visited link */
+
         &:visited {
             color: #3CB371;
         }
 
-        /* mouse over link */
+
         &:hover {
             color: "#3CB371";
 
         }
 
-        /* selected link */
+
         &:active {
             color: rgb(168, 246, 176);
         }
@@ -452,12 +545,13 @@ body {
         align-items: center;
         width: 50%;
         border: #dddddd solid 2px;
-        
+
         @include tablet {
-            width: 80%;           
-                     
+            width: 80%;
+
 
         }
+
 
         &#popupLogin {
             position: absloute;
@@ -465,24 +559,25 @@ body {
             backdrop-filter: blur(10px);
             height: 55%;
 
-            
+
             @include tablet {
-                height: 30%;        
-                         
-    
+                height: 30%;
+
+
             }
 
         }
 
         &--header {
 
-            // text-align: left;
+
             padding: 2px;
             border-bottom: #dddddd solid 2px;
             width: 750px;
-            @include tablet{
-                width:250px;
-                
+
+            @include tablet {
+                width: 250px;
+
 
             }
         }
@@ -495,13 +590,22 @@ body {
             padding: 2px;
             margin-bottom: 10px;
             border-bottom: #c7c4c4 solid 2px;
-            @include tablet{
-                width:500px;
+
+            @include tablet {
+                width: 500px;
                 text-align: center;
                 margin-bottom: 5px;
-                
-                
-                
+
+
+
+
+            }
+
+            @include mobile {
+                width: 450px;
+                margin-left: 25px;
+
+
 
             }
 
@@ -518,31 +622,41 @@ body {
             height: 50px;
             border: none;
             align-items: center;
+
             @include tablet {
                 transition: ease 2s;
                 width: 500px;
-               // height:160px;
+
                 position: relative;
-               // z-index: 1;          
-                // display: grid;
-                // grid-template-columns: repeat(2, 50px);
-                //justify-content: space-between;           
-                // column-gap: 9px;
-                top:10px;
-                left:0px;
-                
-               
-                
-    
+
+                top: 10px;
+                left: 0px;
+
+
+
+
             }
-          
+
+            @include mobile {
+
+                width: 450px;
+
+
+
+                left: 10px;
+
+
+
+            }
+
 
             input {
                 border-radius: 10px;
                 height: 30px;
                 border: #dddddd solid 2px;
-                @include tablet{
-                    width:100px;
+
+                @include tablet {
+                    width: 100px;
                 }
             }
 
@@ -559,8 +673,9 @@ body {
                     background-color: rgb(157, 255, 169);
 
                 }
-                @include tablet{
-                    width:100px;
+
+                @include tablet {
+                    width: 100px;
                 }
             }
 
@@ -569,8 +684,9 @@ body {
                 height: 30px;
                 border: #dddddd solid 2px;
                 cursor: pointer;
-                @include tablet{
-                    width:100px;
+
+                @include tablet {
+                    width: 100px;
                     height: 40px;
                 }
 
@@ -756,7 +872,7 @@ body {
             transform: translate(-50%, -50%);
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
             transition: .4s ease;
-            
+
             @include tablet {
                 top: 30%;
 
@@ -794,6 +910,10 @@ body {
         margin-bottom: 10%;
         margin-left: 5%;
         margin-right: 5%;
+        @include mobile {
+            margin-left: 10%;
+
+        }
 
         &__text {
             text-align: left;
@@ -803,6 +923,7 @@ body {
                 text-align: center;
 
             }
+          
         }
 
 
@@ -813,8 +934,19 @@ body {
             flex-direction: row;
             gap: 10px;
             justify-content: space-between;
+
             @include tablet {
                 height: 30vh;
+
+            }
+
+            @include mobile {
+                display: grid;
+                grid-template-columns: repeat(2, 300px);
+                row-gap: 2px;
+                column-gap: 2px;
+                grid-template-rows: repeat(2, 200px);
+               
 
             }
 
@@ -827,6 +959,12 @@ body {
                 gap: 15px;
                 transition: 0.3s ease-in-out;
 
+                @include mobile {
+                    width: 30vw;
+                    height: 15vh;
+
+
+                }
 
                 &:hover {
                     transform: scale(1.1);
@@ -958,12 +1096,20 @@ body {
         img {
             width: 100%;
             height: 500px;
+
             @include tablet {
-                
+
                 width: 500px;
                 height: 400px;
-           
+
             }
+            @include mobile {
+
+                width:350px;
+                height: 350px;
+
+            }
+            
         }
     }
 
@@ -1060,18 +1206,24 @@ body {
     }
 
     #map {
-    
-        iframe{
-            width:600px;
-            height:450px;
-            border:0px;
+
+        iframe {
+            width: 600px;
+            height: 450px;
+            border: 0px;
+
             @include tablet {
-                width:450px;
-              
-           
+                width: 450px;
+
+
+            }
+            @include mobile {
+
+                width: 320px;
+
             }
         }
-        
+
 
         .map-control {
             background-color: #fff;
@@ -1172,20 +1324,25 @@ body {
     margin: auto;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    
+
     @include tablet {
-        
-        grid-template-columns: repeat(1, 500px); 
-            
-   
-       }
+
+        grid-template-columns: repeat(1, 1fr);
+
+
+    }
+    
+
 
     &__grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr;
         column-gap: 20px;
-
+        @include mobile {
+            grid-template-columns: repeat(1, 1fr);
+      
+          }
         &--map {
 
             width: 50%;
@@ -1200,7 +1357,11 @@ body {
                 left: 15px;
                 object-fit: cover;
 
-
+                @include mobile {
+                    grid-template-columns: repeat(1, 500px);
+                    left: 0px;
+              
+                  }
 
             }
         }
@@ -1228,7 +1389,12 @@ body {
         overflow: hidden;
         display: flex;
         flex-direction: row-reverse;
+        @include mobile {
+            width:500px;
+            
     
+        }
+
 
         &__img {
             border-radius: .25em;
@@ -1294,15 +1460,15 @@ body {
         }
     }
 
-   
 
 
-    @media only screen and (max-width: 600px) {
 
-        margin: 30px;
-        grid-template-columns: repeat(1, 1fr);
+    // @media only screen and (max-width: 600px) {
 
-    }
+    //     margin: 30px;
+    //     grid-template-columns: repeat(1, 1fr);
+
+    // }
 }
 
 ///-----------------owner.html

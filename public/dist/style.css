@@ -65,6 +65,15 @@ body {
     background-color: #DDDDDD;
   }
 }
+@media only screen and (max-width: 600px) {
+  .navigation form {
+    width: 500px;
+    grid-template-columns: repeat(3, 150px);
+    gap: 1px;
+    top: 85px;
+    left: 45px;
+  }
+}
 .navigation form:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -87,6 +96,13 @@ body {
     font-size: larger;
   }
 }
+@media only screen and (max-width: 600px) {
+  .navigation form .form--searchLocation {
+    padding-left: 8px;
+    margin-left: 12px;
+    width: 80%;
+  }
+}
 .navigation form .form--searchLocation:hover {
   border: solid 1px #e2e2e2;
   background-color: #e2e2e2;
@@ -104,6 +120,11 @@ body {
     width: 80%;
   }
 }
+@media only screen and (max-width: 600px) {
+  .navigation form .form--searchLocation input {
+    width: 80%;
+  }
+}
 .navigation form .form--checkIn {
   height: 50px;
   width: 150px;
@@ -117,6 +138,13 @@ body {
     width: 100%;
     height: 40px;
     font-size: larger;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .navigation form .form--checkIn {
+    padding-left: 0px;
+    margin-left: 0px;
+    width: 70%;
   }
 }
 .navigation form .form--checkIn:hover {
@@ -145,6 +173,13 @@ body {
     font-size: larger;
   }
 }
+@media only screen and (max-width: 600px) {
+  .navigation form .form--checkOut {
+    padding-left: 0px;
+    margin-left: 0px;
+    width: 70%;
+  }
+}
 .navigation form .form--checkOut:hover {
   border: solid 1px #e2e2e2;
   background-color: #e2e2e2;
@@ -170,6 +205,12 @@ body {
     font-size: larger;
   }
 }
+@media only screen and (max-width: 600px) {
+  .navigation form .form--guests {
+    margin-left: 18px;
+    width: 70%;
+  }
+}
 .navigation form .form--guests span {
   font-weight: lighter;
   color: grey;
@@ -191,6 +232,14 @@ body {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   padding: 15px;
+}
+@media only screen and (max-width: 600px) {
+  .navigation form .form--guests .dropdown {
+    top: 2px;
+    display: grid;
+    grid-template-columns: repeat(2, 60px);
+    grid-template-rows: repeat(4, 60px);
+  }
 }
 .navigation form .form--guests .dropdown label {
   font-size: 14px;
@@ -222,6 +271,11 @@ body {
   .navigation form .form--searchIcon {
     width: 50%;
     height: 32px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .navigation form .form--searchIcon {
+    width: 70%;
   }
 }
 .navigation form .form--searchIcon:hover {
@@ -266,9 +320,6 @@ body {
 .navigation a {
   text-decoration: none;
   color: #3CB371;
-  /* visited link */
-  /* mouse over link */
-  /* selected link */
 }
 .navigation a:visited {
   color: #3CB371;
@@ -345,6 +396,12 @@ body {
     margin-bottom: 5px;
   }
 }
+@media only screen and (max-width: 600px) {
+  .popup .popupForm__label {
+    width: 450px;
+    margin-left: 25px;
+  }
+}
 .popup .popupForm form {
   display: flex;
   padding: 5px;
@@ -360,6 +417,12 @@ body {
     position: relative;
     top: 10px;
     left: 0px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .popup .popupForm form {
+    width: 450px;
+    left: 10px;
   }
 }
 .popup .popupForm form input {
@@ -531,6 +594,11 @@ body {
   margin-left: 5%;
   margin-right: 5%;
 }
+@media only screen and (max-width: 600px) {
+  .mainPage__citySuggestions {
+    margin-left: 10%;
+  }
+}
 .mainPage__citySuggestions__text {
   text-align: left;
 }
@@ -552,6 +620,15 @@ body {
     height: 30vh;
   }
 }
+@media only screen and (max-width: 600px) {
+  .mainPage__citySuggestions__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    row-gap: 2px;
+    column-gap: 2px;
+    grid-template-rows: repeat(2, 200px);
+  }
+}
 .mainPage__citySuggestions__cards__card {
   border-radius: 10px;
   width: 70vw;
@@ -559,6 +636,12 @@ body {
   flex-direction: column;
   gap: 15px;
   transition: 0.3s ease-in-out;
+}
+@media only screen and (max-width: 600px) {
+  .mainPage__citySuggestions__cards__card {
+    width: 30vw;
+    height: 15vh;
+  }
 }
 .mainPage__citySuggestions__cards__card:hover {
   transform: scale(1.1);
@@ -662,6 +745,12 @@ body {
     height: 400px;
   }
 }
+@media only screen and (max-width: 600px) {
+  #rootChosenAirbnb .mainUpper img {
+    width: 350px;
+    height: 350px;
+  }
+}
 #rootChosenAirbnb .mainMiddle {
   display: flex;
   gap: 5px;
@@ -731,6 +820,11 @@ body {
 @media only screen and (max-width: 768px) {
   #rootChosenAirbnb #map iframe {
     width: 450px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #rootChosenAirbnb #map iframe {
+    width: 320px;
   }
 }
 #rootChosenAirbnb #map .map-control {
@@ -808,7 +902,7 @@ body {
 }
 @media only screen and (max-width: 768px) {
   .airbnbOptions {
-    grid-template-columns: repeat(1, 500px);
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 .airbnbOptions__grid {
@@ -816,6 +910,11 @@ body {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
   column-gap: 20px;
+}
+@media only screen and (max-width: 600px) {
+  .airbnbOptions__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .airbnbOptions__grid--map {
   width: 50%;
@@ -828,6 +927,12 @@ body {
   position: relative;
   left: 15px;
   object-fit: cover;
+}
+@media only screen and (max-width: 600px) {
+  .airbnbOptions__grid--map iframe {
+    grid-template-columns: repeat(1, 500px);
+    left: 0px;
+  }
 }
 .airbnbOptions button {
   color: black;
@@ -846,6 +951,11 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: row-reverse;
+}
+@media only screen and (max-width: 600px) {
+  .airbnbOptions__container {
+    width: 500px;
+  }
 }
 .airbnbOptions__container__img {
   border-radius: 0.25em;
@@ -893,12 +1003,6 @@ body {
   padding-top: 0;
   display: flex;
   justify-content: space-between;
-}
-@media only screen and (max-width: 600px) {
-  .airbnbOptions {
-    margin: 30px;
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 
 .owner {
