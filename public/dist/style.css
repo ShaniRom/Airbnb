@@ -464,16 +464,6 @@ body {
   }
 }
 
-@media only screen and (max-width: 768px) {
-  body {
-    background-color: green;
-  }
-}
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: #150080;
-  }
-}
 .bottomBar {
   background-color: #eeebeb;
   color: black;

@@ -705,33 +705,6 @@ body {
 
 
 
-@include tablet {
-
-    body {
-        background-color: green;
-
-    }
-
-}
-
-@media only screen and (max-width: 600px) {
-
-    body {
-        background-color: rgb(21, 0, 128);
-
-
-    }
-
-
-}
-
-
-
-
-
-
-
-
 .bottomBar {
 
     background-color: rgb(238, 235, 235);
@@ -1481,12 +1454,7 @@ body {
 
 
 
-    // @media only screen and (max-width: 600px) {
-
-    //     margin: 30px;
-    //     grid-template-columns: repeat(1, 1fr);
-
-    // }
+  
 }
 
 ///-----------------owner.html
