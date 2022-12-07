@@ -1325,12 +1325,12 @@ body {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
 
-    @include tablet {
+    // @include tablet {
 
-        grid-template-columns: repeat(1, 1fr);
+    //     grid-template-columns: repeat(1, 1fr);
 
 
-    }
+    // }
     
 
 
@@ -1339,6 +1339,12 @@ body {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr;
         column-gap: 20px;
+        @include tablet {
+
+            grid-template-columns: repeat(1, 1fr);
+
+
+    }
         @include mobile {
             grid-template-columns: repeat(1, 1fr);
       
@@ -1356,10 +1362,16 @@ body {
                 position: relative;
                 left: 15px;
                 object-fit: cover;
+                
 
+                @include tablet {
+                    grid-template-columns: repeat(1, 300px);
+                    left: 0px;
+              
+                  }
                 @include mobile {
                     grid-template-columns: repeat(1, 500px);
-                    left: 0px;
+                   
               
                   }
 
@@ -1389,8 +1401,14 @@ body {
         overflow: hidden;
         display: flex;
         flex-direction: row-reverse;
-        @include mobile {
+        @include tablet {
             width:500px;
+            
+    
+        }
+        @include mobile {
+            width:300px;
+            height:250px;
             
     
         }
