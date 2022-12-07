@@ -1,3 +1,5 @@
+@import 'media_queries';
+
 body {
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
     margin: 0;
@@ -19,6 +21,7 @@ body {
 
 
 
+
     ul {
         display: flex;
         align-items: center;
@@ -35,7 +38,13 @@ body {
             bottom: -10px;
             width: 130px;
             height: 40px;
+         
+    
         }
+
+
+
+       
 
 
     }
@@ -47,10 +56,21 @@ body {
         height: 50px;
         border-radius: 50px;
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         letter-spacing: 0.5px;
         transition: ease 0.5s;
+
+        @include tablet {
+            width: 300px;
+            flex-direction: column;
+            gap: 25px;
+           
+            
+
+        }
+
 
         &:hover {
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -68,7 +88,7 @@ body {
 
         .form {
 
-
+          
 
             &--searchLocation {
                 padding-left: 20px;
@@ -268,7 +288,7 @@ body {
     &--greeting {
         font-weight: bold;
         letter-spacing: 0.5px;
-       
+
     }
 
     &--user {
@@ -297,39 +317,40 @@ body {
 
 
 
-#signOut{
-    
-    text-decoration: underline;
-    
-    &:hover{
-        color:rgb(103, 213, 116);
+    #signOut {
+
+        text-decoration: underline;
+
+        &:hover {
+            color: rgb(103, 213, 116);
+
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: #3CB371;
+
+        /* visited link */
+        &:visited {
+            color: #3CB371;
+        }
+
+        /* mouse over link */
+        &:hover {
+            color: "#3CB371";
+
+        }
+
+        /* selected link */
+        &:active {
+            color: rgb(168, 246, 176);
+        }
 
     }
 }
- a{
-        text-decoration: none;
-        color:#3CB371;
-          
-          /* visited link */
-          &:visited {
-            color:  #3CB371;
-          }
-          
-          /* mouse over link */
-          &:hover {
-            color:"#3CB371";
-           
-          }
-          
-          /* selected link */
-          &:active {
-            color:rgb(168, 246, 176);
-          }
-        
-    }
-}
-    
-    
+
+
 
 .popup {
     position: relative;
@@ -442,21 +463,39 @@ body {
 }
 
 
-@media only screen and (max-width: 768px) {
+// @media only screen and (max-width: 768px) {
 
-body{
-    background-color: green;
-}
-   
-
-}
-
-// @media only screen and (max-width: 600px) {
-
-//     margin: 30px;
-//     grid-template-columns: repeat(1, 1fr);
+// body{
+//     background-color: green;
 
 // }
+//   .navigation{
+//         display: flex;
+//         flex-direction: row;
+//     }
+
+
+// }
+
+@include tablet {
+
+    body {
+        background-color: green;
+
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        background-color: rgb(21, 0, 128);
+
+
+    }
+
+
+}
 
 
 
@@ -475,6 +514,15 @@ body{
     margin-top: 2em;
     width: 100%;
 
+    @include tablet {
+
+
+        font-size: smaller;
+        gap: 5px;
+
+
+    }
+
 
 
     &__title {
@@ -487,6 +535,15 @@ body{
 
         width: 30px;
         height: 30px;
+
+        @include tablet {
+
+
+            width: 40px;
+            height: 40px;
+
+
+        }
     }
 
     &__about {
@@ -545,6 +602,15 @@ body{
     margin-left: 5px;
     font-weight: lighter;
 
+    @include tablet {
+
+
+        font-size: medium;
+
+        margin-left: 0px;
+
+    }
+
 
 
 }
@@ -566,10 +632,16 @@ body{
         margin-left: 5%;
         margin-right: 5%;
 
+        @include tablet {
+            margin-top: 200px;
+
+
+        }
+
+
         &--title {
             position: absolute;
             color: white;
-
             font-size: calc(1.5rem + 1vw);
             margin: 0;
             top: 70%;
@@ -579,6 +651,11 @@ body{
             transform: translate(-50%, -50%);
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
             transition: .4s ease;
+
+            @include tablet {
+                top: 50%;
+
+            }
 
             &:hover {
                 color: black;
@@ -594,7 +671,7 @@ body{
             width: 500%;
 
             margin: 0;
-            animation: 20s slider infinite;
+            animation: 25s slider infinite;
             display: flex;
 
             img {
@@ -613,6 +690,17 @@ body{
         margin-left: 5%;
         margin-right: 5%;
 
+        &__text {
+            text-align: left;
+
+            @include tablet {
+                letter-spacing: 1px;
+                text-align: center;
+
+            }
+        }
+
+
         &__cards {
 
             height: 50vh;
@@ -625,13 +713,10 @@ body{
 
             &__card {
                 border-radius: 10px;
-
-
                 width: 70vw;
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
-
                 transition: 0.3s ease-in-out;
 
 
@@ -647,6 +732,11 @@ body{
                     border-top-left-radius: 10px;
                     width: 100%;
                     height: 50%;
+
+                    @include tablet {
+                        height: 45%;
+
+                    }
                 }
 
                 .description {
@@ -654,10 +744,24 @@ body{
                     padding-left: 5px;
                     color: white;
 
+
                     h3 {
                         font-weight: lighter;
                     }
 
+                    @include tablet {
+                        font-size: 11px;
+                        text-align: center;
+                        padding-left: 0px;
+                        padding-bottom: 5px;
+
+                        h3 {
+                            font-weight: bolder;
+                            font-size: 15px;
+
+                        }
+
+                    }
                 }
 
                 &:nth-child(1) {
@@ -742,9 +846,10 @@ body{
             border-radius: 10px;
             padding: 10px;
         }
-        img{
-            width:100%;
-            height:500px; 
+
+        img {
+            width: 100%;
+            height: 500px;
         }
     }
 
@@ -999,7 +1104,7 @@ body{
             overflow: hidden;
             /* the image no longer overflows the card*/
             padding: 0;
-            margin:2px;
+            margin: 2px;
 
             img {
                 display: block;
@@ -1115,7 +1220,7 @@ body{
     &__usersList {
         // display: flex;
         // flex-direction: row;
-        display:grid;
+        display: grid;
         // grid-template-columns:repeat (3,1fr) ;
         // grid-template-rows: auto;
         grid-template-columns: auto auto auto;
@@ -1128,16 +1233,17 @@ body{
         padding: 10px;
         border-radius: 10px;
         border: #DDDDDD solid 1px;
+
         &:hover {
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
-          
+
 
         }
 
         input {
             border-radius: 12px;
             border: #DDDDDD solid 1px;
-            width:100%;
+            width: 100%;
         }
 
         &__username {
@@ -1153,7 +1259,7 @@ body{
         }
 
         &__deleteUser {
-           
+
             background-color: rgb(103, 213, 116);
             border: #DDDDDD solid 1px;
             width: 70px;
@@ -1161,12 +1267,13 @@ body{
             color: white;
             border-radius: 10px;
             cursor: pointer;
+
             &:hover {
                 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
                 background-color: rgb(157, 255, 169);
-    
+
             }
-    
+
         }
     }
 }

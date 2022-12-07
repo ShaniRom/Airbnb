@@ -33,10 +33,18 @@ body {
   height: 50px;
   border-radius: 50px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   letter-spacing: 0.5px;
   transition: ease 0.5s;
+}
+@media only screen and (max-width: 768px) {
+  .navigation form {
+    width: 300px;
+    flex-direction: column;
+    gap: 25px;
+  }
 }
 .navigation form:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -290,6 +298,11 @@ body {
     background-color: green;
   }
 }
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: #150080;
+  }
+}
 .bottomBar {
   background-color: #eeebeb;
   color: black;
@@ -298,6 +311,12 @@ body {
   margin-top: 2em;
   width: 100%;
 }
+@media only screen and (max-width: 768px) {
+  .bottomBar {
+    font-size: smaller;
+    gap: 5px;
+  }
+}
 .bottomBar__title {
   font-weight: bolder;
   font-size: large;
@@ -305,6 +324,12 @@ body {
 .bottomBar img {
   width: 30px;
   height: 30px;
+}
+@media only screen and (max-width: 768px) {
+  .bottomBar img {
+    width: 40px;
+    height: 40px;
+  }
 }
 .bottomBar__about--twitter img {
   transition: 0.4s ease;
@@ -340,6 +365,12 @@ body {
   margin-left: 5px;
   font-weight: lighter;
 }
+@media only screen and (max-width: 768px) {
+  .airbnbRights {
+    font-size: medium;
+    margin-left: 0px;
+  }
+}
 
 .mainPage {
   margin-left: 5%;
@@ -351,6 +382,11 @@ body {
   margin-top: 50px;
   margin-left: 5%;
   margin-right: 5%;
+}
+@media only screen and (max-width: 768px) {
+  .mainPage__imageCarousel {
+    margin-top: 200px;
+  }
 }
 .mainPage__imageCarousel--title {
   position: absolute;
@@ -364,6 +400,11 @@ body {
   text-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
   transition: 0.4s ease;
 }
+@media only screen and (max-width: 768px) {
+  .mainPage__imageCarousel--title {
+    top: 50%;
+  }
+}
 .mainPage__imageCarousel--title:hover {
   color: black;
   text-shadow: white 1px 0 10px;
@@ -372,7 +413,7 @@ body {
   position: relative;
   width: 500%;
   margin: 0;
-  animation: 20s slider infinite;
+  animation: 25s slider infinite;
   display: flex;
 }
 .mainPage__imageCarousel figure img {
@@ -385,6 +426,15 @@ body {
   margin-bottom: 10%;
   margin-left: 5%;
   margin-right: 5%;
+}
+.mainPage__citySuggestions__text {
+  text-align: left;
+}
+@media only screen and (max-width: 768px) {
+  .mainPage__citySuggestions__text {
+    letter-spacing: 1px;
+    text-align: center;
+  }
 }
 .mainPage__citySuggestions__cards {
   height: 50vh;
@@ -413,6 +463,11 @@ body {
   width: 100%;
   height: 50%;
 }
+@media only screen and (max-width: 768px) {
+  .mainPage__citySuggestions__cards__card img {
+    height: 45%;
+  }
+}
 .mainPage__citySuggestions__cards__card .description {
   text-align: left;
   padding-left: 5px;
@@ -420,6 +475,18 @@ body {
 }
 .mainPage__citySuggestions__cards__card .description h3 {
   font-weight: lighter;
+}
+@media only screen and (max-width: 768px) {
+  .mainPage__citySuggestions__cards__card .description {
+    font-size: 11px;
+    text-align: center;
+    padding-left: 0px;
+    padding-bottom: 5px;
+  }
+  .mainPage__citySuggestions__cards__card .description h3 {
+    font-weight: bolder;
+    font-size: 15px;
+  }
 }
 .mainPage__citySuggestions__cards__card:nth-child(1) {
   background-color: #2e7fca;
