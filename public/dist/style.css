@@ -316,6 +316,11 @@ body {
   backdrop-filter: blur(10px);
   height: 55%;
 }
+@media only screen and (max-width: 768px) {
+  .popup .popupForm#popupLogin {
+    height: 30%;
+  }
+}
 .popup .popupForm--header {
   padding: 2px;
   border-bottom: #dddddd solid 2px;
@@ -492,7 +497,7 @@ body {
   color: white;
   font-size: calc(1.5rem + 1vw);
   margin: 0;
-  top: 70%;
+  top: 500px;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
@@ -501,7 +506,7 @@ body {
 }
 @media only screen and (max-width: 768px) {
   .mainPage__imageCarousel--title {
-    top: 50%;
+    top: 30%;
   }
 }
 .mainPage__imageCarousel--title:hover {
@@ -541,6 +546,11 @@ body {
   flex-direction: row;
   gap: 10px;
   justify-content: space-between;
+}
+@media only screen and (max-width: 768px) {
+  .mainPage__citySuggestions__cards {
+    height: 30vh;
+  }
 }
 .mainPage__citySuggestions__cards__card {
   border-radius: 10px;
@@ -646,6 +656,12 @@ body {
   width: 100%;
   height: 500px;
 }
+@media only screen and (max-width: 768px) {
+  #rootChosenAirbnb .mainUpper img {
+    width: 500px;
+    height: 400px;
+  }
+}
 #rootChosenAirbnb .mainMiddle {
   display: flex;
   gap: 5px;
@@ -705,9 +721,17 @@ body {
   text-decoration: underline;
 }
 #rootChosenAirbnb #map {
-  height: 100%;
-  margin: 20px;
   /* Display the control once it is inside the map. */
+}
+#rootChosenAirbnb #map iframe {
+  width: 600px;
+  height: 450px;
+  border: 0px;
+}
+@media only screen and (max-width: 768px) {
+  #rootChosenAirbnb #map iframe {
+    width: 450px;
+  }
 }
 #rootChosenAirbnb #map .map-control {
   background-color: #fff;
@@ -781,6 +805,11 @@ body {
   margin: auto;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+}
+@media only screen and (max-width: 768px) {
+  .airbnbOptions {
+    grid-template-columns: repeat(1, 500px);
+  }
 }
 .airbnbOptions__grid {
   display: grid;
@@ -864,11 +893,6 @@ body {
   padding-top: 0;
   display: flex;
   justify-content: space-between;
-}
-@media only screen and (max-width: 768px) {
-  .airbnbOptions {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 @media only screen and (max-width: 600px) {
   .airbnbOptions {
