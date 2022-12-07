@@ -4,6 +4,11 @@ body {
   padding: 0;
 }
 
+@media only screen and (max-width: 768px) {
+  .navigation:hover #searchForm {
+    visibility: visible;
+  }
+}
 .navigation {
   border-top: #DDDDDD solid 1px;
   border-bottom: #DDDDDD solid 1px;
@@ -26,6 +31,11 @@ body {
   width: 130px;
   height: 40px;
 }
+@media only screen and (max-width: 768px) {
+  .navigation #searchForm {
+    visibility: hidden;
+  }
+}
 .navigation form {
   padding: 2px;
   border: grey 0.5px solid;
@@ -37,10 +47,11 @@ body {
   justify-content: space-between;
   align-items: center;
   letter-spacing: 0.5px;
-  transition: ease 0.5s;
+  transition: ease 0.3s;
 }
 @media only screen and (max-width: 768px) {
   .navigation form {
+    transition: ease 2s;
     width: 620px;
     height: 160px;
     position: absolute;
@@ -49,9 +60,8 @@ body {
     grid-template-columns: repeat(3, 170px);
     justify-content: space-between;
     gap: 5px;
-    top: 100px;
+    top: 80px;
     left: 50px;
-    position: absolute;
     background-color: #DDDDDD;
   }
 }
@@ -165,7 +175,6 @@ body {
   color: grey;
 }
 .navigation form .form--guests:hover {
-  width: 100%;
   border: solid 1px #e2e2e2;
   background-color: #e2e2e2;
 }
@@ -211,7 +220,7 @@ body {
 }
 @media only screen and (max-width: 768px) {
   .navigation form .form--searchIcon {
-    width: 100%;
+    width: 50%;
     height: 32px;
   }
 }
@@ -436,11 +445,6 @@ body {
   margin-left: 5%;
   margin-right: 5%;
 }
-@media only screen and (max-width: 768px) {
-  .mainPage__imageCarousel {
-    margin-top: 200px;
-  }
-}
 .mainPage__imageCarousel--title {
   position: absolute;
   color: white;
@@ -452,6 +456,11 @@ body {
   transform: translate(-50%, -50%);
   text-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
   transition: 0.4s ease;
+}
+@media only screen and (max-width: 768px) {
+  .mainPage__imageCarousel--title {
+    top: 50%;
+  }
 }
 .mainPage__imageCarousel--title:hover {
   color: black;

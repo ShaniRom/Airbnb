@@ -7,7 +7,13 @@ body {
 
 
 }
-
+@include tablet{
+ 
+    .navigation:hover  #searchForm {
+        visibility: visible;
+       
+      }
+}
 
 
 .navigation {
@@ -18,6 +24,7 @@ body {
     flex-direction: column;
     padding: 8px;
     margin-bottom: 15px;
+ 
 
 
 
@@ -48,7 +55,11 @@ body {
 
 
     }
-
+    @include tablet{
+        #searchForm{
+            visibility: hidden;
+        }
+    }
     form {
         padding: 2px;
         border: grey 0.5px solid;
@@ -60,21 +71,20 @@ body {
         justify-content: space-between;
         align-items: center;
         letter-spacing: 0.5px;
-        transition: ease 0.5s;
+        transition: ease 0.3s;
 
         @include tablet {
+            transition: ease 2s;
             width: 620px;
             height:160px;
             position: absolute;
             z-index: 1;          
             display: inline-grid;
             grid-template-columns: repeat(3, 170px);
-            justify-content: space-between;
-           
+            justify-content: space-between;           
             gap:5px;
-            top:100px;
+            top:80px;
             left:50px;
-            position:absolute;
             background-color: #DDDDDD;
            
             
@@ -94,7 +104,8 @@ body {
 
 
         }
-
+       
+    
 
         .form {
            
@@ -258,7 +269,7 @@ body {
 
 
                 &:hover {
-                    width: 100%;
+                    
                     border: solid 1px rgb(226, 226, 226);
                     background-color: rgb(226, 226, 226);
                  
@@ -319,10 +330,9 @@ body {
                 cursor: pointer;
                 @include tablet {
                     
-                    width: 100%;
+                    width: 50%;
                     height: 32px;
-               
-                     
+                 
          
                  }
 
@@ -379,7 +389,7 @@ body {
         }
     }
 
-
+  
 
     #signOut {
 
@@ -527,19 +537,7 @@ body {
 }
 
 
-// @media only screen and (max-width: 768px) {
 
-// body{
-//     background-color: green;
-
-// }
-//   .navigation{
-//         display: flex;
-//         flex-direction: row;
-//     }
-
-
-// }
 
 @include tablet {
 
@@ -565,8 +563,7 @@ body {
 
 
 
-//@media only screen and (max-width:600px)
-//@media only screen and (max-width: 1024px)
+
 
 
 .bottomBar {
@@ -696,11 +693,6 @@ body {
         margin-left: 5%;
         margin-right: 5%;
 
-        @include tablet {
-            margin-top: 200px;
-
-
-        }
 
 
         &--title {
@@ -715,10 +707,10 @@ body {
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
             transition: .4s ease;
             
-            // @include tablet {
-            //     top: 70%;
+            @include tablet {
+                top: 50%;
 
-            // }
+            }
 
             &:hover {
                 color: black;
