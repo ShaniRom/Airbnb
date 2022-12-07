@@ -452,6 +452,13 @@ body {
         align-items: center;
         width: 50%;
         border: #dddddd solid 2px;
+        
+        @include tablet {
+            width: 80%;
+           
+                     
+
+        }
 
         &#popupLogin {
             position: absloute;
@@ -459,7 +466,7 @@ body {
             backdrop-filter: blur(10px);
             height: 55%;
 
-
+         
 
 
         }
@@ -470,6 +477,11 @@ body {
             padding: 2px;
             border-bottom: #dddddd solid 2px;
             width: 750px;
+            @include tablet{
+                width:250px;
+                
+
+            }
         }
 
         &__label {
@@ -480,6 +492,15 @@ body {
             padding: 2px;
             margin-bottom: 10px;
             border-bottom: #c7c4c4 solid 2px;
+            @include tablet{
+                width:500px;
+                text-align: center;
+                margin-bottom: 5px;
+                
+                
+                
+
+            }
 
 
         }
@@ -494,20 +515,39 @@ body {
             height: 50px;
             border: none;
             align-items: center;
+            @include tablet {
+                transition: ease 2s;
+                width: 500px;
+               // height:160px;
+                position: relative;
+               // z-index: 1;          
+                // display: grid;
+                // grid-template-columns: repeat(2, 50px);
+                //justify-content: space-between;           
+                // column-gap: 9px;
+                top:10px;
+                left:0px;
+                
+               
+                
+    
+            }
+          
 
             input {
                 border-radius: 10px;
                 height: 30px;
                 border: #dddddd solid 2px;
+                @include tablet{
+                    width:100px;
+                }
             }
 
             input[type='submit'] {
                 background-color: rgb(103, 213, 116);
-
                 width: 100px;
                 height: 40px;
                 color: white;
-
                 cursor: pointer;
 
 
@@ -516,6 +556,9 @@ body {
                     background-color: rgb(157, 255, 169);
 
                 }
+                @include tablet{
+                    width:100px;
+                }
             }
 
             select {
@@ -523,6 +566,10 @@ body {
                 height: 30px;
                 border: #dddddd solid 2px;
                 cursor: pointer;
+                @include tablet{
+                    width:100px;
+                    height: 40px;
+                }
 
 
             }
