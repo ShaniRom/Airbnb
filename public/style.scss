@@ -63,9 +63,19 @@ body {
         transition: ease 0.5s;
 
         @include tablet {
-            width: 300px;
-            flex-direction: column;
-            gap: 25px;
+            width: 620px;
+            height:160px;
+            position: absolute;
+            z-index: 1;          
+            display: inline-grid;
+            grid-template-columns: repeat(3, 170px);
+            justify-content: space-between;
+           
+            gap:5px;
+            top:100px;
+            left:50px;
+            position:absolute;
+            background-color: #DDDDDD;
            
             
 
@@ -87,7 +97,7 @@ body {
 
 
         .form {
-
+           
           
 
             &--searchLocation {
@@ -95,8 +105,16 @@ body {
                 height: 48px;
                 border-radius: 28px;
                 width: 160px;
-                border: solid 1px white;
-
+                //border: solid 1px white;
+                @include tablet {
+                    padding-left:10px;
+                    margin-left:18px;
+                    width: 100%;
+                    height: 40px;
+                    font-size: larger;
+                     
+         
+                 }
 
 
                 &:hover {
@@ -120,6 +138,14 @@ body {
 
                     }
 
+                    @include tablet {
+                       
+                        width:80%;
+                        
+                         
+             
+                    }
+
 
 
                 }
@@ -132,7 +158,17 @@ body {
                 width: 150px;
                 padding-left: 20px;
                 border-radius: 28px;
-
+                 @include tablet {
+                  
+                    padding-left:5px;
+                    margin-left:18px;
+                    width: 100%;
+                    height: 40px;
+                    font-size: larger;
+               
+                     
+         
+                 }
 
                 &:hover {
 
@@ -162,6 +198,17 @@ body {
                 width: 150px;
                 padding-left: 20px;
                 border-radius: 28px;
+                @include tablet {
+                  
+                    padding-left:5px;
+                   
+                    width:150px;
+                    height: 40px;
+                    font-size: larger;
+               
+                     
+         
+                 }
 
 
                 &:hover {
@@ -192,6 +239,16 @@ body {
                 width: 100px;
                 padding-left: 20px;
                 border-radius: 28px;
+               
+                @include tablet {
+                    
+                    margin-left:18px;
+                    width: 100%;
+                    font-size: larger;
+               
+                     
+         
+                 }
 
                 span {
                     font-weight: lighter;
@@ -201,10 +258,10 @@ body {
 
 
                 &:hover {
-                    width: 100px;
+                    width: 100%;
                     border: solid 1px rgb(226, 226, 226);
                     background-color: rgb(226, 226, 226);
-
+                 
 
                 }
 
@@ -253,7 +310,6 @@ body {
 
             &--searchIcon {
                 background-color: rgb(157, 255, 169);
-                ;
                 border: #DDDDDD solid 1px;
                 border-radius: 50px;
                 width: 34px;
@@ -261,6 +317,14 @@ body {
                 text-align: center;
                 transition: ease 2s;
                 cursor: pointer;
+                @include tablet {
+                    
+                    width: 100%;
+                    height: 32px;
+               
+                     
+         
+                 }
 
                 &:hover {
                     background-color: rgb(103, 213, 116);
@@ -627,7 +691,7 @@ body {
     &__imageCarousel {
         border-radius: 10%;
         overflow: hidden;
-
+        z-index: -1;
         margin-top: 50px;
         margin-left: 5%;
         margin-right: 5%;
@@ -646,16 +710,15 @@ body {
             margin: 0;
             top: 70%;
             left: 50%;
-
             margin-right: -50%;
             transform: translate(-50%, -50%);
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
             transition: .4s ease;
+            
+            // @include tablet {
+            //     top: 70%;
 
-            @include tablet {
-                top: 50%;
-
-            }
+            // }
 
             &:hover {
                 color: black;

@@ -41,9 +41,18 @@ body {
 }
 @media only screen and (max-width: 768px) {
   .navigation form {
-    width: 300px;
-    flex-direction: column;
-    gap: 25px;
+    width: 620px;
+    height: 160px;
+    position: absolute;
+    z-index: 1;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 170px);
+    justify-content: space-between;
+    gap: 5px;
+    top: 100px;
+    left: 50px;
+    position: absolute;
+    background-color: #DDDDDD;
   }
 }
 .navigation form:hover {
@@ -58,7 +67,15 @@ body {
   height: 48px;
   border-radius: 28px;
   width: 160px;
-  border: solid 1px white;
+}
+@media only screen and (max-width: 768px) {
+  .navigation form .form--searchLocation {
+    padding-left: 10px;
+    margin-left: 18px;
+    width: 100%;
+    height: 40px;
+    font-size: larger;
+  }
 }
 .navigation form .form--searchLocation:hover {
   border: solid 1px #e2e2e2;
@@ -72,11 +89,25 @@ body {
 .navigation form .form--searchLocation input:hover {
   background-color: #e2e2e2;
 }
+@media only screen and (max-width: 768px) {
+  .navigation form .form--searchLocation input {
+    width: 80%;
+  }
+}
 .navigation form .form--checkIn {
   height: 50px;
   width: 150px;
   padding-left: 20px;
   border-radius: 28px;
+}
+@media only screen and (max-width: 768px) {
+  .navigation form .form--checkIn {
+    padding-left: 5px;
+    margin-left: 18px;
+    width: 100%;
+    height: 40px;
+    font-size: larger;
+  }
 }
 .navigation form .form--checkIn:hover {
   border: solid 1px #e2e2e2;
@@ -96,6 +127,14 @@ body {
   padding-left: 20px;
   border-radius: 28px;
 }
+@media only screen and (max-width: 768px) {
+  .navigation form .form--checkOut {
+    padding-left: 5px;
+    width: 150px;
+    height: 40px;
+    font-size: larger;
+  }
+}
 .navigation form .form--checkOut:hover {
   border: solid 1px #e2e2e2;
   background-color: #e2e2e2;
@@ -114,12 +153,19 @@ body {
   padding-left: 20px;
   border-radius: 28px;
 }
+@media only screen and (max-width: 768px) {
+  .navigation form .form--guests {
+    margin-left: 18px;
+    width: 100%;
+    font-size: larger;
+  }
+}
 .navigation form .form--guests span {
   font-weight: lighter;
   color: grey;
 }
 .navigation form .form--guests:hover {
-  width: 100px;
+  width: 100%;
   border: solid 1px #e2e2e2;
   background-color: #e2e2e2;
 }
@@ -162,6 +208,12 @@ body {
   text-align: center;
   transition: ease 2s;
   cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+  .navigation form .form--searchIcon {
+    width: 100%;
+    height: 32px;
+  }
 }
 .navigation form .form--searchIcon:hover {
   background-color: #67d574;
@@ -379,6 +431,7 @@ body {
 .mainPage__imageCarousel {
   border-radius: 10%;
   overflow: hidden;
+  z-index: -1;
   margin-top: 50px;
   margin-left: 5%;
   margin-right: 5%;
@@ -399,11 +452,6 @@ body {
   transform: translate(-50%, -50%);
   text-shadow: 0 5px 15px rgba(0, 0, 0, 0.884);
   transition: 0.4s ease;
-}
-@media only screen and (max-width: 768px) {
-  .mainPage__imageCarousel--title {
-    top: 50%;
-  }
 }
 .mainPage__imageCarousel--title:hover {
   color: black;
