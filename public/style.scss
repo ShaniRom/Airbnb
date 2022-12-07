@@ -134,7 +134,7 @@ body {
                 border-radius: 28px;
                 width: 160px;
 
-                //border: solid 1px white;
+                
                 @include tablet {
                     padding-left: 10px;
                     margin-left: 18px;
@@ -703,7 +703,7 @@ body {
 }
 
 
-
+///bottom nav bar
 
 .bottomBar {
 
@@ -1290,7 +1290,7 @@ body {
     }
 }
 
-//places.html shows the airbnb options after filter in index
+//places.html shows the airbnb options after filter in home page
 
 .airbnbOptions {
     font-weight: normal;
@@ -1298,12 +1298,7 @@ body {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
 
-    // @include tablet {
-
-    //     grid-template-columns: repeat(1, 1fr);
-
-
-    // }
+  
     
 
 
@@ -1390,21 +1385,15 @@ body {
         &__img {
             border-radius: .25em;
             overflow: hidden;
-            /* the image no longer overflows the card*/
             padding: 0;
             margin: 2px;
 
             img {
                 display: block;
-                /*allows to cange width and height*/
-                //max-height: 200px;
-                /*to fit to every screen size*/
+                
                 width: 300px;
                 height: 200px;
-                /*100 width of the container*/
                 aspect-ratio: 16/9;
-                //object-fit:fill;
-                /*thats how the aspect ratio always maintains*/
                 object-position: center;
                 transition: 200ms transform ease-in-out;
 
@@ -1457,7 +1446,7 @@ body {
   
 }
 
-///-----------------owner.html
+///--owner.html
 
 
 .owner {
@@ -1494,11 +1483,8 @@ body {
     }
 
     &__usersList {
-        // display: flex;
-        // flex-direction: row;
+        
         display: grid;
-        // grid-template-columns:repeat (3,1fr) ;
-        // grid-template-rows: auto;
         grid-template-columns: auto auto auto;
 
 
