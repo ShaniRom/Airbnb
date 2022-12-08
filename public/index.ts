@@ -44,9 +44,18 @@ async function handleGoToPlace(placeId) {
   }
 }
 
+   
+   
+
+
+   
+  
+
 function renderPlace(data) {
   try {
     const data = getData();
+
+   
 
     let html = "";
     const rootChosenAirbnb = document.querySelector("#rootChosenAirbnb");
@@ -116,12 +125,10 @@ function renderPlace(data) {
         </div>
 
     </div>
-    <div id="map">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2s!4v1648657793371!5m2!1siw!2s"
-             allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+    <div id="map" class="mapOfChosenAirbnb"> 
+ <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Harei%20Yehuda+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">area maps</a></iframe>
+
+      </div>
     <div class="aboutHost">
         <div class="aboutHost--left">
             <div class="aboutHost--left--profileHost">
@@ -311,9 +318,22 @@ function renderAirbnbOptions(data: Array<any>) {
     if (!Array.isArray(data)) throw new Error("data is not an array");
 
     const rootAirbnbOptions = document.querySelector("#rootAirbnbOptions");
+    const map:any= document.querySelector('.airbnbOptions__grid--map')
     let html = "";
 
+
     data.forEach((place) => {
+      if(place.address_country=== 'Tel Aviv'){       
+        map.innerHTML='<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Tel%20aviv+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe>'
+      }else if(place.address_country=== 'Eilat'){
+        map.innerHTML='<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Eilat+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure area map</a></iframe>'
+      
+      }else if(place.address_country=== 'Jerusalem'){
+        map.innerHTML='<iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Jerusalem&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>'
+      
+      }else if(place.address_country=== 'Harei Yehuda'){
+        map.innerHTML='<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Harei%20Yehuda+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">area maps</a></iframe>'
+      }
       html += ` <div class="airbnbOptions__container" onclick="handleGoToPlace('${
         place._id
       }')">
