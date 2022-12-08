@@ -1,4 +1,4 @@
-import jwt, { decode } from "jwt-simple";
+import jwt from "jwt-simple";
 
 export const isAdmin = async (req, res, next) => {
   try {
@@ -13,8 +13,8 @@ export const isAdmin = async (req, res, next) => {
     
 
     if (decoded.role === "admin") {
-      req.role = "admin";
-      //req.id=decoded.id
+      //req.role = "admin";
+      
       next();
     } else {
       res.status(403).send({ error: "user is not authorized to see users" });

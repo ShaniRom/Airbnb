@@ -50,8 +50,7 @@ exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, v
                 throw new Error('"userInfo" not found ');
             decoded = jwt_simple_1["default"].decode(userInfo, secret);
             if (decoded.role === "admin") {
-                req.role = "admin";
-                //req.id=decoded.id
+                //req.role = "admin";
                 next();
             }
             else {
