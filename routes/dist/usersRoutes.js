@@ -13,6 +13,6 @@ router
     .get('/get-Users', userMid_1.isAdmin, usersCont_1.getUsers)
     .post('/add-User', usersCont_2.registerUser)
     .post('/login', usersCont_3.login)
-    .patch('/update-user', userMid_1.isAdmin, usersCont_4.updateUser)["delete"]('/delete-user', userMid_1.isAdmin, usersCont_5.deleteUser)
+    .patch('/update-user', userMid_1.isAdmin, usersCont_4.updateUser)["delete"]('/delete-user', userMid_1.isAdmin, userMid_1.getId, usersCont_5.deleteUser)
     .get('/signOut-user', usersCont_6.signOutUser);
 exports["default"] = router;

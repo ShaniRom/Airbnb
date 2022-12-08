@@ -55,7 +55,7 @@ function renderPlace(data) {
   try {
     const data = getData();
 
-   
+  
 
     let html = "";
     const rootChosenAirbnb = document.querySelector("#rootChosenAirbnb");

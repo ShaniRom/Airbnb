@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const cookieParser = require('cookie-parser');
-const userMid_1 = require("./middleware/userMid");
 const placesModel_1 = __importDefault(require("./model/placesModel"));
 require('dotenv').config();
 console.log(process.env.ENV);
@@ -16,8 +15,6 @@ const port = process.env.PORT || 3050;
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 app.use(cookieParser());
-//what does this do here
-app.use(userMid_1.getId);
 const uri = process.env.MONGODB_URI;
 //-----for mongo contact shani for access
 mongoose_1.default

@@ -1,12 +1,14 @@
-import jwt from "jwt-simple";
+import jwt, { decode } from "jwt-simple";
 
 export const isAdmin = async (req, res, next) => {
   try {
+    
     const { userInfo } = req.cookies;
    
-    if (!userInfo) throw new Error('"userInfo" not found ');
+    
     const secret = process.env.JWT_secret;
     if (!secret) throw new Error("no secret found in the server");
+    if (!userInfo) throw new Error('"userInfo" not found ');
     const decoded = jwt.decode(userInfo, secret);
     
 
@@ -25,16 +27,21 @@ export const isAdmin = async (req, res, next) => {
     res.send({ error: error.message });
   }
 };
-//get id of person who last changed something like which wdmin erased a user or updated
+//get id of person who last changed something like which admin erased a user or updated
 export const getId = async (req, res, next) => {
   try {
+    
     const { userInfo } = req.cookies;
     const secret = process.env.JWT_secret;
     if (!secret) throw new Error("no secret found in the server");
     const decoded = jwt.decode(userInfo, secret);
+   
     const { id } = decoded;
-    if (id) {
+    
+    if (id && decoded.role==='admin' ) {
       req.id = id;
+      console.log(id + " deleted a user")
+     
     }
     next();
   } catch (error) {

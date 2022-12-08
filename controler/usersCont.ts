@@ -3,6 +3,7 @@ import jwt from "jwt-simple";
 
 export const login = async (req, res) => {
   try {
+
     const { username, password, role } = req.body;
     if (
       typeof username === "string" &&
@@ -36,7 +37,7 @@ export const login = async (req, res) => {
 
 export const registerUser = async (req, res) => {
   try {
-    console.log(`user with id ${req.id} added a user`);
+  
     let { username, password, role } = req.body;
     if (
       typeof username === "string" &&
@@ -99,11 +100,11 @@ export const loggedInUser = async (req, res, next) => {
 export const getUsers = async (req, res) => {
   try {
     
-    console.log(`user id is ${req.id} and the role is ${req.role}`);
+    //console.log(`user id is ${req.id} and the role is ${req.role}`);
     const { userInfo } = req.cookies;
     const secret = process.env.JWT_SECRET;
     const decoded = jwt.decode(userInfo, secret);
-    
+   
     if (decoded && decoded.role === "admin") {
       const users = await Users.find({ role: { $ne: "admin" } });
 
