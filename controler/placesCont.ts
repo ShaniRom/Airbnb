@@ -30,7 +30,7 @@ export const searchAirbnb = async (req, res) => {
     let {searchLocation, checkIn, checkOut, adults, children, infants, pets } =req.query;
  
 
-    let sum:Number = Number(adults) + Number(children) + Number(infants) + Number(pets);  
+    let sum:any = Number(adults) + Number(children) + Number(infants) + Number(pets);  
 
 
     let dateOfCheckIn = new Date(`${checkIn}`);
@@ -39,7 +39,7 @@ export const searchAirbnb = async (req, res) => {
     let differenceInDays = differenceInTime / (1000 * 3600 * 24);
     console.log("the days between checkIn checkOut is:" + differenceInDays)                
 
-    
+
     const getplaces = await Places.find({ address_country: `${searchLocation}`, accommodates: {$lte:sum},  daysAvailable:{$lte:differenceInDays} }).limit(5);
     
     if(getplaces.length>0){
