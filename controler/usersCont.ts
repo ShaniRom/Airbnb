@@ -77,7 +77,7 @@ export const signOutUser = async (req, res) => {
   }
 };
 
-/////// for navbar to check if there is a user logged in
+//--checks if there is a user logged in
 
 export const loggedInUser = async (req, res, next) => {
   try {
@@ -85,6 +85,7 @@ export const loggedInUser = async (req, res, next) => {
     if (!userInfo) throw new Error('"userInfo" not found ');
 
     if (userInfo) {
+      console.log('"userInfo" found')
       const secret = process.env.JWT_secret;
       if (!secret) throw new Error("no secret found in the server");
       const decoded = jwt.decode(userInfo, secret);
@@ -99,8 +100,8 @@ export const loggedInUser = async (req, res, next) => {
 
 export const getUsers = async (req, res) => {
   try {
-    
-    //console.log(`user id is ${req.id} and the role is ${req.role}`);
+   
+    console.log(`user id is ${req.id} and the role is ${req.role}`);
     const { userInfo } = req.cookies;
     const secret = process.env.JWT_SECRET;
     const decoded = jwt.decode(userInfo, secret);
@@ -128,6 +129,7 @@ export const updateUser = async (req, res) => {
         { username: username }
       );
       res.send({ ok: true, users });
+      console.log(req.id +' updated the user: '+ userId + ' new username is ' + username)
     } else {
       throw new Error("username or userId  is missing");
     }
@@ -143,6 +145,8 @@ export const deleteUser = async (req, res) => {
     if (userId) {
       const users = await Users.deleteOne({ _id: userId });
       res.send({ ok: true, users });
+      console.log(users)
+      console.log(userId + " deleted a user")
     } else {
       throw new Error(" userId  is missing");
     }

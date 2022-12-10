@@ -11,10 +11,10 @@ import { deleteUser} from '../controler/usersCont'
 import { signOutUser} from '../controler/usersCont'
 
 router
-.get('/get-Users',isAdmin,getUsers)
+.get('/get-Users',isAdmin,getId,getUsers)
 .post('/add-User',registerUser)
 .post('/login',login)
-.patch('/update-user',isAdmin,updateUser)
+.patch('/update-user',isAdmin,getId,updateUser)
 .delete('/delete-user',isAdmin,getId,deleteUser)
 .get('/signOut-user',signOutUser)
 

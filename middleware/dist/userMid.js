@@ -50,7 +50,7 @@ exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, v
                 throw new Error('"userInfo" not found ');
             decoded = jwt_simple_1["default"].decode(userInfo, secret);
             if (decoded.role === "admin") {
-                //req.role = "admin";
+                req.role = 'admin';
                 next();
             }
             else {
@@ -65,7 +65,7 @@ exports.isAdmin = function (req, res, next) { return __awaiter(void 0, void 0, v
         return [2 /*return*/];
     });
 }); };
-//get id of person who last changed something like which admin erased a user or updated
+//--get id of person who last changed something like which admin erased a user or updated
 exports.getId = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var userInfo, secret, decoded, id;
     return __generator(this, function (_a) {
@@ -78,13 +78,12 @@ exports.getId = function (req, res, next) { return __awaiter(void 0, void 0, voi
             id = decoded.id;
             if (id && decoded.role === 'admin') {
                 req.id = id;
-                console.log(id + " deleted a user");
+                next();
             }
-            next();
         }
         catch (error) {
             console.error(error.message);
-            next();
+            res.send({ error: error.message });
         }
         return [2 /*return*/];
     });

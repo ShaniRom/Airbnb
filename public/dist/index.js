@@ -158,7 +158,6 @@ function handleFindAirbnb(ev) {
                     return [4 /*yield*/, axios.get("/places/search-airbnb?searchLocation=" + searchLocation + "&checkIn=" + checkIn + "&checkOut=" + checkOut + "&adults=" + adults + "&children=" + children + "&infants=" + infants + "&pets=" + pets + " ")];
                 case 1:
                     data = (_a.sent()).data;
-                    //console.log(data.getplaces); it shows that is has the array of objects
                     storeData(data);
                     ok = data.ok;
                     if (ok === true) {
@@ -275,7 +274,6 @@ function renderAirbnbOptions(data) {
 function handlePopupLogin() {
     var showPopupText = document.querySelector(".popupForm");
     showPopupText.style.visibility = "visible";
-    //showPopupText.style.visibility = ((showPopupText.style.visibility!='hidden') ? 'hidden' : 'visible');
 }
 function handleClosePopop() {
     var closePopupText = document.querySelector(".popupForm");

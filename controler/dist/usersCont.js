@@ -124,7 +124,7 @@ exports.signOutUser = function (req, res) { return __awaiter(void 0, void 0, voi
         return [2 /*return*/];
     });
 }); };
-/////// for navbar to check if there is a user logged in
+//--checks if there is a user logged in
 exports.loggedInUser = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var userInfo, secret, decoded;
     return __generator(this, function (_a) {
@@ -133,6 +133,7 @@ exports.loggedInUser = function (req, res, next) { return __awaiter(void 0, void
             if (!userInfo)
                 throw new Error('"userInfo" not found ');
             if (userInfo) {
+                console.log('"userInfo" found');
                 secret = process.env.JWT_secret;
                 if (!secret)
                     throw new Error("no secret found in the server");
@@ -153,6 +154,7 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
+                console.log("user id is " + req.id + " and the role is " + req.role);
                 userInfo = req.cookies.userInfo;
                 secret = process.env.JWT_SECRET;
                 decoded = jwt_simple_1["default"].decode(userInfo, secret);
@@ -184,6 +186,7 @@ exports.updateUser = function (req, res) { return __awaiter(void 0, void 0, void
             case 1:
                 users = _b.sent();
                 res.send({ ok: true, users: users });
+                console.log(req.id + ' updated the user: ' + userId + ' new username is ' + username);
                 return [3 /*break*/, 3];
             case 2: throw new Error("username or userId  is missing");
             case 3: return [3 /*break*/, 5];
@@ -208,6 +211,8 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
             case 1:
                 users = _a.sent();
                 res.send({ ok: true, users: users });
+                console.log(users);
+                console.log(userId + " deleted a user");
                 return [3 /*break*/, 3];
             case 2: throw new Error(" userId  is missing");
             case 3: return [3 /*break*/, 5];

@@ -13,8 +13,7 @@ export const isAdmin = async (req, res, next) => {
     
 
     if (decoded.role === "admin") {
-      //req.role = "admin";
-      
+    req.role='admin'
       next();
     } else {
       res.status(403).send({ error: "user is not authorized to see users" });
@@ -27,7 +26,8 @@ export const isAdmin = async (req, res, next) => {
     res.send({ error: error.message });
   }
 };
-//get id of person who last changed something like which admin erased a user or updated
+
+//--get id of person who last changed something like which admin erased a user or updated
 export const getId = async (req, res, next) => {
   try {
     
@@ -40,14 +40,15 @@ export const getId = async (req, res, next) => {
     
     if (id && decoded.role==='admin' ) {
       req.id = id;
-      console.log(id + " deleted a user")
+    
+      next();
      
     }
-    next();
+    
   } catch (error) {
     console.error(error.message);
-
-    next();
+    res.send({ error: error.message });
+   
   }
 };
 

@@ -249,7 +249,7 @@ async function handleFindAirbnb(ev) {
     `/places/search-airbnb?searchLocation=${searchLocation}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}&children=${children}&infants=${infants}&pets=${pets} `
   );
 
-  //console.log(data.getplaces); it shows that is has the array of objects
+  
   storeData(data);
   const { ok } = data;
 
@@ -393,7 +393,7 @@ function renderAirbnbOptions(data: Array<any>) {
 function handlePopupLogin() {
   const showPopupText: any = document.querySelector(".popupForm");
   showPopupText.style.visibility = "visible";
-  //showPopupText.style.visibility = ((showPopupText.style.visibility!='hidden') ? 'hidden' : 'visible');
+  
 }
 
 function handleClosePopop() {
