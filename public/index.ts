@@ -285,10 +285,10 @@ async function handleCheckForUser() {
 
   try{
   if (username) {
-    const userProfileButton: any = document.querySelector(".navigation--user");
-    const showUsersName: any = document.querySelector("#theUsersName");
-    const showSignOutOption: any = document.querySelector("#signOut");
-    const ownerPageOption: any = document.querySelector("#toOwnerPage");
+    const userProfileButton:HTMLElement = document.querySelector(".navigation--user");
+    const showUsersName:HTMLElement = document.querySelector("#theUsersName");
+    const showSignOutOption:HTMLElement = document.querySelector("#signOut");
+    const ownerPageOption:HTMLElement = document.querySelector("#toOwnerPage");
     if (role === "admin") {
      
       
@@ -392,21 +392,21 @@ function renderAirbnbOptions(data: Array<any>) {
 }
 
 function handlePopupLogin() {
-  const showPopupText: any = document.querySelector(".popupForm");
+  const showPopupText:HTMLElement = document.querySelector(".popupForm");
   showPopupText.style.visibility = "visible";
   
 }
 
 function handleClosePopop() {
   
-    const closePopupText: any = document.querySelector(".popupForm");
+    const closePopupText:HTMLElement= document.querySelector(".popupForm");
     closePopupText.style.visibility = "hidden";
   
   
 }
 
 function handleKeepPopop() {
-  const showPopupText: any = document.querySelector(".popupForm");
+  const showPopupText:HTMLElement = document.querySelector(".popupForm");
   showPopupText.style.visibility = "visible";
   
 }
@@ -426,7 +426,7 @@ async function handleLogin(ev) {
   });
 
   if (data.login) {
-    const showPopupText: any = document.querySelector(".popupForm");
+    const showPopupText:HTMLElement = document.querySelector(".popupForm");
 
     showPopupText.style.visibility = "hidden";
 
@@ -452,7 +452,7 @@ async function handleRegister(ev) {
   });
 
   if (data.register) {
-    const showPopupText: any = document.querySelector(".popupForm");
+    const showPopupText:HTMLElement = document.querySelector(".popupForm");
 
     showPopupText.style.visibility = "hidden";
  

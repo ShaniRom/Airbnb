@@ -30,7 +30,7 @@ export const searchAirbnb = async (req, res) => {
     let {searchLocation, checkIn, checkOut, adults, children, infants, pets } =req.query;
  
 
-    let sum: any = Number(adults) + Number(children) + Number(infants) + Number(pets);  
+    let sum:Number = Number(adults) + Number(children) + Number(infants) + Number(pets);  
 
 
     let dateOfCheckIn = new Date(`${checkIn}`);
