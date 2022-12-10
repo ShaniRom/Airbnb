@@ -48,6 +48,34 @@ var dateArray = __spreadArrays(dateValue);
 dateArray.forEach(function (date) {
     date.defaultValue = todayDate;
 });
+function storeData(data) {
+    try {
+        if (data) {
+            localStorage.setItem("airbnbData", JSON.stringify(data));
+        }
+    }
+    catch (error) {
+        console.error(error.message);
+    }
+}
+function getData() {
+    try {
+        var airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbData"));
+        if (Array.isArray(airbnbNavFiltered.getplaces)) {
+            return airbnbNavFiltered.getplaces;
+        }
+        else if (typeof airbnbNavFiltered === "object") {
+            return airbnbNavFiltered;
+        }
+        else {
+            return [];
+        }
+    }
+    catch (error) {
+        console.error(error.message);
+    }
+}
+//---airbnb location search
 function handleLoadPlaces() {
     var data = getData();
     handleCheckForUser();
@@ -114,33 +142,6 @@ function renderPlace(data) {
         console.error(error.message);
     }
 }
-function storeData(data) {
-    try {
-        if (data) {
-            localStorage.setItem("airbnbData", JSON.stringify(data));
-        }
-    }
-    catch (error) {
-        console.error(error.message);
-    }
-}
-function getData() {
-    try {
-        var airbnbNavFiltered = JSON.parse(localStorage.getItem("airbnbData"));
-        if (Array.isArray(airbnbNavFiltered.getplaces)) {
-            return airbnbNavFiltered.getplaces;
-        }
-        else if (typeof airbnbNavFiltered === "object") {
-            return airbnbNavFiltered;
-        }
-        else {
-            return [];
-        }
-    }
-    catch (error) {
-        console.error(error.message);
-    }
-}
 function handleFindAirbnb(ev) {
     return __awaiter(this, void 0, void 0, function () {
         var searchLocation, checkIn, checkOut, adults, children, infants, pets, data, ok;
@@ -192,6 +193,83 @@ function handleCities(ev) {
         });
     });
 }
+function renderAirbnbOptions(data) {
+    try {
+        if (!Array.isArray(data))
+            throw new Error("data is not an array");
+        var rootAirbnbOptions_1 = document.querySelector("#rootAirbnbOptions");
+        var map_1 = document.querySelector('.airbnbOptions__grid--map');
+        var html_1 = "";
+        data.forEach(function (place) {
+            if (place.address_country === 'Tel Aviv') {
+                map_1.innerHTML = '<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Tel%20aviv+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe>';
+            }
+            else if (place.address_country === 'Eilat') {
+                map_1.innerHTML = '<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Eilat+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure area map</a></iframe>';
+            }
+            else if (place.address_country === 'Jerusalem') {
+                map_1.innerHTML = '<iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Jerusalem&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>';
+            }
+            else if (place.address_country === 'Harei Yehuda') {
+                map_1.innerHTML = '<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Harei%20Yehuda+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">area maps</a></iframe>';
+            }
+            html_1 += " <div class=\"airbnbOptions__container\" onclick=\"handleGoToPlace('" + place._id + "')\">\n                      <div class=\"airbnbOptions__container__img\">\n                          <img src=\"" + place.images + "\">\n                      </div>\n                      <div class=\"airbnbOptions__container__content\">\n                          <div class=\"airbnbOptions__container__content__namePlace\">                                \n                              \n                                  <p>" + place.name + "</p>\n                          </div>\n                          <div class=\"airbnbOptions__container__content__description\">\n                              <p>" + place.bathrooms + " bathrooms\u00B7\n" + place.bedrooms + " bedrooms\u00B7" + place.beds + " beds\u00B7" + place.accommodates + " guests</p>\n                             \n                         \n                              " + place.amenities
+                .map(function (amenity) {
+                return "" + (amenity.search(amenity) !== -1
+                    ? amenity + "\u00B7 "
+                    : "");
+            })
+                .join(" ") + "\n   \n                            \n                                                        \n                          </div>\n                        \n                          <div class=\"airbnbOptions__container__content__priceRating\">\n                              <button class=\"btn btn-outline\">\n                              \u20AA" + place.price + " night\n                              </button>\n                              <button class=\"btn btn-outline\">\n                                 \n                              \u2B50" + place.reviews_rating + "(" + place.number_of_reviews + " reviews)\n                                  \n\n                              </button>\n                          </div>\n\n                      </div>\n                  </div>";
+            html_1 += "<br/>";
+            rootAirbnbOptions_1.innerHTML = html_1;
+        });
+    }
+    catch (error) {
+        console.error(error.message);
+    }
+}
+//---airbnb users 
+function handleGetUsers() {
+    return __awaiter(this, void 0, void 0, function () {
+        var result, data, users, err_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, axios.get("/users/get-Users")];
+                case 1:
+                    result = _a.sent();
+                    data = result.data;
+                    users = data.users;
+                    handleCheckForUser();
+                    if (users) {
+                        renderUsersToOwnerPage(users);
+                    }
+                    return [3 /*break*/, 3];
+                case 2:
+                    err_1 = _a.sent();
+                    console.error(err_1.message);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+function renderUsersToOwnerPage(users) {
+    try {
+        if (!Array.isArray(users))
+            throw new Error("data is not an array");
+        var airbnbUsers_1 = document.querySelector("#airbnbUsers");
+        var html_2 = "";
+        users.forEach(function (user) {
+            html_2 += "<div class=\"airbnbUser\" >\n                       <h3 class=\"airbnbUser__username\"> Username: " + user.username + "</h3>\n                       <p>id: " + user._id + "</p>\n                       <input type=\"text\" value=" + user.username + " name=\"username\" onblur=\"handleUpdateUsers(event,'" + user._id + "')\" >                       \n                       <p class=\"airbnbUser__role\"> User Role: " + user.role + "</p> \n                       <button class=\"airbnbUser__deleteUser\" onclick='handleDeleteUsers(\"" + user._id + "\")'>Delete User</button>                  \n                       \n                       \n\n                    </div>";
+            airbnbUsers_1.innerHTML = html_2;
+        });
+    }
+    catch (error) {
+        console.error(error.message);
+    }
+}
 function handleCheckForUser() {
     return __awaiter(this, void 0, void 0, function () {
         var data, username, role, userProfileButton, showUsersName, showSignOutOption, ownerPageOption, ownerPage;
@@ -235,41 +313,6 @@ function handleCheckForUser() {
             }
         });
     });
-}
-function renderAirbnbOptions(data) {
-    try {
-        if (!Array.isArray(data))
-            throw new Error("data is not an array");
-        var rootAirbnbOptions_1 = document.querySelector("#rootAirbnbOptions");
-        var map_1 = document.querySelector('.airbnbOptions__grid--map');
-        var html_1 = "";
-        data.forEach(function (place) {
-            if (place.address_country === 'Tel Aviv') {
-                map_1.innerHTML = '<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Tel%20aviv+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe>';
-            }
-            else if (place.address_country === 'Eilat') {
-                map_1.innerHTML = '<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Eilat+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure area map</a></iframe>';
-            }
-            else if (place.address_country === 'Jerusalem') {
-                map_1.innerHTML = '<iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Jerusalem&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>';
-            }
-            else if (place.address_country === 'Harei Yehuda') {
-                map_1.innerHTML = '<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Harei%20Yehuda+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">area maps</a></iframe>';
-            }
-            html_1 += " <div class=\"airbnbOptions__container\" onclick=\"handleGoToPlace('" + place._id + "')\">\n                      <div class=\"airbnbOptions__container__img\">\n                          <img src=\"" + place.images + "\">\n                      </div>\n                      <div class=\"airbnbOptions__container__content\">\n                          <div class=\"airbnbOptions__container__content__namePlace\">                                \n                              \n                                  <p>" + place.name + "</p>\n                          </div>\n                          <div class=\"airbnbOptions__container__content__description\">\n                              <p>" + place.bathrooms + " bathrooms\u00B7\n" + place.bedrooms + " bedrooms\u00B7" + place.beds + " beds\u00B7" + place.accommodates + " guests</p>\n                             \n                         \n                              " + place.amenities
-                .map(function (amenity) {
-                return "" + (amenity.search(amenity) !== -1
-                    ? amenity + "\u00B7 "
-                    : "");
-            })
-                .join(" ") + "\n   \n                            \n                                                        \n                          </div>\n                        \n                          <div class=\"airbnbOptions__container__content__priceRating\">\n                              <button class=\"btn btn-outline\">\n                              \u20AA" + place.price + " night\n                              </button>\n                              <button class=\"btn btn-outline\">\n                                 \n                              \u2B50" + place.reviews_rating + "(" + place.number_of_reviews + " reviews)\n                                  \n\n                              </button>\n                          </div>\n\n                      </div>\n                  </div>";
-            html_1 += "<br/>";
-            rootAirbnbOptions_1.innerHTML = html_1;
-        });
-    }
-    catch (error) {
-        console.error(error.message);
-    }
 }
 function handlePopupLogin() {
     var showPopupText = document.querySelector(".popupForm");
@@ -321,7 +364,7 @@ function handleLogin(ev) {
 }
 function handleRegister(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, username, password, role, data, showPopupText, err_1;
+        var _a, username, password, role, data, showPopupText, err_2;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -352,8 +395,8 @@ function handleRegister(ev) {
                     }
                     return [3 /*break*/, 4];
                 case 3:
-                    err_1 = _b.sent();
-                    console.error(err_1.message);
+                    err_2 = _b.sent();
+                    console.error(err_2.message);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
@@ -362,7 +405,7 @@ function handleRegister(ev) {
 }
 function handleSignOut() {
     return __awaiter(this, void 0, void 0, function () {
-        var result, err_2;
+        var result, err_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -373,32 +416,6 @@ function handleSignOut() {
                     window.location.reload();
                     return [3 /*break*/, 3];
                 case 2:
-                    err_2 = _a.sent();
-                    console.error(err_2.message);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
-            }
-        });
-    });
-}
-function handleGetUsers() {
-    return __awaiter(this, void 0, void 0, function () {
-        var result, data, users, err_3;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, axios.get("/users/get-Users")];
-                case 1:
-                    result = _a.sent();
-                    data = result.data;
-                    users = data.users;
-                    handleCheckForUser();
-                    if (users) {
-                        renderUsersToOwnerPage(users);
-                    }
-                    return [3 /*break*/, 3];
-                case 2:
                     err_3 = _a.sent();
                     console.error(err_3.message);
                     return [3 /*break*/, 3];
@@ -406,21 +423,6 @@ function handleGetUsers() {
             }
         });
     });
-}
-function renderUsersToOwnerPage(users) {
-    try {
-        if (!Array.isArray(users))
-            throw new Error("data is not an array");
-        var airbnbUsers_1 = document.querySelector("#airbnbUsers");
-        var html_2 = "";
-        users.forEach(function (user) {
-            html_2 += "<div class=\"airbnbUser\" >\n                       <h3 class=\"airbnbUser__username\"> Username: " + user.username + "</h3>\n                       <p>id: " + user._id + "</p>\n                       <input type=\"text\" value=" + user.username + " name=\"username\" onblur=\"handleUpdateUsers(event,'" + user._id + "')\" >                       \n                       <p class=\"airbnbUser__role\"> User Role: " + user.role + "</p> \n                       <button class=\"airbnbUser__deleteUser\" onclick='handleDeleteUsers(\"" + user._id + "\")'>Delete User</button>                  \n                       \n                       \n\n                    </div>";
-            airbnbUsers_1.innerHTML = html_2;
-        });
-    }
-    catch (error) {
-        console.error(error.message);
-    }
 }
 function handleUpdateUsers(ev, userId) {
     return __awaiter(this, void 0, void 0, function () {
