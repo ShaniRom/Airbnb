@@ -9,7 +9,6 @@ var placesCont_3 = require("../controler/placesCont");
 router
     .get('/checkForUser', usersCont_1.loggedInUser)
     .get('/getToPlace/:placeId', placesCont_1.getToPlace)
-    //gettoplace is req.param cause it goes according to its parameter given which here is the id to go to a specfic pages info
     .get('/search-airbnb', placesCont_2.searchAirbnb)
     .post('/search-city', placesCont_3.searchAirbnbByCity);
 exports["default"] = router;

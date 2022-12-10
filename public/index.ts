@@ -55,7 +55,6 @@ function renderPlace(data) {
   try {
     const data = getData();
 
-  
 
     let html = "";
     const rootChosenAirbnb = document.querySelector("#rootChosenAirbnb");
@@ -125,10 +124,7 @@ function renderPlace(data) {
         </div>
 
     </div>
-    <div id="map" class="mapOfChosenAirbnb"> 
- <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Harei%20Yehuda+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">area maps</a></iframe>
 
-      </div>
     <div class="aboutHost">
         <div class="aboutHost--left">
             <div class="aboutHost--left--profileHost">
@@ -136,14 +132,18 @@ function renderPlace(data) {
             </div>
             <div class="aboutHost--left--title">
                 <h2>
-                    Hosted by ${data.host_name}
+                    About host- ${data.host_name}
                 </h2>
+              
             </div>
 
         </div>
         <div class="aboutHost--right">
             <h4>
                 Languages the host speaks: english, french, hebrew 
+            </h4>
+            <h4>
+            Response time: within an hour
             </h4>
             <h4>
                Airbnb Rating: ${data.reviews_rating}
@@ -334,6 +334,7 @@ function renderAirbnbOptions(data: Array<any>) {
       }else if(place.address_country=== 'Harei Yehuda'){
         map.innerHTML='<iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Harei%20Yehuda+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">area maps</a></iframe>'
       }
+
       html += ` <div class="airbnbOptions__container" onclick="handleGoToPlace('${
         place._id
       }')">
