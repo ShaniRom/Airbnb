@@ -2,6 +2,7 @@
 
 Me and my group made an app based on the already made app-AIRBNB. Which is used to to find a place to stay for how many people you want and for how many days you want, in any city.
 
+
 In this project we used HTML CSS Typescript Node js and MongoDB. We used these technoligies because it is what we learned at the time.    This was 
 a concluding class project to the MONGODB and Node subject.
 
@@ -16,7 +17,7 @@ Then type  - **npm i nodemon**
 Which opens the connection with the localhost
 
 ## How to Use the Project-
-You search in the navigation bar for a city and for how many guests you want staying with you, or you press on one of the city cards to go to a page with 
+You select in the navigation bar a city in Israel and for how many guests you want staying with you, or you press on one of the city cards to go to a page with 
 a list of options for the city youve chosen. 
 
 Then you press on a prefered airbnb option inorder to see more information on the prefered airbnb youve chosen.
