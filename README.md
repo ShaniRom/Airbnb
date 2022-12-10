@@ -17,7 +17,7 @@ Then type  - **npm i nodemon**
 Which opens the connection with the localhost
 
 ## How to Use the Project-
-You select in the navigation bar a city in Israel and for how many guests you want staying with you, or you press on one of the city cards to go to a page with 
+You select in the navigation bar a city in Israel and for how many guests you want staying with you and how long, or you press on one of the city cards to go to a page with 
 a list of options for the city youve chosen. 
 
 Then you press on a prefered airbnb option inorder to see more information on the prefered airbnb youve chosen.
