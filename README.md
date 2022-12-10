@@ -26,11 +26,13 @@ To see admin options login with username: admin, password: 0000 ,"i am a"=admin.
 Made by
 [Shani Rom](https://www.linkedin.com/in/shani-rom-0a8b3a242/),[Shay Foyer](https://www.linkedin.com/in/shay-foyer-aa310118a/),[Yael Abuhatzera ](https://www.linkedin.com/in/yael-abuhatzira/)
 
+Students of INT college October 2021
+https://github.com/ShaniRom/shani
+
 
 ###### Update:
  I recently went back to the project and redid/added features. I made the website responsive to different platforms, imporved the use of the middleware, added a function which checks the logged in cookie so the nav bar greets the user in every page and changed the graphics of website.
 
-Students of INT college October 2021
-https://github.com/ShaniRom/shani
+
 
 
