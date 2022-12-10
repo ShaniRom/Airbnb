@@ -107,21 +107,21 @@ body {
   border: solid 1px #e2e2e2;
   background-color: #e2e2e2;
 }
-.navigation form .form--searchLocation input {
+.navigation form .form--searchLocation > select {
   border: none;
   border-radius: 28px;
   width: 150px;
 }
-.navigation form .form--searchLocation input:hover {
+.navigation form .form--searchLocation > select:hover {
   background-color: #e2e2e2;
 }
 @media only screen and (max-width: 768px) {
-  .navigation form .form--searchLocation input {
+  .navigation form .form--searchLocation > select {
     width: 80%;
   }
 }
 @media only screen and (max-width: 600px) {
-  .navigation form .form--searchLocation input {
+  .navigation form .form--searchLocation > select {
     width: 80%;
   }
 }

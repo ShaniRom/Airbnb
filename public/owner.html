@@ -23,8 +23,14 @@
                     
                     <div class="form--searchLocation">
                         <label for="searchLocation">Location </label>
-                        <input id="searchLocation" type="text" name="searchLocation" placeholder="Where are you going?">
-    
+                      
+                        <select name="searchLocation" id="searchLocation" required>
+                          <option selected disabled hidden>Where to?</option>
+                          <option value="Tel Aviv">Tel Aviv</option>
+                          <option value="Eilat">Eilat</option>
+                          <option value="Jerusalem">Jerusalem</option>
+                          <option value="Harei Yehuda">Harei Yehuda</option>
+                      </select>
     
                     </div>
                     
@@ -124,6 +130,7 @@
             </li>
         </ul>
     </nav>
+    
     
     
 <div class="owner">
