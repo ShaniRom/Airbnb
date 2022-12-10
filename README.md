@@ -28,7 +28,7 @@ Made by
 [Shani Rom](https://www.linkedin.com/in/shani-rom-0a8b3a242/),[Shay Foyer](https://www.linkedin.com/in/shay-foyer-aa310118a/),[Yael Abuhatzera ](https://www.linkedin.com/in/yael-abuhatzira/)
 
 Students of INT college October 2021
-https://github.com/ShaniRom/shani
+https://github.com/ShaniRom/Airbnb
 
 
 ###### Update:
