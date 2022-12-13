@@ -1,15 +1,4 @@
-const dateValue: any = document.querySelectorAll("#date");
-
-
-const date = new Date();
-const todayDate = date.toISOString().slice(0, 10);
-
-let dateArray = [...dateValue];
-
-dateArray.forEach((date) => {
-  date.defaultValue = todayDate;
-  
-});
+//---local storage 
 
 function storeData(data) {
   try {

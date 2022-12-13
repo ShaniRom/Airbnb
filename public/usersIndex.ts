@@ -1,4 +1,19 @@
-//---airbnb users 
+//---airbnb users and nav bar
+
+
+const dateValue: any = document.querySelectorAll("#date");
+
+
+const date = new Date();
+const todayDate = date.toISOString().slice(0, 10);
+
+let dateArray = [...dateValue];
+
+dateArray.forEach((date) => {
+  date.defaultValue = todayDate;
+  
+});
+
 async function handleGetUsers() {
   try {
     const result = await axios.get("/users/get-Users");
