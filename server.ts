@@ -7,8 +7,7 @@ import Places from "./model/placesModel";
 
 require('dotenv').config()
 
-console.log(process.env.ENV)
-console.log(process.env.JWT_SECRET)
+
 
 const app = express();
 const port = process.env.PORT || 3050;
